@@ -4,24 +4,29 @@ Personal solo PvE mod pack for **7 Days to Die V3.4 b10**, with a separate profi
 
 ## Install and update
 
-**Already using the Workshop launcher?** Save and quit the game, click **Check for updates**, then **Install update** on the **testing** channel. Close and reopen the launcher afterwards. Your world, practice and personal settings are kept.
+Already using the launcher? Save and quit, choose **testing**, click **Check for updates**, then **Install update**. Reopen the launcher afterwards. Saves, practice and personal settings are preserved.
 
-**New installation:** [Download Grimmer Workshop 0.1.4](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.4.zip). Extract the complete folder, keep Steam running and open `Launch-Workshop.cmd`. The full original source and tests are included.
+New players: [download Workshop 0.1.5](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.5.zip), extract the complete folder, keep Steam running and open `Launch-Workshop.cmd`. Your own game installation is required. Solo only; co-op is not implemented.
 
-For an old installation without the launcher: [one-time updater setup](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Workshop-Updater-Setup.zip), then check for updates in that launcher. Requires your own Steam game. Solo only; co-op is not implemented.
+Old installations without the launcher can use the [one-time updater setup](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Workshop-Updater-Setup.zip), then update from the launcher. No account or Git installation is needed for public updates.
 
-## 0.1.4: learn through play
+## 0.1.5: crafting skill screen
 
-- All 24 crafting skills have magazine-free crafting routes. An audit checks all 2,021 level transitions for unlock gaps.
-- Gathering with tools, actual weapon damage, mature crop harvesting, electrical salvage, equipment repairs, block upgrades and medical use now grant relevant crafting-skill practice.
-- Completed crafts and equipment scrapping retain their quality-based rewards. Q3 axe crafting (+15) and player-crafted Q3 scrapping (+1.5) were checked in-game.
-- Short practice notifications and friendly skill names make progress easier to follow.
-- **Gameplay settings / books** offers 226 individual book toggles. New crafting-magazine rolls default to paper; perk books and schematics remain enabled. Existing items are kept.
-- Disabling perk books or schematics does not provide alternative routes to their unique bonuses yet. Crafting magazines never raise crafting skills, even when their loot checkbox is enabled.
-- The launcher preserves saves/settings, verifies downloaded files and game compatibility, downloads only changes and keeps a rollback backup.
+Open **Skills → crafting-skills tab → select a skill** to see saved practice, a progress bar, how to train and the next vanilla recipe/quality milestone. Crafting rows also show practice bars. The original unlock icons and recipe/quality table remain, using native paging to make room. Long next-unlock text has a full tooltip. Completed skills and already-completed recipe milestones have explicit states.
 
-This is a testing preview, with no stable release yet. The new activity events and gameplay settings window still require a live check. Driving, wearing armour and idle movement do not yet grant activity practice; all crafting routes remain available. Detailed rewards, caps and controls are in the included README and `Source/PROGRESSION-AUDIT.md`.
+This is a testing preview. The new rendered skill-screen layout still needs an in-game check. UI queries do not change progress, and gameplay rates are unchanged.
 
-Validation: 2,061 algorithm checks, 28 updater checks, and book-policy checks covering 226 items and 247 loot/trader references. The updater's online install/rollback was tested while preserving a test world and settings. No world reset is needed for this update.
+## Progress by playing
 
-No game binaries, saved worlds, credentials or personal logs are distributed. Source, build scripts and tests are included in the full ZIP. `channels/testing.json` selects the release from its version directory.
+- All 24 crafting skills have magazine-free crafting routes; an audit covers all 2,021 level transitions.
+- Completed crafts and equipment scraps grant quality-based practice.
+- Gathering, actual weapon damage, mature crop harvesting, electrical salvage, equipment repairs, block upgrades and medical use grant relevant practice.
+- **Gameplay settings / books** offers 226 individual book toggles. Crafting magazines default off for new loot/trader rolls, which become paper. Perk books and schematics stay enabled; their unique bonuses have no replacement yet if you disable them.
+- Nearby owned-storage crafting includes ingredient counts. Manual bulk transfers respect protected backpack slots.
+- The launcher verifies changed downloads and game compatibility, keeps a rollback backup, and preserves worlds/settings. Offline play remains available.
+
+Crafting, Q3 scrapping, harvesting, club combat and equipment repairs have been confirmed in-game. Cooking, crop harvesting and electrical salvage checks remain pending normal play. No stable channel is published yet.
+
+Validation: 2,081 algorithm/binding regression checks, 24 skill-screen XML layout checks, 28 updater checks and book-policy checks across 226 items and 247 loot/trader references. Online updating/rollback was tested preserving a test world and settings.
+
+The full ZIP includes original source, build scripts, tests and `Source/PROGRESSION-AUDIT.md`. No game binaries, saves, credentials or personal logs are distributed. `channels/testing.json` selects the runtime files under their version directory.
