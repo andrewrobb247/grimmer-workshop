@@ -1,0 +1,124 @@
+# Grimmer Workshop 0.1.3
+
+First playable foundation for a personal solo PvE overhaul of 7 Days to Die V3.4 b10.
+
+## Start playing
+
+1. Extract the whole `Grimmer-Workshop` folder somewhere permanent.
+2. Close any running copy of 7 Days to Die. Keep Steam running.
+3. Double-click `Open-Display-Settings.cmd` if you want to adjust the health display. Its preview updates immediately. Save when finished.
+4. Double-click `Launch-Workshop.cmd` to open the Workshop launcher, then click Play Workshop.
+5. Create a fresh solo world. Keep crafting progression enabled in the world's sandbox settings.
+
+The launcher uses your existing Steam installation and a separate `Profile` folder for this pack's mods, worlds, saves and log. It starts the game executable with EAC disabled. The default Steam path is the one inspected on your PC. If it changes, pass `-GameDirectory` to `Launch-Workshop.ps1`.
+
+The Steam installation's own Mods folder is also loaded by the game. At build time that folder contained only the stock `0_TFP_Harmony` loader. Additional mods placed there later can affect this profile.
+
+## Included in this build
+
+- Completed crafts award practice to the relevant vanilla crafting skill.
+- 311 training routes cover all 24 crafting skills. The complete mapping is `Profile/Mods/GrimmerWorkshop/CRAFTING-ROUTES.csv`.
+- Primitive tools train harvesting, cooking trains food and early workstation skills, bandages train early medicine, and cloth trains backpack crafting up to its first unlock.
+- Electrical and mechanical component assembly recipes provide accessible training for those skills. The mechanical recipe needs forged iron, so the forge is an early objective.
+- Recipe unlocks and quality tiers use vanilla's crafting progression milestones.
+- Outdated recipes give diminishing practice. Higher unlock tiers give more practice.
+- Quality multiplies crafting practice: Q1 x1, Q2 x1.25, Q3 x1.5, Q4 x1.75, Q5 x2, Q6 x2.5.
+- Completed inventory scraps of mapped equipment award practice to its crafting skill: 25% of the equivalent craft reward for unmarked gear, 10% for gear crafted after this update. Raw materials do not earn scrap practice. Cancelled scraps earn nothing.
+- Newly crafted equipment carries a saved provenance marker, including workstation outputs. Equipment made before 0.1.2 is unmarked and receives the unmarked scrap rate. Looted equipment uses its matching rule and current recipe relevance/caps.
+- Crafting skill magazines remain loot and saleable goods, but their direct skill-level gains are disabled. Perk books and schematics retain their effects.
+- Nearby crafting gathers plain ingredients from your placed, owned, closed storage within 20 metres. Protected container slots are excluded.
+- Ingredient counters, recipe availability and maximum crafting quantities include eligible chest supplies. A read-only display snapshot refreshes every half second while the crafting UI is open, including when walking into or out of range.
+- Ingredient costs use the game's selected quality, perk and sandbox calculation. Collected ingredients enter your backpack before vanilla queues the craft. If the queue is full, gathered materials may remain in your backpack.
+- If there is insufficient space or material to gather everything needed, the storage operation is rejected.
+- Workstation crafting reports practice when the game delivers its completion event to the player. Away/offline station completions may therefore be credited on returning to the station.
+- The health display defaults to a smaller bar with names hidden and health numbers shown. Use the Windows preview to change it.
+
+## Storage controls
+
+Open the console with F1 and enter these commands.
+
+| Command | Action |
+| --- | --- |
+| `grimmer status` | Show crafting levels, practice and eligible nearby container count. |
+| `grimmer store` | Deposit unlocked backpack items into nearby containers that already contain matching items. |
+| `grimmer refill` | Top up occupied locked backpack slots from nearby storage. |
+| `grimmer reload` | Reload learning and storage configuration. |
+| `grimmer help` | Show the available commands. |
+
+`gw` is a shorter alias for `grimmer`. Lock inventory slots using vanilla's padlock control. Slot locks protect bulk transfers. Normal crafting can consume ingredients in locked backpack slots, as in vanilla.
+
+The first build uses console commands for manual deposit and refill. It does not yet add their buttons to the inventory screen.
+
+## Configuration
+
+Edit `Profile/Mods/GrimmerWorkshop/WorkshopSettings.xml`, then run `grimmer reload`.
+
+| Attribute | Default | Meaning |
+| --- | --- | --- |
+| `practicePerLevel` | 40 | Practice needed for the earliest levels. |
+| `practiceGrowth` | 0.5 | Extra practice required per existing skill level. |
+| `learningSpeed` | 1 | Multiplier on practice earned, allowed range 0.1 to 10. |
+| `storageRange` | 20 | Metres, allowed range 1 to 40. |
+| `nearbyCrafting` | true | Enable automatic collection of crafting ingredients. |
+| `scrapPracticeFraction` | 0.25 | Scrap practice for unmarked equipment, from 0 to 1. |
+| `craftedScrapPracticeFraction` | 0.1 | Scrap practice for newly player-crafted equipment, from 0 to 1. |
+
+Display settings have their own preview window and apply after restarting the game. This vanilla profile uses the game's own selectable inventory-lock button.
+
+## What still needs live testing
+
+This build compiles against the installed b10 assemblies. Its original storage, practice and recipe UI code passed automated regression checks using an in-memory game fixture. XML targets and method signatures were checked against the installed game. Live testing of 0.1 confirmed crafting practice, Quality 2 stone-tool unlocking, level persistence after quitting/reloading, and crafting with chest ingredients. Version 0.1.1 repairs the missing chest ingredient counts and recipe availability display. The user confirmed chest ingredient counts and range updates in-game. Version 0.1.2 quality and scrap changes compile and pass 2054 regression checks; they still need a live game check. A standalone Harmony installation probe cannot execute these Unity methods under the Windows .NET Framework runtime (default interface implementation mismatch), so it does not validate live patch installation.
+
+First live check
+
+1. Run `grimmer status` and note Harvesting Tools practice.
+2. Craft a stone axe and check the increase. Cancel another queued axe and check that it earns no practice.
+3. Put wood and stone into a placed chest, close it, and craft another axe nearby. Check the exact quantities in both chest and backpack.
+4. Lock a backpack supply slot, run `grimmer store`, then `grimmer refill`.
+5. Cook at a campfire, check workstation practice, save, quit and reload. Verify the practice was retained.
+6. Check the health display and normal slot-lock toggle in-game.
+
+A real run is also needed to tune the learning rate. No full playthrough or multiplayer validation has been completed.
+
+## Current boundaries
+
+- Solo only. The code intentionally stays inactive outside a single-player world.
+- Nearby crafting covers plain ingredients, with quality-bearing equipment selected through vanilla. Forge input and smelted materials use the original forge system.
+- Nearby storage is limited to placed containers owned by the local player. Vehicles, drones, POI loot and open containers are excluded from this first storage system.
+- The launch profile uses a fresh world. Combining it with War3zuk or another overhaul has not been validated.
+
+## Next stages
+
+1. Validate the first loop in a live game and improve inventory controls and practice feedback.
+2. Balance trader rewards, crafting rates and resource costs together.
+3. Add weapon roles, attachment choices and vehicle restoration.
+4. Expand farming, cooking and base defences.
+5. Add quest chains, wandering-horde variety and world events.
+6. Implement and test an optional co-op profile.
+
+## Source and ownership
+
+Gameplay code, transfer logic and display tooling in this package were written for this project. No third-party mod code, custom assets or proprietary game DLLs are bundled. Game item identifiers and unlock data are generated from the local vanilla configuration. The game supplies its stock Harmony loader.
+
+`Build.ps1` builds against the local game using the Windows .NET Framework compiler and Python. `Test.ps1` exercises the production practice and storage code using the small fixture in `Tests`.
+
+When updating, preserve `Profile/Saves` and `Profile/GeneratedWorlds` and keep a copy of your configuration. Remove or replace only the pack's own mod folders as needed.
+
+## 0.1.2 live checks
+
+Continue the existing world. Compare practice before and after one Q1 and one Q2 stone axe (10 and 12.5 at early levels before relevance falloff). Scrap the newly crafted Q2 axe: expect 1.25 practice. Queue and cancel another scrap: expect zero. Looted Q2 equipment gives 25% of its own matching craft rule. Check a full inventory retry and a workstation craft, then save/reload. Existing settings need no edits: missing new attributes use the defaults above.
+
+
+## Launcher and updates (0.1.3)
+
+Open Launch-Workshop.cmd. The launcher checks the selected GitHub channel and shows the release notes. Install update downloads only changed files, verifies SHA-256 hashes, and checks the exact installed game assembly against V3.4 b10 before applying anything. A failed download leaves the installation untouched. Failed application restores the previous files; Roll back update restores the last backup. A backup pointer is saved before application, allowing manual rollback after an interruption.
+
+Worlds, progression and personal settings are kept. Existing WorkshopSettings.xml, updater preferences, HUD Settings.json and generated HUD windows.xml are preserved. New default settings are kept even when rolling back. Source/development files are not automatically installed by the player updater. No Steam game binaries, saves, credentials or personal logs are published.
+
+The first release is a testing preview. Its quality/scrap gameplay changes still need a live check. The stable channel will be published after those checks; there is no stable release yet. Stable is intended for your friend's regular play once available. Channel changes take effect only when you click Install update, including switching back to an older release. Offline play remains available. No account, token or Git installation is required to download public updates.
+
+Select Game folder if Steam is installed elsewhere. Each user needs their own Steam game. Workshop remains solo only and does not modify the game's Steam installation. The updater's source is fixed to the public andrewrobb247/grimmer-workshop repository; its testing channel is hosted there.
+
+Checks: 28 automated updater checks under Windows PowerShell 5.1, plus 2054 storage/practice/UI algorithm checks. A native launcher window could not be inspected from the restricted execution desktop, so its first visible run still needs checking. Online downloading still needs checking after the GitHub publication. Build-Release.ps1 stages an immutable version directory and its channel manifest, containing only the original mod pack files.
+
+
