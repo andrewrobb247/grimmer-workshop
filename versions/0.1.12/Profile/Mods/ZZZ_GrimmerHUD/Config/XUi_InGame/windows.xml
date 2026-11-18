@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs>
+  <set xpath="/windows/window[@name='windowTargetBar']/@visibility">always</set>
+  <set xpath="/windows/window[@name='windowTargetBar']/rect[@visible='{isnotboss}']/@width">280</set>
+  <set xpath="/windows/window[@name='windowTargetBar']/rect[@visible='{isnotboss}']/@height">26</set>
+  <set xpath="/windows/window[@name='windowTargetBar']/rect[@visible='{isnotboss}']/@pos">-140,-85</set>
+  <set xpath="/windows/window[@name='windowTargetBar']/rect[@visible='{isnotboss}']/sprite/@width">280</set>
+  <remove xpath="/windows/window[@name='windowTargetBar']/rect[@visible='{isnotboss}']/label[@name='TextContent']" />
+  <append xpath="/windows/window[@name='windowTargetBar']/rect[@visible='{isnotboss}']">
+    <label name="grimmerEnemyName" depth="3" pos="0,24" width="280" height="24" font_size="18" color="[white]" justify="center" pivot="topleft" text="{name}" visible="false" />
+    <label name="grimmerEnemyHealth" depth="3" pos="0,-4" width="280" height="26" font_size="18" color="[white]" justify="center" pivot="topleft" text="{currentwithmax}" visible="true" />
+  </append>
+</configs>
