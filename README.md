@@ -1,4 +1,4 @@
-# Grimmer Workshop 0.1.8
+# Grimmer Workshop 0.1.9
 
 First playable foundation for a personal solo PvE overhaul of 7 Days to Die V3.4 b10.
 
@@ -174,4 +174,10 @@ Remove the redundant magazine sentence from the selected-skill description. Non-
 ## 0.1.8 nearby storage buttons
 
 Adds deposit and refill arrow buttons beside the Inventory title. Uses existing storage transfers, preserves vanilla locking and reports results. Button event and native XML layout checks pass; live layout and transfer checks remain in PLAYTEST-CHECKLIST.md. No progression changes.
+
+
+
+## 0.1.9 quest reward book policy
+
+When all crafting magazine types are disabled, the quest magazine bundle and crafting-magazine challenge reward pools offer three repair kits instead. Direct disabled book/schematic Item rewards also become three repair kits. Individual magazine toggles retain their existing loot behaviour when some types remain enabled. XP, currency and reward choice counts are unchanged. Already generated quest choices may persist; choose another reward on those quests. Existing bundles are not converted. Generated quest policy is rebuilt at launch and clears when books are re-enabled.
 
