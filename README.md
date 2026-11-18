@@ -1,4 +1,4 @@
-# Grimmer Workshop 0.1.10
+# Grimmer Workshop 0.1.11
 
 First playable foundation for a personal solo PvE overhaul of 7 Days to Die V3.4 b10.
 
@@ -187,3 +187,7 @@ When all crafting magazine types are disabled, the quest magazine bundle and cra
 
 Fixes deposit/refill buttons ignoring left-clicks. The installed game's XUiController.Pressed dispatches OnPress using -1, whereas the initial handler expected 0. The button regression fixture now uses the real input value and rejects both right-click (-2) and unrelated zero input. Storage selection and transfer rules are unchanged. Live click/transfer confirmation pending.
 
+
+## 0.1.11 mixed-quality equipment deposit
+
+Nearby deposit selects chests by exact base item type, allowing different-quality batons and other equipment into the same chest. Actual stacking and refill still require vanilla stack compatibility. Quality, condition and attached mods are retained in separate slots. Full/protected destinations leave items in the backpack. 2095 regression checks pass; the new equipment case reproduces the old failure before the fix. Live transfer confirmation remains pending.
