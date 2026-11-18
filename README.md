@@ -1,4 +1,4 @@
-# Grimmer Workshop 0.1.12
+# Grimmer Workshop 0.1.13
 
 First playable foundation for a personal solo PvE overhaul of 7 Days to Die V3.4 b10.
 
@@ -195,3 +195,7 @@ Nearby deposit selects chests by exact base item type, allowing different-qualit
 ## 0.1.12 workstation quality credit
 
 Keep different-quality workstation crafts in separate completion records so practice uses each quality multiplier. The native completion list, saving and claim/removal path remain. Open a station to claim finished crafting practice; standing nearby alone is not the reliable trigger. Plain cooking batches still aggregate. Existing already-merged records cannot be reconstructed. 14 focused code checks and four installed-game layout checks pass. See Source/WORKSTATION-AUDIT.md. Live mixed-quality and away/return checks remain pending; no rates or save keys changed.
+
+## 0.1.13 targeted fuel practice balance
+
+Reduce rapid fuel refining base practice from 10 to 0.1 per two-fuel batch. At Vehicle skill 20 this changes 17.6 to 0.176 practice before later falloff. One shale should not train more than building a bicycle chassis. The other 310 routes, recipe costs, unlocks, caps, quality multipliers and global learning rates are unchanged. From Vehicle level 20, 2,000 fuel previously could max the skill in one grouped claim; the new reward reaches level 23 with 26 practice. Source/BALANCE-AUDIT.md and BALANCE-DATA.csv cover 311 routes and 321 recipe variants; economic bundle sizes are normalised and limitations stated. Automated policy comparison checks only the fuel credit changed. Live refining check pending. Existing levels are retained.
