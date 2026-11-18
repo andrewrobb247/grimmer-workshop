@@ -1,4 +1,4 @@
-# Grimmer Workshop 0.1.11
+# Grimmer Workshop 0.1.12
 
 First playable foundation for a personal solo PvE overhaul of 7 Days to Die V3.4 b10.
 
@@ -191,3 +191,7 @@ Fixes deposit/refill buttons ignoring left-clicks. The installed game's XUiContr
 ## 0.1.11 mixed-quality equipment deposit
 
 Nearby deposit selects chests by exact base item type, allowing different-quality batons and other equipment into the same chest. Actual stacking and refill still require vanilla stack compatibility. Quality, condition and attached mods are retained in separate slots. Full/protected destinations leave items in the backpack. 2095 regression checks pass; the new equipment case reproduces the old failure before the fix. Live transfer confirmation remains pending.
+
+## 0.1.12 workstation quality credit
+
+Keep different-quality workstation crafts in separate completion records so practice uses each quality multiplier. The native completion list, saving and claim/removal path remain. Open a station to claim finished crafting practice; standing nearby alone is not the reliable trigger. Plain cooking batches still aggregate. Existing already-merged records cannot be reconstructed. 14 focused code checks and four installed-game layout checks pass. See Source/WORKSTATION-AUDIT.md. Live mixed-quality and away/return checks remain pending; no rates or save keys changed.
