@@ -1,4 +1,4 @@
-# Grimmer Workshop 0.1.9
+# Grimmer Workshop 0.1.10
 
 First playable foundation for a personal solo PvE overhaul of 7 Days to Die V3.4 b10.
 
@@ -180,4 +180,10 @@ Adds deposit and refill arrow buttons beside the Inventory title. Uses existing 
 ## 0.1.9 quest reward book policy
 
 When all crafting magazine types are disabled, the quest magazine bundle and crafting-magazine challenge reward pools offer three repair kits instead. Direct disabled book/schematic Item rewards also become three repair kits. Individual magazine toggles retain their existing loot behaviour when some types remain enabled. XP, currency and reward choice counts are unchanged. Already generated quest choices may persist; choose another reward on those quests. Existing bundles are not converted. Generated quest policy is rebuilt at launch and clears when books are re-enabled.
+
+
+
+## 0.1.10 storage button click correction
+
+Fixes deposit/refill buttons ignoring left-clicks. The installed game's XUiController.Pressed dispatches OnPress using -1, whereas the initial handler expected 0. The button regression fixture now uses the real input value and rejects both right-click (-2) and unrelated zero input. Storage selection and transfer rules are unchanged. Live click/transfer confirmation pending.
 
