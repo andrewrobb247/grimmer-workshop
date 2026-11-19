@@ -1,7 +1,25 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current testing release: 0.1.33. Latest published release: 0.1.33.
+Updated 19 November 2026. Current testing release: 0.1.34. Latest published release: 0.1.34.
 Keep using the current world. Pending means not yet confirmed in live play.
+
+## Player confirmations - 19 November 2026
+
+- [x] Looted map appears to work in normal play.
+- [x] Beautiful Bases decorations can be taken from walls and placed in the player's base.
+- [x] Crafting new decor awards Construction practice.
+- [x] New zombie appearances are visible during exploration.
+- Still pending: broader map/restock/options persistence, decor craft-time scaling, zombie combat/animations/ragdolls/spawn balance, and vehicle driving checks. These confirmations do not establish those behaviors.
+
+## 0.1.34 cultivated plots / wildlife / launcher - pending live checks
+
+- [ ] Reopen updated launcher: six optional pack entries, installed versions/status and original-download links. Incorrect/missing folders do not show as recognised.
+- [ ] Seeds5 unlocks Cultivated Farm Plot, consuming one plot, four Compost and five nitrate; normal plots retained. Crafting trains Construction/Seeds within caps.
+- [ ] Plant same crop on normal and cultivated beds under matching sunlight/world settings. Compare newly scheduled stage timing over multiple plants: enriched intervals 20% shorter, normal randomness retained. Harvest yields/skill awards unchanged.
+- [ ] Cultivated plot, crop stages and native scheduled ticks survive save/reload; no extra reward from picking up/replacing. Existing stations/plots remain correct.
+- [ ] Wildlife original pack loads without XML errors; daytime animals/dusk predators/scavenger/vulture events appear in appropriate biomes/conditions.
+- [ ] Watch animal accumulation, AI movement, performance, cooldowns and safety conditions during normal play; author notes event animals may persist.
+- [ ] Existing Looted map, decor Construction practice, weapons, vehicles and storage still work. No new species/models or watering simulation claimed.
 
 ## 0.1.33 Beautiful Bases / Looted - pending installation/live checks
 
