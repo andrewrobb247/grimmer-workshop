@@ -1,6 +1,6 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current testing release: 0.1.28. Latest published release: 0.1.28.
+Updated 19 November 2026. Current testing release: 0.1.29. Latest published release: 0.1.29.
 Keep using the current world. Pending means not yet confirmed in live play.
 
 ## 0.1.24 vehicle inspection - pending live checks
@@ -54,6 +54,17 @@ Keep using the current world. Pending means not yet confirmed in live play.
 - [ ] Completion gives normal practice when claimed; cancelled crafts give no completion practice.
 - [ ] Station, tools, fuel and queued cooking survive save/reload; native reclaim rules work.
 - [ ] Ordinary campfire, Gunsmith Bench, engine restoration, vehicle inspection and storage pickup still work.
+## 0.1.29 full Arsenal - pending live checks
+
+- [ ] Game log loads DSD_Arsenal 1.2.1 and reports practice for all 53 weapons plus Energy Cells, without errors.
+- [ ] New melee and firearms display their actual models, animations and sounds in first and third person.
+- [ ] Normal author skill unlocks and Q1-Q6 crafting work without reading crafting magazines.
+- [ ] Crafting, actual combat damage and crafted/found scraps train the intended weapon skill once.
+- [ ] Energy Cell crafting gives small Electrician practice; firing/opening does not count as crafting.
+- [ ] Supported vanilla and Workshop attachments equip correctly; custom sights/reloads/laser effects work.
+- [ ] Normal loot/trader refresh introduces author weapons; existing containers/stocks may remain unchanged until refresh.
+- [ ] Items, equipped mods and skill practice survive save/reload.
+- [ ] Existing Workshop stove, Gunsmith Bench, engine restoration, vehicle inspection and storage pickup still work.
 ## Confirmed by player
 
 - [x] Completed crafting awards practice.
