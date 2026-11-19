@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configs>
+  <append xpath="/recipes">
+    <recipe name="resourceMechanicalParts" count="1" craft_time="12" tags="grimmerWorkshopAssembly" always_unlocked="true">
+      <ingredient name="resourceForgedIron" count="2" />
+      <ingredient name="resourceScrapPolymers" count="2" />
+    </recipe>
+    <recipe name="resourceElectricParts" count="1" craft_time="12" tags="grimmerWorkshopAssembly" always_unlocked="true">
+      <ingredient name="resourceScrapIron" count="5" />
+      <ingredient name="resourceScrapPolymers" count="3" />
+    </recipe>
+    <recipe name="grimmerLightGrip" count="1" craft_time="20" craft_area="workbench" tags="grimmerWorkshopAttachments" always_unlocked="true">
+      <ingredient name="resourceLeather" count="4" />
+      <ingredient name="resourceScrapPolymers" count="6" />
+      <ingredient name="resourceDuctTape" count="2" />
+    </recipe>
+    <recipe name="grimmerPowerGrip" count="1" craft_time="30" craft_area="workbench" tags="grimmerWorkshopAttachments" always_unlocked="true">
+      <ingredient name="resourceForgedIron" count="8" />
+      <ingredient name="resourceSpring" count="2" />
+      <ingredient name="resourceDuctTape" count="2" />
+    </recipe>
+  </append>
+  <setattribute xpath="/recipes/recipe[@name='barbedFence'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='bed02BlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='bedrollBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='burningBarrelPlayer'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='calendarVariantHelper'][not(wildcard_forge_category)][1]" name="tags">grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='campfire'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cellarDoorDoubleIron'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cellarDoorDoubleSteel'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cellarDoorDoubleWood'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntCoolerVariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntGunSafeVariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntIronWritableCrate'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntMailBox01VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntMailBox02VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntMailBox03VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntSteelWritableCrate'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntWoodFurnitureBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntWoodFurnitureBlockVariantHelper2'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cntWoodWritableCrate'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='cobblestoneShapes:VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='concreteShapes:VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='couchModernBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='couchUglyLargeBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='couchUglySingleBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='couchUglySmallBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='curtainVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='farmPlotBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">perkLivingOffTheLandCrafting,packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='flagThick44BlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='frameShapes:VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='glassBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">use_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='glassBlockVariantHelper'][not(wildcard_forge_category)][2]" name="tags">replace_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='glassBulletproofBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">use_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='glassBulletproofBlockVariantHelper'][not(wildcard_forge_category)][2]" name="tags">replace_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironBars'][not(wildcard_forge_category)][1]" name="tags">use_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironBars'][not(wildcard_forge_category)][2]" name="tags">replace_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironBarsCNR'][not(wildcard_forge_category)][1]" name="tags">use_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironBarsCNR'][not(wildcard_forge_category)][2]" name="tags">replace_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironBarsCentered'][not(wildcard_forge_category)][1]" name="tags">use_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironBarsCentered'][not(wildcard_forge_category)][2]" name="tags">replace_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironDoorBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironDoorDoubleBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironGarageDoorBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironGarageDoor_PoweredBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">perkAdvancedEngineering,learnable,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ironHatchBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ladderMetal'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ladderSteel'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='ladderWood'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='lanternDecorLightBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='lanternOldBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='metalFenceRailingTrellisSheetBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">use_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='metalFenceRailingTrellisSheetBlockVariantHelper'][not(wildcard_forge_category)][2]" name="tags">replace_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='metalFurnitureBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='metalReinforcedWoodDrawBridge'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='metalTrussingIBeamBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">use_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='metalTrussingIBeamBlockVariantHelper'][not(wildcard_forge_category)][2]" name="tags">replace_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='officeChair01VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='oldChair1VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='oldWoodDoor'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='oldWoodDoorDouble'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='pictureVariantHelper'][not(wildcard_forge_category)][1]" name="tags">grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='plantPottedVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='resourceCement'][not(wildcard_forge_category)][1]" name="tags">use_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='resourceCement'][not(wildcard_forge_category)][2]" name="tags">replace_smelter,perkAdvancedEngineering,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='resourceCobblestones'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='resourceConcreteMix'][not(wildcard_forge_category)][1]" name="tags">cementMixerCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='resourceCrushedSand'][not(wildcard_forge_category)][1]" name="tags">use_smelter,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='resourceCrushedSand'][not(wildcard_forge_category)][2]" name="tags">cementMixerCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='resourcePaint'][not(wildcard_forge_category)][1]" name="tags">chemStationCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='resourcePaint'][not(wildcard_forge_category)][2]" name="tags">cookingPotChem,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='rollUpDoor3x3VariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='rollUpDoor5x4VariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='rollUpDoor7x4VariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='sandbagBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='sectionalLeatherCouchSofaBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='sectionalPlaidCouchSofaBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='shuttersIronBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='shuttersSteelBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='shuttersWoodBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='sinksToiletsBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='steelShapes:VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='terrAsphalt'][not(wildcard_forge_category)][1]" name="tags">cementMixerCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='terrGravel'][not(wildcard_forge_category)][1]" name="tags">cementMixerCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='terrGravel'][not(wildcard_forge_category)][2]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='terrStone'][not(wildcard_forge_category)][1]" name="tags">cementMixerCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='toiletsBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='tvBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='vaultDoor01'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='vaultDoor01Double'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='vaultHatch01'][not(wildcard_forge_category)][1]" name="tags">workbenchCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='woodHatch'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='woodLogPillar100'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='woodShapes:VariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='woodSignBlockVariantHelper'][not(wildcard_forge_category)][1]" name="tags">packMuleCrafting,grimmerConstruction</setattribute>
+</configs>
