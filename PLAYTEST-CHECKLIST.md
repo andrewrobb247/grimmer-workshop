@@ -1,9 +1,32 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current testing release: 0.1.31. Latest published release: 0.1.31.
+Updated 19 November 2026. Current testing release: 0.1.32. Latest published release: 0.1.32.
 Keep using the current world. Pending means not yet confirmed in live play.
 
-## 0.1.31 vehicle interaction follow-up
+## 0.1.32 optional zombie/vehicle originals - pending installation/live checks
+
+- [ ] Local helper installs the two original packs unchanged after backing up saves; Arsenal remains intact. Startup log confirms 106 Bdub practice routes, no failed mod/XML patches.
+- [ ] Ordinary Guppy models, animations, hitboxes, sounds and ragdolls work. Natural spawns use selected roster without replacing normal zombies.
+- [ ] Bdub dirt bike/utility pickup/cargo truck recipe gates and practice are correct; author ingredients/quality remain. Actual driving, storage, fuel, damage/repair, pickup and save/reload work.
+- [ ] New mechanic POI is not assumed to appear in the existing generated world. No parked inspection feature testing required.
+- [ ] Friends install original author packs separately; updater carries no external assets.
+
+## 0.1.32 composting and restored stations - pending live checks
+
+- [ ] Compost Bin recipe consumes 40 wood, 10 nails, 10 fibres. Place/open; crate model has a one-block footprint.
+- [ ] Compost takes 5 rotten flesh and 20 fibres per output, 120 seconds, no fuel/tools. Cancellation returns ingredients and gives no practice.
+- [ ] Finish with bin closed; open it to claim Seeds once. Reopen gives no second award; save/reload keeps unclaimed credit.
+- [ ] Compost Farm Plot alternative uses 2 Compost, 10 nitrate, 100 clay and 4 wood before native farming reductions. Original Farm Plot still available.
+- [ ] Destroy ordinary ruined stations: matching Restoration Parts sometimes drop (50%); native loot/salvage remains. Destroyed restored/player stations produce no new recovery parts.
+- [ ] Restored Forge/Workbench/Mixer/Chemistry recipes respect original skill levels and crafting areas; require the matching component and reduced normal materials. Engine/beaker still required.
+- [ ] Restored stations place/open with correct native UI, recipe lists, forge smelting, tools/fuel, heat and speed. They are not powered/faster stations.
+- [ ] Queue/cancel/complete/save/reload and pickup/replacement preserve items/practice without duplicates.
+
+## Parked vehicle inspection
+
+User reports ordinary vehicles still immediately loot on 0.1.31; locked police-car menu works. Feature development/testing parked pending future distinct vehicle restoration design. Retain existing history; no further inspection fix claimed.
+
+## 0.1.31 vehicle interaction follow-up (parked)
 
 - [ ] Uninspected sedan: hold use; Search and Inspect vehicle parts appear. Inspect yields one reward.
 - [ ] Inspected sedan: hold use; Search and Vehicle parts already inspected appear. Status gives no repeat reward.
