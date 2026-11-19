@@ -1,7 +1,17 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current testing release: 0.1.32. Latest published release: 0.1.32.
+Updated 19 November 2026. Current testing release: 0.1.33. Latest published release: 0.1.33.
 Keep using the current world. Pending means not yet confirmed in live play.
+
+## 0.1.33 Beautiful Bases / Looted - pending installation/live checks
+
+- [ ] Installer copies the two originals unchanged; existing Arsenal/Guppy/Bdub remain. Startup registers 15 decor routes and Looted with no load exceptions.
+- [ ] Decor names/models/shapes, recipe costs and placement/pickup work; no unexpected duplicate output rows except real barrier material alternatives.
+- [ ] Craft cheap hoist (.1 base), a cloth flag (2) and a steel jail door (8); Construction practice once per completed output, scaled normally. Cancellation/pickup/replacement gives no new completion credit.
+- [ ] Green training icon and Construction tooltip show while below cap. Higher Construction reduces these decor recipe times up to 15%; native recipe speed unchanged.
+- [ ] Looted map opens normally: labels/buttons, zoom, tracking, options, cleared-POI/restock markers and save/reload work with the Workshop HUD.
+- [ ] Inventory lock/deposit/refill, owned storage pickup, Construction, prior stations and optional weapon/vehicle practice still work.
+- [ ] Elisk is not installed. Author content remains outside public Workshop updater/archive.
 
 ## 0.1.32 optional zombie/vehicle originals - pending installation/live checks
 
