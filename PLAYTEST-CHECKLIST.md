@@ -1,7 +1,15 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current testing release: 0.1.30. Latest published release: 0.1.30.
+Updated 19 November 2026. Current testing release: 0.1.31. Latest published release: 0.1.31.
 Keep using the current world. Pending means not yet confirmed in live play.
+
+## 0.1.31 vehicle interaction follow-up
+
+- [ ] Uninspected sedan: hold use; Search and Inspect vehicle parts appear. Inspect yields one reward.
+- [ ] Inspected sedan: hold use; Search and Vehicle parts already inspected appear. Status gives no repeat reward.
+- [ ] Try searchable minivan, pickup and truck variants; inspection is available without a tool.
+- [ ] Locked/in-use vehicles remain protected; standalone rear sections without storage are excluded.
+- Evidence: current save has a persisted recovery at 305,38,-798. This does not confirm which sedan the user tested. Live interaction still pending.
 
 ## 0.1.24 vehicle inspection - pending live checks
 
