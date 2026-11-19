@@ -1,9 +1,9 @@
 # Publication status
 
-Workshop 0.1.29 optional DSD Arsenal practice support is published on testing. Includes support for all 53 author weapons and Energy Cells when the separately downloaded DSD Arsenal 1.2.1 pack is installed. No author assets are included in this repository's Workshop package.
+0.1.30 specialist recipe display fix published to testing on 19 November 2026. Payload/source commit 1cc5b7303d889346c437df289311f21c60ceb21e; all 23 hosted payload/identity/archive/README files matched staging byte for byte before enabling channel 477817ada5c40e53b93e9b9840753dd3d583cb6e.
 
-All 23 hosted payload/identity/archive/README files matched tested staging before enabling the channel. Hosted manifest matches staging; original updater accepts all 20 paths. The normal old-updater endpoint initially returned an older cached manifest immediately after publication; remote detection of 0.1.29 remains to recheck.
+Unchanged original 0.1.10 updater reads schema 1, offers 0.1.30 and accepts all 20 files under Windows PowerShell 5.1.26100.9818. No enabled runtime payload was changed after verification.
 
-Base 635 practice routes retained; optional pack adds 54 runtime routes. Production build, existing regressions and 128 adapter checks pass. Static game API reference checks pass. Models, animations and gameplay still require live verification. See PLAYTEST-CHECKLIST.md.
+Fix removes only redundant visible Workshop Gunsmith/Cooking Stove alternatives when the corresponding source recipe is already visible. At a specialist station it prefers that station's craftable variant, including all-recipes view. It does not delete item definitions, actual recipes, inventory, queues, saves or author pack files. Existing 635 routes and 54 optional Arsenal routes retained.
 
-Local author-pack installation is a separate step. Obtain it directly from Nexus 13921, keep original files unchanged and install DSD_Arsenal beside GrimmerWorkshop under the Workshop profile's Mods folder. Keep the pack installed while a saved world contains its items.
+Production build, prior regressions, 17 display scenario checks and native recipe-field/list-builder/station-context checks pass. Live list check remains pending. Startup log confirms DSD_Arsenal 1.2.1 and Workshop 0.1.29 loaded and registered all 53 weapons plus Energy Cells; the pack installation is now complete. User should save/close game, install 0.1.30 through testing updater, then relaunch. No world reset.

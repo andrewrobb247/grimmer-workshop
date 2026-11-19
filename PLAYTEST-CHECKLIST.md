@@ -1,6 +1,6 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current testing release: 0.1.29. Latest published release: 0.1.29.
+Updated 19 November 2026. Current testing release: 0.1.30. Latest published release: 0.1.30.
 Keep using the current world. Pending means not yet confirmed in live play.
 
 ## 0.1.24 vehicle inspection - pending live checks
@@ -56,7 +56,7 @@ Keep using the current world. Pending means not yet confirmed in live play.
 - [ ] Ordinary campfire, Gunsmith Bench, engine restoration, vehicle inspection and storage pickup still work.
 ## 0.1.29 full Arsenal - pending live checks
 
-- [ ] Game log loads DSD_Arsenal 1.2.1 and reports practice for all 53 weapons plus Energy Cells, without errors.
+- [x] Verified startup log: DSD_Arsenal 1.2.1 and Workshop 0.1.29 load; practice registered for all 53 weapons plus Energy Cells; no matching startup errors in inspected log.
 - [ ] New melee and firearms display their actual models, animations and sounds in first and third person.
 - [ ] Normal author skill unlocks and Q1-Q6 crafting work without reading crafting magazines.
 - [ ] Crafting, actual combat damage and crafted/found scraps train the intended weapon skill once.
@@ -65,6 +65,13 @@ Keep using the current world. Pending means not yet confirmed in live play.
 - [ ] Normal loot/trader refresh introduces author weapons; existing containers/stocks may remain unchanged until refresh.
 - [ ] Items, equipped mods and skill practice survive save/reload.
 - [ ] Existing Workshop stove, Gunsmith Bench, engine restoration, vehicle inspection and storage pickup still work.
+## 0.1.30 recipe display - pending live checks
+
+- [ ] General crafting search shows one row for each original/Workshop specialist recipe pair (.44 Magnum, Auto Shotgun, Arrow Rest Mod, etc.).
+- [ ] Gunsmith Bench still shows its craftable versions and 15% time reduction, including all-recipes view.
+- [ ] Cooking Stove retains its own recipes and 25% time reduction; original campfire still works.
+- [ ] Legitimate alternate vanilla/third-party recipes and all Arsenal weapons remain available.
+- [ ] Existing inventory, equipped items, queued crafts, skills and saves remain intact.
 ## Confirmed by player
 
 - [x] Completed crafting awards practice.
