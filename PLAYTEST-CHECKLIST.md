@@ -1,7 +1,14 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current testing release: 0.1.34. Latest published release: 0.1.34.
+Updated 19 November 2026. Current testing release: 0.1.35. Latest published release: 0.1.35.
 Keep using the current world. Pending means not yet confirmed in live play.
+
+## 0.1.35 audit repairs - pending live checks
+
+- [ ] Save/quit, install through existing testing launcher, then Play. Confirm no ZZZ_GrimmerEnemies metadata/XML errors in fresh log and the filtered companion loads.
+- [ ] Check new decor names/descriptions and classic minibike/GNX descriptions; attachment stat and description tabs remain readable.
+- [ ] Confirm normal startup, crafting and existing save contents; intended roster weighting affects new spawns, not already present zombies.
+- [ ] Compare cultivated crop stages, wildlife population/behaviour and vehicle/weapon models/animations during normal play.
 
 ## Player confirmations - 19 November 2026
 
