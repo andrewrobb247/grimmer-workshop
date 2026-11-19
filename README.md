@@ -1,4 +1,4 @@
-# Grimmer Workshop 0.1.22
+# Grimmer Workshop 0.1.23
 
 First playable foundation for a personal solo PvE overhaul of 7 Days to Die V3.4 b10.
 
@@ -204,6 +204,6 @@ Reduce rapid fuel refining base practice from 10 to 0.1 per two-fuel batch. At V
 
 Grouped completion records now recalculate recipe relevance as crafting levels rise, matching sequential recipe-batch credit within normal numeric precision. Large queues cannot hold their starting-level relevance for every output. Evaluation skips groups that cannot cross a level, avoiding a loop for every item. Existing quality factors, recipe credits, level costs, caps, saved levels and save keys remain. One grant per skill keeps notifications consolidated. The same calculation covers mapped equipment scrapping. 2605 regression checks pass, including 500 grouped/sequential comparisons and huge-queue cap checks. The release builder also writes marker-free UTF-8 JSON on Windows PowerShell to prevent the updater schema error. Live grouped-vs-separate checks remain pending.
 
-## 0.1.22 melee grip choices
+## 0.1.23 melee grip choices
 
 Two removable Workshop grip mods can be crafted at a workbench without a schematic. Search Workshop Light Grip Mod or Workshop Power Grip Mod. Light Grip adds -15% attack stamina cost and +20% durability loss per use; Power Grip adds +10% entity damage and +15% attack stamina cost. Final values also depend on normal attachment bonuses, perks and other installed mods. Fits clubs, sledges, spears, knives, knuckles and batons with a free mod slot. A shared modifier tag prevents installing both Workshop grips together. Ranged weapons and harvesting tools are excluded. Recipes and English descriptions are included; no loot/trader injection or new crafting-practice routes. The launcher generates modifier and localization definitions before starting the game, keeping old updater compatibility. Generated definitions may remain if rolling back, preserving the identities of already-crafted attachments. No baseline weapon stat changes or world reset. 51 definition/recipe/compatibility checks pass; actual equip effects remain on the playtest checklist.
