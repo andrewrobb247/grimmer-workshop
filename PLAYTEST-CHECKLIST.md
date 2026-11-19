@@ -1,6 +1,6 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current candidate: 0.1.27. Latest published release: 0.1.23.
+Updated 19 November 2026. Current testing release: 0.1.28. Latest published release: 0.1.28.
 Keep using the current world. Pending means not yet confirmed in live play.
 
 ## 0.1.24 vehicle inspection - pending live checks
@@ -42,6 +42,18 @@ Keep using the current world. Pending means not yet confirmed in live play.
 - [ ] Completed crafts give normal practice when station credit is claimed; cancellation gives none; ammo bundles grant no extra opening credit.
 - [ ] Queued crafts and placed bench survive save/reload; native output/reclaim rules work.
 - [ ] Ordinary workbench crafting, engine restoration, vehicle inspection and storage pickup still work.
+## 0.1.28 Cooking Stove - pending live checks
+
+- [ ] Recipe is locked at Food 19 and unlocked at Food 20 without a magazine.
+- [ ] Workbench construction consumes 10 forged iron, 4 short iron pipes, 4 mechanical parts and 10 small stones; awards Workstations practice.
+- [ ] Stove places with the wood-burning stove model, sensible collision and readable name/description.
+- [ ] Opens native cooking UI; all 49 campfire recipe variants retain their original gates and ingredient costs.
+- [ ] Pot, grill and beaker insert into their slots; recipes require the same tools as the campfire.
+- [ ] Fuel is required; start/stop work; running out of fuel stops cooking.
+- [ ] Matching recipe takes 25% less time than a campfire under the same perks/tools/settings.
+- [ ] Completion gives normal practice when claimed; cancelled crafts give no completion practice.
+- [ ] Station, tools, fuel and queued cooking survive save/reload; native reclaim rules work.
+- [ ] Ordinary campfire, Gunsmith Bench, engine restoration, vehicle inspection and storage pickup still work.
 ## Confirmed by player
 
 - [x] Completed crafting awards practice.

@@ -1,9 +1,9 @@
 # Publication status
 
-0.1.27 published to testing on 19 November 2026. Includes every previously blocked update: vehicle inspection, empty owned storage pickup, engine restoration and Gunsmith Bench.
+0.1.28 Cooking Stove published to testing on 19 November 2026. Includes all previous cumulative features.
 
-GitHub installation 183715770 is now visible for andrewrobb247. Uploads succeeded through the owner connection. Payload/source staging commit: 8fabe0a0775315406a2314657ccfe1cf9ce24a0c. Verified all 23 hosted version/identity/source-archive/README files byte-for-byte against Workshop-Publish-0127. Channel enabled last in commit fabab09e28aa1d92691eb824dfc59619a7f97e8d.
+Payload/source commit: 50854b0a32a6e0002c43e9181cc684dc0139784d. All 23 hosted payload/identity/archive/README files matched staging byte-for-byte before channel activation. Channel enabled last: 2a31fac07586085e915bb0be3ed61332c9bdda43. Original unchanged 0.1.10 updater reads schema 1, offers 0.1.28 and accepts all 20 files under Windows PowerShell 5.1.26100.9818.
 
-The unchanged 0.1.10 updater read schema 1, offered 0.1.27 and accepted all 20 update files under Windows PowerShell 5.1.26100.9818. Runtime installation is left to the user's launcher while the game is closed. Existing world supported; live feature checks remain pending in PLAYTEST-CHECKLIST.md.
+Cooking Stove unlocks at Food 20, uses native wood-burning stove model and cooking UI, supports 49 source-preserving recipes with 25% shorter times and native fuel/tool requirements. Total 635 practice routes; all previous 634 routes/custom recipes retained. No external assets.
 
-Original uploaded archive contains its pre-publication status notes; this file records the verified final publication outcome. No release payload was changed after verification or channel activation. Source ZIP contains all code, tests, documentation and Nexus research. External Nexus content packs were researched, not installed or bundled.
+Build, regressions, 17 specialist timing checks, all 49 recipe comparisons, fuel/tools/progression/configuration checks and previous-launch-helper identity preservation pass. Live tests remain pending in PLAYTEST-CHECKLIST.md. Original source archive contains pre-publication status notes; this document records final verified outcome. No enabled version payload was modified.
