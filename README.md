@@ -2,9 +2,9 @@
 
 A solo PvE mod pack for **7 Days to Die V3.4 b10**, with crafting progression through play, nearby storage and a Windows updater.
 
-## Current testing release: 0.1.34
+## Current testing release: 0.1.35
 
-Adds Cultivated Farm Plot at Seeds 5: one plot, four Compost, five nitrate; newly scheduled crop growth stages directly above it take 20% less time with normal sunlight, yields and randomness. Existing plots/crops stay unchanged. Launcher adds six optional-pack identity/version/key-file statuses with original-download links. Optional unchanged Livelier Wildlife 1.0.0 adds animal encounters using native models; author files are separately downloaded and not bundled. Existing player-confirmed Looted/decor/new-zombie behavior retained. Base rules now 643; all previous 641 preserved. Live new growth, encounter balance/population and launcher dialog checks pending. No watering system or new species/models claimed.
+Audit repairs: fixes the malformed zombie-filter companion metadata that caused filtering to be skipped, fills 16 missing decor names and 23 descriptions (39 English entries), and validates Workshop-generated XML before game launch. 395 player-facing entries resolve English text, 361 recipes resolve references, and all 284 original external files match recorded originals. [Audit details](AUDIT-REPORT.md). Use the existing testing updater, then Play; no separate external download for these fixes. Models/animations/driving/crop timing remain live checks.
 
 Optional full DSD Arsenal 1.2.1 support: install the author pack separately from https://www.nexusmods.com/7daystodie/mods/13921 into your Workshop Profile/Mods folder. Workshop adds practice for all 53 weapons and Energy Cells. The pack provides the actual new models and animations; its files are not modified or bundled here. Existing 635 base routes retained; 54 optional routes. Live pack checks pending.
 
@@ -12,7 +12,7 @@ Adds a Cooking Stove at Food 20: craft at a workbench with 10 forged iron, 4 sho
 
 Also includes all previously published updates:
 
-- **Vehicle inspection:** hold use on an abandoned sedan, police car, bus, ambulance, minivan, pickup or supported truck and inspect for parts. One saved recovery per vehicle position. Normal Search and wrench salvage remain available. Unlock locked vehicles first.
+- **Vehicle inspection: parked.** Ordinary vehicles were reported to open normal loot. Recovery interaction is not an active supported feature; revisit only with a future vehicle-recovery design.
 - **Engine restoration:** recover a Damaged Engine Assembly, then rebuild it at a workbench with 10 forged iron, 12 mechanical parts, 4 oil and 2 duct tape. Completion awards Vehicles practice.
 - **Empty owned storage pickup:** hold use on your wooden, iron or steel crate. Empty, repair, unlock and close it first. Ownership and contents are checked again after the pickup timer. Sign text resets when replaced.
 - **Gunsmith Bench:** unlock at Workstations 20. Craft with one additional workbench item, 10 forged iron, 10 mechanical parts and 4 duct tape. Its 118 supported weapon/ammo/attachment recipe variants take 15% less time while keeping original requirements, costs and practice. Uses the native workbench model/interface.
@@ -39,7 +39,7 @@ Vehicle inspection history is stored as `GrimmerVehicleInspections.xml` alongsid
 
 ## First installation
 
-[Download Grimmer Workshop 0.1.34](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.34.zip)
+[Download Grimmer Workshop 0.1.35](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.35.zip)
 
 Extract the whole Grimmer-Workshop folder somewhere permanent. Keep Steam running, close the game, then use Launch-Workshop.cmd. The launcher uses a separate Profile folder and disables EAC. Full original source, build scripts, tests and documentation are included in the archive. Do not extract an entire new package over an existing profile merely to update; use the launcher.
 
