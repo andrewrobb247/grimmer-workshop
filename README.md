@@ -2,9 +2,9 @@
 
 A solo PvE mod pack for **7 Days to Die V3.4 b10**, with crafting progression through play, nearby storage and a Windows updater.
 
-## Current testing release: 0.1.33
+## Current testing release: 0.1.34
 
-Adds optional Construction practice for 15 distinct Beautiful Bases outputs (16 real recipes). Registered decor receives the Construction craft-time bonus, up to 15% at level 100. Looted 3.4.9 is prepared as an unchanged optional map/POI tracking dependency. Original author assets/files are separately downloaded and not bundled. Existing 641 base rules and Arsenal/Guppy/Bdub integrations remain. Elisk is not included. Live decor/models/map/options/markers/save checks pending.
+Adds Cultivated Farm Plot at Seeds 5: one plot, four Compost, five nitrate; newly scheduled crop growth stages directly above it take 20% less time with normal sunlight, yields and randomness. Existing plots/crops stay unchanged. Launcher adds six optional-pack identity/version/key-file statuses with original-download links. Optional unchanged Livelier Wildlife 1.0.0 adds animal encounters using native models; author files are separately downloaded and not bundled. Existing player-confirmed Looted/decor/new-zombie behavior retained. Base rules now 643; all previous 641 preserved. Live new growth, encounter balance/population and launcher dialog checks pending. No watering system or new species/models claimed.
 
 Optional full DSD Arsenal 1.2.1 support: install the author pack separately from https://www.nexusmods.com/7daystodie/mods/13921 into your Workshop Profile/Mods folder. Workshop adds practice for all 53 weapons and Energy Cells. The pack provides the actual new models and animations; its files are not modified or bundled here. Existing 635 base routes retained; 54 optional routes. Live pack checks pending.
 
@@ -17,7 +17,7 @@ Also includes all previously published updates:
 - **Empty owned storage pickup:** hold use on your wooden, iron or steel crate. Empty, repair, unlock and close it first. Ownership and contents are checked again after the pickup timer. Sign text resets when replaced.
 - **Gunsmith Bench:** unlock at Workstations 20. Craft with one additional workbench item, 10 forged iron, 10 mechanical parts and 4 duct tape. Its 118 supported weapon/ammo/attachment recipe variants take 15% less time while keeping original requirements, costs and practice. Uses the native workbench model/interface.
 
-Existing progression includes 641 practice routes, Construction, quality-scaled crafting practice, activity learning, book toggles, nearby crafting and protected inventory transfers. No external weapon, enemy or vehicle model packs are included yet.
+Existing progression includes 643 practice routes, Construction, quality-scaled crafting practice, activity learning, book toggles, nearby crafting and protected inventory transfers. No external weapon, enemy or vehicle model packs are included yet.
 
 ## Optional zombie and vehicle models
 
@@ -27,6 +27,10 @@ Download original [Guppycur Zombies](https://www.nexusmods.com/7daystodie/mods/4
 
 Download original [GNS Beautiful Bases](https://www.nexusmods.com/7daystodie/mods/3318) and [Looted](https://www.nexusmods.com/7daystodie/mods/13822) separately. The inspected Beautiful Bases archive is labelled 3.7 with ModInfo 2.0; Workshop recognises its exact 16-recipe layout. Looted is version 3.4.9. Keep author files intact in Profile/Mods/GNS_BeautifulBases and Profile/Mods/Looted. See [DOWNLOAD-COMPATIBILITY.md](DOWNLOAD-COMPATIBILITY.md) for static checks and remaining live tests.
 
+## Wildlife and pack status
+
+Separately install original [Livelier Wildlife](https://www.nexusmods.com/7daystodie/mods/14042), inspected version 1.0.0 / folder FMG_LivelierWildlife. No DLL or replacement AI; uses native animals. Native requirements/actions, entity references and biome/buff targets check out. Event-spawned animals may persist longer than biome animals, so live population/performance checks remain. Reopen launcher after updating to see Optional packs / versions. Recognised metadata is not proof of loaded state or live compatibility.
+
 ## Existing players
 
 Save and close the game. Open your existing Workshop launcher, choose **testing**, click **Check for updates**, then **Install update**. Launch through Workshop again so its configuration helpers run. Keep your current world; these updates do not require starting over. Back up saves before testing.
@@ -35,7 +39,7 @@ Vehicle inspection history is stored as `GrimmerVehicleInspections.xml` alongsid
 
 ## First installation
 
-[Download Grimmer Workshop 0.1.33](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.33.zip)
+[Download Grimmer Workshop 0.1.34](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.34.zip)
 
 Extract the whole Grimmer-Workshop folder somewhere permanent. Keep Steam running, close the game, then use Launch-Workshop.cmd. The launcher uses a separate Profile folder and disables EAC. Full original source, build scripts, tests and documentation are included in the archive. Do not extract an entire new package over an existing profile merely to update; use the launcher.
 
