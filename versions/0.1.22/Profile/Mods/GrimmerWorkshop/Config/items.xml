@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configs>
+  <remove xpath="/items/item[@name='harvestingToolsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='repairToolsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='salvageToolsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='knucklesSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='bladesSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='clubsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='sledgehammersSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='spearsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='bowsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='handgunsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='shotgunsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='riflesSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='machineGunsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='explosivesSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='roboticsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='armorSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='backpackSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='medicalSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='foodSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='seedSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='electricianSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='trapsSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='workstationSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+  <remove xpath="/items/item[@name='vehiclesSkillMagazine']//triggered_effect[@action='AddProgressionLevel']" />
+</configs>
