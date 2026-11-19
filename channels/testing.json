@@ -1,149 +1,149 @@
 {
     "schema":  1,
-    "version":  "0.1.16",
+    "version":  "0.1.17",
     "gameVersion":  "V3.4 b10",
     "gameAssemblySha256":  "cb54022ccc862aa673e0ee55dafe67d842b364c80df6916958d171e959656c58",
-    "notes":  "Fixes crafted grip names, descriptions and percentage stat panels. Light Grip: -15% attack stamina cost, +20% durability loss; Power Grip: +10% melee damage, +15% attack stamina cost. Existing grips retained. Clarifies early Workstations training. Live display check pending.",
+    "notes":  "Recipe training icons with skill/cap hover text, hidden at cap. Food now gives 12 early Workstations practice per batch (was 5); boiled water gives 2 through level 10. Workbench equipment adds 2 secondary practice through 75, with relevance decay; Workshop grips give 4 through 25. Station practice excluded from scrap. Existing levels retained. Live UI/cooking tests pending.",
     "files":  [
                   {
                       "path":  "Launch-Workshop.cmd",
                       "mode":  "managed",
                       "size":  111,
                       "sha256":  "2bcf9cafe75c6e210b4966d5d9956ca51ec7d6a20e42f5246533e8f7903cb3aa",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Launch-Workshop.cmd"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Launch-Workshop.cmd"
                   },
                   {
                       "path":  "Launch-Workshop.ps1",
                       "mode":  "managed",
                       "size":  1325,
                       "sha256":  "c9f092f0bdca374a0f4b252c96070cd59aedb611021960228b1d982b775571e5",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Launch-Workshop.ps1"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Launch-Workshop.ps1"
                   },
                   {
                       "path":  "Launcher.ps1",
                       "mode":  "managed",
                       "size":  7579,
                       "sha256":  "24b654d7b1735df05ed0590cebf8f5acccb92cdc61b37993b9f523ed0d7d1259",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Launcher.ps1"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Launcher.ps1"
                   },
                   {
                       "path":  "Update-Core.ps1",
                       "mode":  "managed",
-                      "size":  30100,
-                      "sha256":  "c1efd31a084fe320879af7ef2c14ddcff080a0e3cfe6c6a66a2ff7d93b8f5bad",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Update-Core.ps1"
+                      "size":  30566,
+                      "sha256":  "f3b14596bb3b4dfba2a2328881d0953841328726bc68e9ad5b1721acc65de2a0",
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Update-Core.ps1"
                   },
                   {
                       "path":  "Update-Workshop.cmd",
                       "mode":  "managed",
                       "size":  123,
                       "sha256":  "f56bb654e99f23850929e4495f8751f87671b52a230e9fd2aba5a4e12203d89f",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Update-Workshop.cmd"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Update-Workshop.cmd"
                   },
                   {
                       "path":  "Rollback-Workshop.cmd",
                       "mode":  "managed",
                       "size":  125,
                       "sha256":  "1949a50d37eff869639dd2a7379246c2c885f01cdcfb5ccee265a4baca859d0e",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Rollback-Workshop.cmd"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Rollback-Workshop.cmd"
                   },
                   {
                       "path":  "Open-Display-Settings.cmd",
                       "mode":  "managed",
                       "size":  142,
                       "sha256":  "b96d86ead4370fc5e987c533013c3ced5f19491109954274d79b26f247909656",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Open-Display-Settings.cmd"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Open-Display-Settings.cmd"
                   },
                   {
                       "path":  "README.md",
                       "mode":  "managed",
-                      "size":  24069,
-                      "sha256":  "3c0ef4d3c63b2f33bf3fe961b1cd470e4aec1960d9889898c622951d885ef4bc",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/README.md"
+                      "size":  24495,
+                      "sha256":  "cdc35d841e2d6e07f21fa0159ece491929e2f69776803fce3192b2241258b6ff",
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/README.md"
                   },
                   {
                       "path":  "UpdaterSettings.json",
                       "mode":  "default",
                       "size":  105,
                       "sha256":  "ae4c3cd998abd50a6871fb32fa3eb0c5e5c40f8a01681cde17433958ec9d1910",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/UpdaterSettings.json"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/UpdaterSettings.json"
                   },
                   {
                       "path":  "Profile/Mods/GrimmerWorkshop/CRAFTING-ROUTES.csv",
                       "mode":  "managed",
-                      "size":  15667,
-                      "sha256":  "e5a262a91c6d19e8982758f78f58d158f5be9b4ce43cc224174b37aa0d35d5f3",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/GrimmerWorkshop/CRAFTING-ROUTES.csv"
+                      "size":  17734,
+                      "sha256":  "aa288f80124088c41e44c22dc4f90f372aafb2372fd193759745e62ddc95789e",
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/GrimmerWorkshop/CRAFTING-ROUTES.csv"
                   },
                   {
                       "path":  "Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll",
                       "mode":  "managed",
-                      "size":  52224,
-                      "sha256":  "e5343302eb54846a5759c9c340a2165242ebefa86822d263c19714f3ce288093",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll"
+                      "size":  53760,
+                      "sha256":  "7e942c8281fffe5e0ca307ab5142b6e32d244d3332e4241d0797345d9fab5118",
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll"
                   },
                   {
                       "path":  "Profile/Mods/GrimmerWorkshop/ModInfo.xml",
                       "mode":  "managed",
                       "size":  340,
-                      "sha256":  "40df2b0b61afe4dc70efc9989feb4ae2236da3b615fbfd05d98197d91dc0b598",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/GrimmerWorkshop/ModInfo.xml"
+                      "sha256":  "23450d707b28070c678a2624d0413331d9347c6137e7ddcf39d6f7e4d9663fc2",
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/GrimmerWorkshop/ModInfo.xml"
                   },
                   {
                       "path":  "Profile/Mods/GrimmerWorkshop/PracticeRules.xml",
                       "mode":  "managed",
-                      "size":  37109,
-                      "sha256":  "31db5923784aa3e2c810345667c34a9c34be76af52052c49aa64ce732913d4d5",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/GrimmerWorkshop/PracticeRules.xml"
+                      "size":  41729,
+                      "sha256":  "a1f330ec73c66df14c2579214716ddae51c5ad72cc13b22da0f47720c2e2cbd5",
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/GrimmerWorkshop/PracticeRules.xml"
                   },
                   {
                       "path":  "Profile/Mods/GrimmerWorkshop/WorkshopSettings.xml",
                       "mode":  "default",
                       "size":  360,
                       "sha256":  "c0200b56c465d7ea4456ab4e709b7c9196a7317881a12678fbb700426d827aa6",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/GrimmerWorkshop/WorkshopSettings.xml"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/GrimmerWorkshop/WorkshopSettings.xml"
                   },
                   {
                       "path":  "Profile/Mods/GrimmerWorkshop/Config/items.xml",
                       "mode":  "managed",
                       "size":  2799,
                       "sha256":  "af030613466f590660e390f7ec0533ead185e01e133b720dedf44e0e6f5a8c74",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/GrimmerWorkshop/Config/items.xml"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/GrimmerWorkshop/Config/items.xml"
                   },
                   {
                       "path":  "Profile/Mods/GrimmerWorkshop/Config/recipes.xml",
                       "mode":  "managed",
                       "size":  1276,
                       "sha256":  "4f8bf5fb7fe53fc4379be04dce33fdbae7130a0b1d9f684c107a8ec403a973ff",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/GrimmerWorkshop/Config/recipes.xml"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/GrimmerWorkshop/Config/recipes.xml"
                   },
                   {
                       "path":  "Profile/Mods/ZZZ_GrimmerHUD/Configure.ps1",
                       "mode":  "managed",
                       "size":  10614,
                       "sha256":  "e27b007b88558f7228cd312d4db62d27c577adda524283236176d7d0fc16e1f6",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/ZZZ_GrimmerHUD/Configure.ps1"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/ZZZ_GrimmerHUD/Configure.ps1"
                   },
                   {
                       "path":  "Profile/Mods/ZZZ_GrimmerHUD/ModInfo.xml",
                       "mode":  "managed",
                       "size":  298,
                       "sha256":  "2f9f7dfd4bf2573a543e8ee00605a149d2259346aec63e1eda71a733bdc4202a",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/ZZZ_GrimmerHUD/ModInfo.xml"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/ZZZ_GrimmerHUD/ModInfo.xml"
                   },
                   {
                       "path":  "Profile/Mods/ZZZ_GrimmerHUD/Settings.json",
                       "mode":  "default",
                       "size":  176,
                       "sha256":  "29d1d7b519b98c827c60b22a95bfc8dc285cab751b4baf4df62a9797f31c7b51",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/ZZZ_GrimmerHUD/Settings.json"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/ZZZ_GrimmerHUD/Settings.json"
                   },
                   {
                       "path":  "Profile/Mods/ZZZ_GrimmerHUD/Config/XUi_InGame/windows.xml",
                       "mode":  "default",
                       "size":  1154,
                       "sha256":  "58df571802df9376baee45dde71e8afda63a285403b39ce97ae46fed0ef8b959",
-                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.16/Profile/Mods/ZZZ_GrimmerHUD/Config/XUi_InGame/windows.xml"
+                      "url":  "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.17/Profile/Mods/ZZZ_GrimmerHUD/Config/XUi_InGame/windows.xml"
                   }
               ]
 }
