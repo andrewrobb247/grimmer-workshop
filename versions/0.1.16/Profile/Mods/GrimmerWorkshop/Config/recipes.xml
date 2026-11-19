@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<configs>
+  <append xpath="/recipes">
+    <recipe name="resourceMechanicalParts" count="1" craft_time="12" tags="grimmerWorkshopAssembly" always_unlocked="true">
+      <ingredient name="resourceForgedIron" count="2" />
+      <ingredient name="resourceScrapPolymers" count="2" />
+    </recipe>
+    <recipe name="resourceElectricParts" count="1" craft_time="12" tags="grimmerWorkshopAssembly" always_unlocked="true">
+      <ingredient name="resourceScrapIron" count="5" />
+      <ingredient name="resourceScrapPolymers" count="3" />
+    </recipe>
+    <recipe name="grimmerLightGrip" count="1" craft_time="20" craft_area="workbench" tags="grimmerWorkshopAttachments" always_unlocked="true">
+      <ingredient name="resourceLeather" count="4" />
+      <ingredient name="resourceScrapPolymers" count="6" />
+      <ingredient name="resourceDuctTape" count="2" />
+    </recipe>
+    <recipe name="grimmerPowerGrip" count="1" craft_time="30" craft_area="workbench" tags="grimmerWorkshopAttachments" always_unlocked="true">
+      <ingredient name="resourceForgedIron" count="8" />
+      <ingredient name="resourceSpring" count="2" />
+      <ingredient name="resourceDuctTape" count="2" />
+    </recipe>
+  </append>
+</configs>
