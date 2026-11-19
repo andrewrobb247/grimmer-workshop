@@ -2,9 +2,9 @@
 
 A solo PvE mod pack for **7 Days to Die V3.4 b10**, with crafting progression through play, nearby storage and a Windows updater.
 
-## Current testing release: 0.1.32
+## Current testing release: 0.1.33
 
-Adds composting and material-saving restored workstations. A Compost Bin processes rotten flesh/fibres into Compost; the alternative Farm Plot uses less nitrate. Four Restored stations keep normal unlocks, fuel, tools and speed. Includes optional support for separately installed Guppy 3.0.3.0 (21-entity conservative spawn companion) and Bdub 3.4.0.2 (practice for 106 vehicle/component outputs). No original external models, sounds or author files are bundled. Actual model/spawn/driving and station checks remain pending. Vehicle inspection development is parked; 0.1.31 ordinary-car menu behavior is not claimed fixed.
+Adds optional Construction practice for 15 distinct Beautiful Bases outputs (16 real recipes). Registered decor receives the Construction craft-time bonus, up to 15% at level 100. Looted 3.4.9 is prepared as an unchanged optional map/POI tracking dependency. Original author assets/files are separately downloaded and not bundled. Existing 641 base rules and Arsenal/Guppy/Bdub integrations remain. Elisk is not included. Live decor/models/map/options/markers/save checks pending.
 
 Optional full DSD Arsenal 1.2.1 support: install the author pack separately from https://www.nexusmods.com/7daystodie/mods/13921 into your Workshop Profile/Mods folder. Workshop adds practice for all 53 weapons and Energy Cells. The pack provides the actual new models and animations; its files are not modified or bundled here. Existing 635 base routes retained; 54 optional routes. Live pack checks pending.
 
@@ -23,6 +23,10 @@ Existing progression includes 641 practice routes, Construction, quality-scaled 
 
 Download original [Guppycur Zombies](https://www.nexusmods.com/7daystodie/mods/4412) and [Bdub Vehicles](https://www.nexusmods.com/7daystodie/mods/342) separately. Workshop recognises exact inspected versions 3.0.3.0 and 3.4.0.2 respectively, in Profile/Mods/Guppy_Zombies_V3 and Profile/Mods/BdubsVehicles. Author files remain unchanged. Existing worlds do not automatically gain a newly generated mechanic trader POI. No vehicle-wreck recovery or new wildlife pack is claimed.
 
+## Optional decor and map
+
+Download original [GNS Beautiful Bases](https://www.nexusmods.com/7daystodie/mods/3318) and [Looted](https://www.nexusmods.com/7daystodie/mods/13822) separately. The inspected Beautiful Bases archive is labelled 3.7 with ModInfo 2.0; Workshop recognises its exact 16-recipe layout. Looted is version 3.4.9. Keep author files intact in Profile/Mods/GNS_BeautifulBases and Profile/Mods/Looted. See [DOWNLOAD-COMPATIBILITY.md](DOWNLOAD-COMPATIBILITY.md) for static checks and remaining live tests.
+
 ## Existing players
 
 Save and close the game. Open your existing Workshop launcher, choose **testing**, click **Check for updates**, then **Install update**. Launch through Workshop again so its configuration helpers run. Keep your current world; these updates do not require starting over. Back up saves before testing.
@@ -31,7 +35,7 @@ Vehicle inspection history is stored as `GrimmerVehicleInspections.xml` alongsid
 
 ## First installation
 
-[Download Grimmer Workshop 0.1.32](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.32.zip)
+[Download Grimmer Workshop 0.1.33](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.33.zip)
 
 Extract the whole Grimmer-Workshop folder somewhere permanent. Keep Steam running, close the game, then use Launch-Workshop.cmd. The launcher uses a separate Profile folder and disables EAC. Full original source, build scripts, tests and documentation are included in the archive. Do not extract an entire new package over an existing profile merely to update; use the launcher.
 
