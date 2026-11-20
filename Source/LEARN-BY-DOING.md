@@ -1,21 +1,22 @@
-# Learn by Doing: 0.1.41 testing build
+# Learn by Doing: 0.1.42 testing build
 
-Learn by Doing now changes the player's native perk and attribute ranks. It is enabled by default when the setting is missing. Open **Gameplay settings / books** in the launcher to change the mode or adjust its speed. Existing ranks are left as they are. While enabled, spendable skill points are banked and restored if the mode is later turned off. The mode still respects the game's native player level and attribute gates for each rank.
+Learn by Doing advances native perk and attribute ranks from practice. It is enabled by default when no preference is saved. The launcher’s **Gameplay settings / books** screen controls it and adjusts the learning speed. Existing ranks are preserved; spendable skill points are banked while the mode is on and restored if it is later turned off. The game’s native player level and attribute requirements still gate rank-ups.
 
-## What currently earns practice
+## What earns practice
 
-- Real damage from mapped rifles, shotguns, spears, clubs, sledges, bows, blades, batons, pistols, machine guns, knuckles, explosives and robotic weapons trains the corresponding weapon perk. A confirmed rifle, bow or pistol headshot adds a bounded bonus.
-- Weapon use gives a smaller share to the parent attribute and, where mapped, a secondary combat perk. Attribute practice can also advance the matching mastery after its native gates are met.
-- Existing completed-craft, useful-harvest, block-upgrade, repair and quest-completion events award the mapped perk and attribute practice.
-- Existing preview counters are transferred once into the live practice ledger when Learn by Doing starts.
+- Confirmed damage to hostile zombies and animals trains its matching weapon perk. Weapon damage is the base route; headshots add a bounded precision bonus. Weapon use also gives a smaller parent-attribute share and relevant secondary combat practice.
+- Completed crafts, useful harvests, repairs, block upgrades, and quest hand-ins train their mapped skills.
+- Movement practice is tied to on-foot distance, sprinting, jumping, encumbrance, crouched movement, and recent combat. Incoming hostile damage, real recovery, and melee attacks while wounded can train Fortitude skills.
+- Armor practice is earned during hostile combat with worn armor. Loot-container opens, changed trader inventory, active lockpick use, trap interaction, and shovel digging have limited activity routes.
+- Attribute practice can advance the matching mastery after its native gates are met. Practice counters and ranks are separate, and no special effect is required to begin weapon-skill progression.
 
-The damage amount is capped per hit and is based on health actually removed, so misses and overkill give no practice. Damage is enough to start training; no special effect is required. Repeatedly applying a status is not a practice route.
+Repeat-sensitive routes are distance based, deduplicated, or cooldown limited. Several proposed specialty bonuses still need tuning and confirmation in a live game, especially fresh stun/bleed attribution and the exact power-attack, encumbrance, and modded-content signals.
 
-## What to look for in-game
+## In-game check
 
-1. Start a solo save with Learn by Doing enabled.
-2. Damage a zombie with the Break-Action Rifle. The Dead Eye progress bar should move; its rank should increase automatically after enough practice and when native requirements are met.
-3. Check the Perception bar too. Existing Perception rank should stay unchanged until its own practice threshold is met.
-4. Open the skill screen to see practice, next-rank progress and current rank. Level-up notices appear when a rank changes.
+1. Open launcher **Gameplay settings / books**, confirm **Learn by Doing** is enabled, and leave learning speed at `1.0` for the first check.
+2. Load the solo save and shoot a zombie with the Break-Action Rifle. The **Dead Eye** practice bar should move immediately; the **Perception** bar should also gain a smaller amount.
+3. After enough practice, Dead Eye should rank up automatically once the game’s native requirements are met. Skill points should remain banked while Learn by Doing is on.
+4. To check another route, sprint on foot, jump across a gap, loot a previously unopened container, trade with a trader, or fight while wearing armor. Compare the related skill bar before and after each activity.
 
-Rifle damage and a few combat bonuses are the first direct weapon routes. Reloads, power attacks, fresh status attribution, passive travel/stealth, loot searches, trading and several other proposal routes still need verified event hooks. Test the progress rate before we tune the default speed or claim those routes are complete. This release has not been validated in a live game session yet.
+If a bar does not move, the first useful details are the selected skill, action, launcher version, and whether the game log contains a `[Grimmer Workshop]` error. Ranks are modified only in the active save; this code has compiled against the installed V3.4 b10 assemblies but has not yet been verified in a live game session.
