@@ -3,7 +3,7 @@
   "version": "0.1.39",
   "gameVersion": "V3.4 b10",
   "gameAssemblySha256": "cb54022ccc862aa673e0ee55dafe67d842b364c80df6916958d171e959656c58",
-  "notes": "Optional tracking-only action-skill preview for eight weapon skills. Real damage earns base practice; confirmed rifle and bow headshots add a bounded bonus. Ranks, attributes and points do not change. Preview is off by default and has a separate adjustable speed. Tooltips identify recorded and not-yet-recorded routes. Compile and focused checks pass; reloads, power attacks, status attribution, passive/mastery routes and in-game balance remain pending. Hotfix: preview definitions now share the existing PracticeRules.xml path so the 0.1.38 updater can install the package.",
+  "notes": "Optional tracking-only action-skill preview for eight weapon skills. Real damage earns base practice; confirmed rifle and bow headshots add a bounded bonus. Ranks, attributes and points do not change. Preview is off by default and has a separate adjustable speed. DSD Arsenal 1.2.1 weapon tags are supported. Fixed a startup failure in the previous hotfix build; rebuilt from the corrected source so storage, nearby crafting and recipe UI patches load again. The preview now shows a brief practice toast during combat. Reloads, power attacks, status attribution, passive/mastery routes and live balance remain pending.",
   "files": [
     {
       "path": "Launch-Workshop.cmd",
@@ -78,8 +78,8 @@
     {
       "path": "Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll",
       "mode": "managed",
-      "size": 90624,
-      "sha256": "48b9589b0cf4826d36aa9cd593ef18780cde733628e2996bb5f1c8ef8c72d014",
+      "size": 91136,
+      "sha256": "2f67dd72bff63b7197c71fb75628ddf731acc5b4d5330b8fc669f5b934fcd68e",
       "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.39/Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll"
     },
     {
@@ -147,3 +147,4 @@
     }
   ]
 }
+

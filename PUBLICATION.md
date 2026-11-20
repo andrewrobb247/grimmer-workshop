@@ -1,6 +1,6 @@
 # Publication status
 
-0.1.39 testing hotfix prepared after PR #2. The first 0.1.39 package added ActionSkillPreview.xml, but the installed 0.1.38 updater rejects new paths before it can update itself. The hotfix moves the 57 preview definitions into the already permitted PracticeRules.xml, removes the extra runtime file, and rebuilds the mod DLL. Focused preview checks pass; the user can retry the testing update after this hotfix is published.
+0.1.39 startup/storage regression repair prepared after PR #3. The previous hotfix moved preview definitions into PracticeRules.xml but its DLL was compiled from stale source and still tried to load the deleted ActionSkillPreview.xml. That stopped Workshop initialization and explains the reported storage, nearby-crafting and recipe-marker failures. This repair rebuilds from the corrected package source, adds visible practice notifications, and keeps DSD Arsenal 1.2.1 weapon tags supported. The complete existing Test.ps1 suite and V3.4 b10 DLL compilation pass; live player confirmation remains pending.
 
 0.1.39 published to testing on 20 November 2026 after PR #2 (merge commit f1f7fcf6c4b0dfaa6a3488c1ab0873fb6619ecf1). The optional action-skill recorder is off by default, has a separate preview speed, and does not award ranks, attributes, or points. The mod compiled against installed V3.4 b10 assemblies and the focused preview checks passed. Live combat feel, settings persistence in the installed launcher, and player save behavior remain on the playtest checklist.
 
