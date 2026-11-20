@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skills>
+  <skill id="perkDeadEye" name="Dead Eye" attribute="attPerception" action="Deal real rifle damage; small precision bonus for confirmed headshots." weaponSkill="craftingRifles" />
+  <skill id="perkDemolitionsExpert" name="Demolitions Expert" attribute="attPerception" action="Deal real explosive damage to hostiles; useful destruction of previously intact world obstacles, with a strict area budget." />
+  <skill id="perkJavelinMaster" name="Spear Master" attribute="attPerception" action="Deal real spear damage, including power attacks." weaponSkill="craftingSpears" />
+  <skill id="perkFlurryOfPerception" name="Quick and Perceptive" attribute="attPerception" action="Spear combat; small secondary share of the same confirmed hit." />
+  <skill id="perkInfiltrator" name="The Infiltrator" attribute="attPerception" action="Discover previously unrecorded live mines/traps at close range; safely clear those hazards. Never require taking trap damage." />
+  <skill id="perkAnimalTracker" name="Animal Tracker" attribute="attPerception" action="First close-range discovery of a living wild animal, then successfully hunt it. Discovery route must work at rank zero without tracking markers." />
+  <skill id="perkPenetrator" name="The Penetrator" attribute="attPerception" action="Confirmed rifle headshots and damage to armoured hostiles; verified penetration may earn a bounded bonus." />
+  <skill id="perkTreasureHunter" name="Treasure Hunter" attribute="attPerception" action="Complete buried-supply/treasure digs and first-open buried treasure; useful excavation inside the active objective area." />
+  <skill id="perkSalvageOperations" name="Salvage Operations" attribute="attPerception" action="Recover real materials with salvage tools from world objects; no rewards for damage without recovered resources." />
+  <skill id="perkPerceptionMastery" name="Perception Mastery" attribute="attPerception" action="Small advanced-practice share from Perception activities once the native mastery entry requirement is met." />
+  <skill id="perkBoomstick" name="Boomstick" attribute="attStrength" action="Deal real shotgun damage to hostiles." weaponSkill="craftingShotguns" />
+  <skill id="perkPummelPete" name="Pummel Pete" attribute="attStrength" action="Deal real club/bat damage to hostiles." weaponSkill="craftingClubs" />
+  <skill id="perkSkullCrusher" name="Skull Crusher" attribute="attStrength" action="Deal real sledgehammer damage to hostiles." weaponSkill="craftingSledgehammers" />
+  <skill id="perkGrandSlam" name="Grand Slam" attribute="attStrength" action="Club/bat/sledge power hits and actual knockdowns; no extra credit for striking an already defeated target." />
+  <skill id="perkFlurryOfStrength" name="Big and Fast" attribute="attStrength" action="Club/bat/sledge combat; small secondary share of confirmed hits." />
+  <skill id="perkPackMule" name="Pack Mule" attribute="attStrength" action="Travel on foot with genuine encumbrance, credited by distance and load. Standing still, teleporting or riding gives none." />
+  <skill id="perkStrengthMastery" name="Strength Mastery" attribute="attStrength" action="Small advanced-practice share from Strength activities once the native mastery entry requirement is met." />
+  <skill id="perkMiner69r" name="Miner 69'er" attribute="attStrength" action="Extract real wood, stone and ore with the appropriate mining/harvesting tools." />
+  <skill id="perkMotherLode" name="Mother Lode" attribute="attStrength" action="Recover real natural resources while mining; normalize bulk yields so large stacks cannot bypass the curve." />
+  <skill id="perkJunkMiner" name="Junk Miner" attribute="attStrength" action="Recover resources from non-natural world blocks and scrap piles with appropriate tools; exclude player-placed break/rebuild loops." />
+  <skill id="perkBrawler" name="The Brawler" attribute="attFortitude" action="Deal real fist/knuckle damage to hostiles." />
+  <skill id="perkMachineGunner" name="Machine Gunner" attribute="attFortitude" action="Deal real machine-gun damage to hostiles." />
+  <skill id="perkFlurryOfFortitude" name="Lightning Hands" attribute="attFortitude" action="Fist/knuckle combat; small secondary share of confirmed hits." />
+  <skill id="perkTheHuntsman" name="The Huntsman" attribute="attFortitude" action="Harvest genuine animal corpses for meat, hide and bone; each corpse has a total practice budget." />
+  <skill id="perkPainTolerance" name="Pain Tolerance" attribute="attFortitude" action="Survive a genuine hostile encounter with incoming enemy damage; bounded encounter award, no self/fire/fall/friendly damage." />
+  <skill id="perkFortitudeMastery" name="Fortitude Mastery" attribute="attFortitude" action="Small advanced-practice share from Fortitude activities once the native mastery entry requirement is met." />
+  <skill id="perkSiphoningStrikes" name="Siphoning Strikes" attribute="attFortitude" action="Successful melee combat while actually wounded; bounded recovery/combat share without requiring the perk effect at rank zero." />
+  <skill id="perkHealingFactor" name="Healing Factor" attribute="attFortitude" action="Recover health actually lost to recent hostile damage; budget by original injury and exclude self-inflicted healing loops." />
+  <skill id="perkSlowMetabolism" name="Iron Gut" attribute="attFortitude" action="Restore genuine hunger/thirst with food and drink during active play. Nutrition variety can help; consuming at full needs gives none." />
+  <skill id="perkRuleOneCardio" name="Rule 1: Cardio" attribute="attFortitude" action="Sustained on-foot sprinting credited by valid distance and stamina effort; no running against a wall." />
+  <skill id="perkArchery" name="Archery" attribute="attAgility" action="Deal real bow/crossbow damage to hostiles." weaponSkill="craftingBows" />
+  <skill id="perkGunslinger" name="Gunslinger" attribute="attAgility" action="Deal real pistol/revolver/SMG damage according to native weapon perk tags." />
+  <skill id="perkDeepCuts" name="Deep Cuts" attribute="attAgility" action="Deal real knife/blade damage; skinning offers a smaller useful-action route. Bleed damage is attributed once to its originating attack." weaponSkill="craftingBlades" />
+  <skill id="perkFlurryOfAgility" name="Whirlwind" attribute="attAgility" action="Knife/blade combat; small secondary share of confirmed hits." />
+  <skill id="perkRunAndGun" name="Run and Gun" attribute="attAgility" action="Move on foot while reloading a weapon used in a recent hostile encounter; no empty-magazine idle reload farming." />
+  <skill id="perkHardTarget" name="Hard Target" attribute="attAgility" action="Move/sprint while actively pursued or attacked by a hostile, using distance and encounter budgets rather than requiring damage taken." />
+  <skill id="perkParkour" name="Parkour" attribute="attAgility" action="Meaningful jumps/vaults with displacement or height gain during travel; repeated jumps in the same spot diminish to zero." />
+  <skill id="perkAgilityMastery" name="Agility Mastery" attribute="attAgility" action="Small advanced-practice share from Agility activities once the native mastery entry requirement is met." />
+  <skill id="perkHiddenStrike" name="Hidden Strike" attribute="attAgility" action="Deal confirmed sneak-attack damage to unaware hostiles." />
+  <skill id="perkFromTheShadows" name="From The Shadows" attribute="attAgility" action="Travel undetected near actual unaware hostiles; first infiltration/escape per encounter. Empty-room crouching gives none." />
+  <skill id="perkElectrocutioner" name="Electrocutioner" attribute="attIntellect" action="Deal real baton/stun-baton damage to hostiles." items="meleeWpnBatonT0PipeBaton,meleeWpnBatonT2StunBaton" />
+  <skill id="perkTurrets" name="Robotics Inventor" attribute="attIntellect" action="Player-owned deployed turret/robotic-sledge damage to hostiles, plus actual robotics assembly/repair; retain ownership attribution." />
+  <skill id="perkFlurryOfIntellect" name="Calculated Attack" attribute="attIntellect" action="Baton combat; small secondary share of confirmed hits." />
+  <skill id="perkBetterBarter" name="Better Barter" attribute="attIntellect" action="Complete genuine item trades with traders, with daily economic budgets and reverse-transaction suppression; no buy/sell-back loop." />
+  <skill id="perkDaringAdventurer" name="The Daring Adventurer" attribute="attIntellect" action="Complete unique trader quests and higher difficulty objectives; credit once per quest instance." />
+  <skill id="perkCharismaticNature" name="Charismatic Nature" attribute="attIntellect" action="Finish cooperative objectives/support allies; solo alternative through successful trader quest hand-ins. No party required to start." />
+  <skill id="perkPhysician" name="Physician" attribute="attIntellect" action="Restore real missing health or treat a genuine injury with medical items; credit each injury/recovery only once." />
+  <skill id="perkAdvancedEngineering" name="Advanced Engineering" attribute="attIntellect" action="Complete useful station/electrical/construction production, repair machinery or install a newly working circuit; no placement/pickup loops." />
+  <skill id="perkGreaseMonkey" name="Grease Monkey" attribute="attIntellect" action="Assemble vehicle components/vehicles, repair real vehicle damage, and maintain them; ordinary driving offers a small capped route." />
+  <skill id="perkIntellectMastery" name="Intellect Mastery" attribute="attIntellect" action="Small advanced-practice share from Intellect activities once the native mastery entry requirement is met." />
+  <skill id="perkLightArmor" name="Light Armor" attribute="attGeneralPerks" action="Move and fight in light armour during genuine hostile encounters; credit activity, not standing in armour." />
+  <skill id="perkMediumArmor" name="Medium Armor" attribute="attGeneralPerks" action="Move and fight in medium armour during genuine hostile encounters; mixed sets split a single armour-practice budget." />
+  <skill id="perkHeavyArmor" name="Heavy Armor" attribute="attGeneralPerks" action="Move and fight in heavy armour during genuine hostile encounters; no reward for deliberately taking self damage." />
+  <skill id="perkMasterChef" name="Master Chef" attribute="attGeneralPerks" action="Complete actual food/drink preparation, scaled to recipe work and cost; exclude wrapping/unwrapping the same food." />
+  <skill id="perkLivingOffTheLand" name="Living off the Land" attribute="attGeneralPerks" action="Harvest mature planted crops and produce seeds/compost; no credit for planting and immediately removing the same seed." />
+  <skill id="perkLockPicking" name="Lock Picking" attribute="attGeneralPerks" action="Successfully open a previously locked world container with lockpicks; never credit relocking owned storage." />
+  <skill id="perkLuckyLooter" name="Lucky Looter" attribute="attGeneralPerks" action="First search of genuine world loot, with lower budget for trash and no reopening player containers." />
+</skills>
