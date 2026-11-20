@@ -1,7 +1,13 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current testing release: 0.1.35. Latest published release: 0.1.35.
+Updated 19 November 2026. Current testing release: 0.1.36. Latest published release: 0.1.36.
 Keep using the current world. Pending means not yet confirmed in live play.
+
+## 0.1.36 Display settings
+
+- [ ] Install, then close/reopen launcher. Display settings opens in front of launcher; closing returns to launcher.
+- [ ] Existing saved values remain; change preview controls, save, close and reopen. Values persist; next game start applies HUD changes.
+- Local verified: Windows PowerShell 5.1 preview draw, control save/reload, generated XML, spaced profile paths, original defaults untouched, missing/corrupt file errors propagate.
 
 ## 0.1.35 audit repairs - pending live checks
 
@@ -10,7 +16,7 @@ Keep using the current world. Pending means not yet confirmed in live play.
 - [ ] Confirm normal startup, crafting and existing save contents; intended roster weighting affects new spawns, not already present zombies.
 - [ ] Compare cultivated crop stages, wildlife population/behaviour and vehicle/weapon models/animations during normal play.
 
-## Player confirmations - 19 November 2026
+## Player confirmations �?" 19 November 2026
 
 - [x] Looted map appears to work in normal play.
 - [x] Beautiful Bases decorations can be taken from walls and placed in the player's base.

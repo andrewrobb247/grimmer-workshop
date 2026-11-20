@@ -1,6 +1,6 @@
 # Next tasks
 
-- Current testing release: 0.1.35; audit repairs published and verified for normal launcher delivery.
+- Current testing release: 0.1.36; launcher-owned Display settings dialog, visible failure reporting and isolated preview/save checks. Reopen launcher after installing.
 - Six optional originals installed, including Livelier Wildlife; 284 original pack files hash-match recorded originals. No originals modified by the audit.
 - Player confirmed: Looted map works so far, Beautiful Bases wall pickup/replacement and decor Construction awards, new zombie appearances.
 - Fixed malformed zombie-filter companion metadata and English item text gaps; see AUDIT-REPORT.md. Next launch/gameplay checks remain in PLAYTEST-CHECKLIST.md.
