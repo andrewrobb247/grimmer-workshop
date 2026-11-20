@@ -337,3 +337,13 @@ User reports ordinary vehicles still immediately loot on 0.1.31; locked police-c
 - [ ] Chainsaws, augers, repair hammers, nailguns and weapons reject them.
 - [ ] Removing and reinstalling gives no practice; mods remain after save/reload.
 - [ ] Original melee grips retain their previous stats and compatibility.
+
+## Action-skill practice preview (0.1.39 testing)
+
+- Enable the optional preview in Gameplay settings / books, save, restart, then verify the default character ranks and skill points did not change.
+- Use body hits and confirmed headshots with a rifle and bow; check base practice and the Dead Eye / Archery bonus.
+- Test ordinary hits with spear, shotgun, club, sledge, knife and baton. Confirm only the corresponding skill and one parent attribute accrue practice.
+- Hit multiple enemies or use multiple shotgun pellets in one attack; check the parent attribute is not multiplied by callbacks.
+- Verify misses, overkill, player damage, non-weapon damage and multiplayer produce no preview practice.
+- Check launcher values save and persist after reopening. Disable the preview and verify counters stop changing.
+- Reloads, aim bonuses, power attacks, slow/bleed/stun attribution, passive skills and masteries are deliberately not counted in this first preview.

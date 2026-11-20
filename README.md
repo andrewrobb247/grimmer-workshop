@@ -2,9 +2,11 @@
 
 A solo PvE mod pack for **7 Days to Die V3.4 b10**, with crafting progression through play, nearby storage and a Windows updater.
 
-## Current testing release: 0.1.38
+## Current testing release: 0.1.39
 
-Recipe practice markers now show the matching skill icon from the Crafting screen. Two-skill recipes show both symbols; hovering lists active skills/caps. Capped routes disappear independently. No practice rates, recipes, items or skill points changed. Install normally, then restart the game. Includes powered utilities from 0.1.37 and all earlier fixes. [Action-based skills proposal](ACTION-SKILLS-PROPOSAL.md) remains discussion-only.
+Recipe practice markers show matching native skill icons; two-skill routes show both. Includes powered utilities from 0.1.37 and earlier fixes.
+
+The optional action-skill practice preview records real damage for eight combat weapon skills, plus confirmed headshot bonuses for Dead Eye and Archery. It is off by default, has a separate learning-speed setting, and does not change ranks, attributes or skill points. Other proposed routes are labelled as not yet recorded. See [ACTION-SKILL-PREVIEW.md](Source/ACTION-SKILL-PREVIEW.md) and the playtest checklist.
 
 Optional full DSD Arsenal 1.2.1 support: install the author pack separately from https://www.nexusmods.com/7daystodie/mods/13921 into your Workshop Profile/Mods folder. Workshop adds practice for all 53 weapons and Energy Cells. The pack provides the actual new models and animations; its files are not modified or bundled here. Existing 635 base routes retained; 54 optional routes. Live pack checks pending.
 
@@ -39,7 +41,7 @@ Vehicle inspection history is stored as `GrimmerVehicleInspections.xml` alongsid
 
 ## First installation
 
-[Download Grimmer Workshop 0.1.37](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.38.zip)
+[Download Grimmer Workshop 0.1.37](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.39.zip)
 
 Extract the whole Grimmer-Workshop folder somewhere permanent. Keep Steam running, close the game, then use Launch-Workshop.cmd. The launcher uses a separate Profile folder and disables EAC. Full original source, build scripts, tests and documentation are included in the archive. Do not extract an entire new package over an existing profile merely to update; use the launcher.
 

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<workshop practicePerLevel="40" practiceGrowth="0.5" learningSpeed="1" storageRange="20" nearbyCrafting="true" scrapPracticeFraction="0.25" craftedScrapPracticeFraction="0.1" activityLearningSpeed="1" practiceNotifications="true" actionSkillPreview="false" actionPreviewSpeed="1">
+  <books craftingMagazines="false" perkBooks="true" schematics="true" />
+</workshop>
