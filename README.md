@@ -2,9 +2,9 @@
 
 A solo PvE mod pack for **7 Days to Die V3.4 b10**, with crafting progression through play, nearby storage and a Windows updater.
 
-## Current testing release: 0.1.36
+## Current testing release: 0.1.37
 
-Repairs the Display settings button: opens the enemy health/name HUD configurator directly as a launcher-owned dialog, rather than launching an unobserved hidden process. Missing/corrupt file errors are visible. Preview rendering, modal ownership/return to launcher, save/reload and generated HUD XML verified under Windows PowerShell 5.1. Existing personal settings are preserved. Install using the current testing updater, then close/reopen the launcher before clicking Display settings. HUD changes apply at the next game start. Includes prior 0.1.35 text/metadata audit repairs.
+Adds Workshop Drive (Electrical35,20 W) for25% faster supported workstation queues within2 blocks X/Y/Z; fuel/tools remain and long unloaded catch-up uses native time. Adds Irrigation Controller (Electrical25,10 W), requiring adjacent world water and giving cultivated crop stages an extra10% shorter interval within3 horizontal/1 vertical blocks. Native relay models; no new external download.647 practice routes, all643 previous retained. Local compile/regression/native checks pass; actual power/growth timing/save checks remain. [Action-based skills proposal](ACTION-SKILLS-PROPOSAL.md) maps all five attributes and57 gameplay perks; point spending/ranks are unchanged in this release. See [utility details](UTILITIES.md) and [creature assessment](CREATURE-REVIEW.md).
 
 Optional full DSD Arsenal 1.2.1 support: install the author pack separately from https://www.nexusmods.com/7daystodie/mods/13921 into your Workshop Profile/Mods folder. Workshop adds practice for all 53 weapons and Energy Cells. The pack provides the actual new models and animations; its files are not modified or bundled here. Existing 635 base routes retained; 54 optional routes. Live pack checks pending.
 
@@ -39,7 +39,7 @@ Vehicle inspection history is stored as `GrimmerVehicleInspections.xml` alongsid
 
 ## First installation
 
-[Download Grimmer Workshop 0.1.36](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.36.zip)
+[Download Grimmer Workshop 0.1.37](https://github.com/andrewrobb247/grimmer-workshop/raw/refs/heads/main/Grimmer-Workshop-0.1.37.zip)
 
 Extract the whole Grimmer-Workshop folder somewhere permanent. Keep Steam running, close the game, then use Launch-Workshop.cmd. The launcher uses a separate Profile folder and disables EAC. Full original source, build scripts, tests and documentation are included in the archive. Do not extract an entire new package over an existing profile merely to update; use the launcher.
 
