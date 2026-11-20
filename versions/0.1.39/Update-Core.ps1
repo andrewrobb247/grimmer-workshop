@@ -584,7 +584,7 @@ function Assert-WorkshopPlainPath([string]$Path) {
 
 function Resolve-WorkshopFile([string]$Root, [string]$Relative) {
     $allowed = @('Launch-Workshop.cmd','Launch-Workshop.ps1','Launcher.ps1','Update-Core.ps1','Update-Workshop.cmd','Rollback-Workshop.cmd','Open-Display-Settings.cmd','README.md','Installed-Release.json','UpdaterSettings.json')
-    $modAllowed = $Relative -match '^Profile/Mods/(GrimmerWorkshop|ZZZ_GrimmerHUD)/(ModInfo\.xml|GrimmerWorkshop\.dll|PracticeRules\.xml|CRAFTING-ROUTES\.csv|WorkshopSettings\.xml|ActionSkillPreview\.xml|Settings\.json|Configure\.ps1|Config/(items\.xml|recipes\.xml|XUi_InGame/windows\.xml))$'
+    $modAllowed = $Relative -match '^Profile/Mods/(GrimmerWorkshop|ZZZ_GrimmerHUD)/(ModInfo\.xml|GrimmerWorkshop\.dll|PracticeRules\.xml|CRAFTING-ROUTES\.csv|WorkshopSettings\.xml|Settings\.json|Configure\.ps1|Config/(items\.xml|recipes\.xml|XUi_InGame/windows\.xml))$'
     if (($allowed -notcontains $Relative) -and -not $modAllowed) { throw "Update path is not permitted: $Relative" }
     $rootPath = [IO.Path]::GetFullPath($Root).TrimEnd('\')
     $target = [IO.Path]::GetFullPath((Join-Path $rootPath $Relative.Replace('/','\')))
@@ -627,7 +627,7 @@ function Get-WorkshopPlan([string]$Root, $Manifest) {
         $target = Resolve-WorkshopFile $Root $entry.path
         if ($seen.ContainsKey($entry.path)) { throw 'Duplicate release path.' }; $seen[$entry.path] = $true
         if ($entry.mode -notin @('managed','default') -or $entry.sha256 -notmatch '^[a-f0-9]{64}$' -or $entry.size -lt 1 -or $entry.size -gt 20971520) { throw 'Invalid release file metadata.' }
-        if ($entry.path -match '(WorkshopSettings\.xml|ActionSkillPreview\.xml|Settings\.json|Config/XUi_InGame/windows\.xml)$' -and $entry.mode -ne 'default') { throw 'Personal settings must be preserved.' }
+        if ($entry.path -match '(WorkshopSettings\.xml|Settings\.json|Config/XUi_InGame/windows\.xml)$' -and $entry.mode -ne 'default') { throw 'Personal settings must be preserved.' }
         $total += $entry.size
         if ($total -gt 104857600) { throw 'Release is too large.' }
         $prefix = "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/$($Manifest.version)/"

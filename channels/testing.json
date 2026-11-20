@@ -3,7 +3,7 @@
   "version": "0.1.39",
   "gameVersion": "V3.4 b10",
   "gameAssemblySha256": "cb54022ccc862aa673e0ee55dafe67d842b364c80df6916958d171e959656c58",
-  "notes": "Optional tracking-only action-skill preview for eight weapon skills. Real damage earns base practice; confirmed rifle and bow headshots add a bounded bonus. Ranks, attributes and points do not change. Preview is off by default and has a separate adjustable speed. Tooltips identify recorded and not-yet-recorded routes. Compile and focused checks pass; reloads, power attacks, status attribution, passive/mastery routes and in-game balance remain pending.",
+  "notes": "Optional tracking-only action-skill preview for eight weapon skills. Real damage earns base practice; confirmed rifle and bow headshots add a bounded bonus. Ranks, attributes and points do not change. Preview is off by default and has a separate adjustable speed. Tooltips identify recorded and not-yet-recorded routes. Compile and focused checks pass; reloads, power attacks, status attribution, passive/mastery routes and in-game balance remain pending. Hotfix: preview definitions now share the existing PracticeRules.xml path so the 0.1.38 updater can install the package.",
   "files": [
     {
       "path": "Launch-Workshop.cmd",
@@ -29,8 +29,8 @@
     {
       "path": "Update-Core.ps1",
       "mode": "managed",
-      "size": 107827,
-      "sha256": "461f68d7f4ebd6722ab794851a04235f8f49925761d5423c1f69338883f72f98",
+      "size": 107779,
+      "sha256": "4bb2c335ae66061f5c7fe0e39db5c02651ec5e57198209a6f6d2481c118dfe2a",
       "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.39/Update-Core.ps1"
     },
     {
@@ -79,7 +79,7 @@
       "path": "Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll",
       "mode": "managed",
       "size": 90624,
-      "sha256": "775d55194c8cc949538857d7ffc88b10498af521dbeb3459c81f88a77a0a166f",
+      "sha256": "48b9589b0cf4826d36aa9cd593ef18780cde733628e2996bb5f1c8ef8c72d014",
       "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.39/Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll"
     },
     {
@@ -92,8 +92,8 @@
     {
       "path": "Profile/Mods/GrimmerWorkshop/PracticeRules.xml",
       "mode": "managed",
-      "size": 78644,
-      "sha256": "03b2dfc55a1a1aece97d71d490c9b3e31bb615ef71a9e52ced4effc0c78a4034",
+      "size": 90123,
+      "sha256": "334b2ff77de3e7433d9abae52702fd821c8413fdc0f1ab615a4dff01399b1539",
       "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.39/Profile/Mods/GrimmerWorkshop/PracticeRules.xml"
     },
     {
@@ -144,13 +144,6 @@
       "size": 1154,
       "sha256": "58df571802df9376baee45dde71e8afda63a285403b39ce97ae46fed0ef8b959",
       "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.39/Profile/Mods/ZZZ_GrimmerHUD/Config/XUi_InGame/windows.xml"
-    },
-    {
-      "path": "Profile/Mods/GrimmerWorkshop/ActionSkillPreview.xml",
-      "mode": "managed",
-      "size": 11141,
-      "sha256": "527898c7b5002bfe11df94815f103deabb46bda8ef1382d5f248c8ca8a433b46",
-      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.39/Profile/Mods/GrimmerWorkshop/ActionSkillPreview.xml"
     }
   ]
 }
