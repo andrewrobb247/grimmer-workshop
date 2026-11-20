@@ -1,4 +1,4 @@
-# Learn by Doing: 0.1.42 testing build
+# Learn by Doing: 0.1.43 testing build
 
 Learn by Doing advances native perk and attribute ranks from practice. It is enabled by default when no preference is saved. The launcher’s **Gameplay settings / books** screen controls it and adjusts the learning speed. Existing ranks are preserved; spendable skill points are banked while the mode is on and restored if it is later turned off. The game’s native player level and attribute requirements still gate rank-ups.
 

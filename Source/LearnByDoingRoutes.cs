@@ -96,7 +96,8 @@ namespace GrimmerWorkshop
         {
             EntityPlayerLocal player = Workshop.Player();
             if (!LearnByDoing.Enabled || player == null || !ReferenceEquals(target, player) || source == null || before <= player.Health) return;
-            if (source.getEntityId() == player.entityId) return;
+            // Environmental/fall/self damage has no attacking entity id and must not train combat resilience.
+            if (source.getEntityId() <= 0 || source.getEntityId() == player.entityId) return;
             PlayerState state = State(player);
             state.LastCombat = Time.realtimeSinceStartup;
             state.LastInjury = Time.realtimeSinceStartup;
