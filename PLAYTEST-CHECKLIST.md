@@ -1,7 +1,18 @@
 # Workshop playtest checklist
 
-Updated 19 November 2026. Current testing release: 0.1.36. Latest published release: 0.1.36.
+Updated 20 November 2026. Current testing release: 0.1.37. Latest published release: 0.1.37.
 Keep using the current world. Pending means not yet confirmed in live play.
+
+## 0.1.37 utilities - live checks pending
+
+- [ ] Electrical25/35 unlock Controller/Drive; costs and green practice icons correct, no magazine or point changes.
+- [ ] Place/wire native relay models: Controller10 W/Drive20 W; confirm circuit load, power failure and pickup/save/reload.
+- [ ] Drive within2 blocks X/Y/Z of station base: supported queues25% faster, tools/fuel remain; without power native speed. Multiple drives do not stack; forge/compost unaffected.
+- [ ] Controller touches water on a face, covers cultivated soil within3 X/Z and1 Y; new stages take an additional10% less time. Ordinary plots/yields/sunlight unchanged; controllers do not stack.
+- [ ] Unloaded catch-up gets no assumed power bonus; existing queued work/materials, restored stations and stored practice survive restart.
+- [ ] Save/rollback retains utility blocks/companion; no invisible models, duplicate outputs or unexpected ingredient usage.
+
+Latest reviewed0.1.36 session (20 November09:12 onward): enemy/text companions loaded and zero ERR/EXC lines. Two known church-bell remove-selector warnings are benign; two ActionTarget-to-Vector3 warnings have unconfirmed origin and remain under observation. This log does not prove driving, crop speed or animation correctness.
 
 ## 0.1.36 Display settings
 
