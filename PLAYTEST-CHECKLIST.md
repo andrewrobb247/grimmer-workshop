@@ -1,7 +1,13 @@
 # Workshop playtest checklist
 
-Updated 20 November 2026. Current testing release: 0.1.37. Latest published release: 0.1.37.
+Updated 20 November 2026. Current testing release: 0.1.38. Latest published release: 0.1.38.
 Keep using the current world. Pending means not yet confirmed in live play.
+
+## 0.1.38 recipe skill icons
+
+- [ ] Recipe-list symbols match the Crafting screen: Construction hammer, Food fork, Seeds crops, etc.
+- [ ] Two-skill recipes show both active skill icons; hover lists both names and caps. Reaching one cap removes just that route's icon without reopening crafting.
+- [ ] Long names, favourites and recipe locks remain readable; no-practice/full-cap recipes have no training marker.
 
 ## 0.1.37 utilities - live checks pending
 

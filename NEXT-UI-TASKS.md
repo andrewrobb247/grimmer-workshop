@@ -1,5 +1,7 @@
 # Next tasks
 
+- 0.1.38: recipe markers use native skill icons, with two icons for two practice routes. Hover/cap behaviour retained; current release.
+
 - 0.1.37: original powered Workshop Drive and Irrigation Controller implemented for testing; four new practice routes (647 total). Existing updater delivery; no external download.
 - Five attributes and all 57 native gameplay perks mapped in ACTION-SKILLS-PROPOSAL.md and Source/ACTION-SKILL-MAP.json. Proposal only: do not remove points/change character ranks until discussed.
 - After agreement: shadow practice ledger, event attribution/save persistence, then complete optional point-free mode with migration.
