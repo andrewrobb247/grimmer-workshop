@@ -1,5 +1,7 @@
 # Publication status
 
+0.1.39 testing hotfix prepared after PR #2. The first 0.1.39 package added ActionSkillPreview.xml, but the installed 0.1.38 updater rejects new paths before it can update itself. The hotfix moves the 57 preview definitions into the already permitted PracticeRules.xml, removes the extra runtime file, and rebuilds the mod DLL. Focused preview checks pass; the user can retry the testing update after this hotfix is published.
+
 0.1.39 published to testing on 20 November 2026 after PR #2 (merge commit f1f7fcf6c4b0dfaa6a3488c1ab0873fb6619ecf1). The optional action-skill recorder is off by default, has a separate preview speed, and does not award ranks, attributes, or points. The mod compiled against installed V3.4 b10 assemblies and the focused preview checks passed. Live combat feel, settings persistence in the installed launcher, and player save behavior remain on the playtest checklist.
 
 0.1.38 published to testing on 20 November 2026. Payload/source commit 5db000d76796ee1bebf823ec2dfc1bf7e9207347; channel commit d95b392914af6f355e45c327c689adc8865f5432. All 23 hosted payload/identity/archive/README files matched staging before activation. Original 0.1.10 updater accepts the 20 schema-1 runtime files. Use existing launcher, then restart game to regenerate recipe UI.
