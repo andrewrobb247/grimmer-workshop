@@ -17,7 +17,7 @@ namespace GrimmerWorkshop
             Workshop.Root = mod.Path;
             Workshop.Load();
             new Harmony("grimmer.workshop.core").PatchAll(Assembly.GetExecutingAssembly());
-            Log.Out("[Grimmer Workshop] 0.1.44 loaded. Learn by Doing: " + LearnByDoing.Enabled + ". Solo V3.4 b10. F1: grimmer help");
+            Log.Out("[Grimmer Workshop] 0.1.45 loaded. Learn by Doing: " + LearnByDoing.Enabled + ". Solo V3.4 b10. F1: grimmer help");
         }
     }
 

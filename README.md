@@ -1,3 +1,7 @@
+## 0.1.45 - Complete firearm and blade bonuses
+
+Adds confirmed hip-fire hits for Run and Gun and capped, attributable BloodLoss tick practice for Deep Cuts after that skill applies a fresh bleed. These close two gaps in the 0.1.44 specialty set. Builds against V3.4 b10; in-game event attribution and balance still need playtesting.
+
 ## 0.1.44 - Combat specialty bonuses
 
 Added specialty practice for aimed rifle hits and accurate kill streaks, fully drawn bow hits, spear power hits and fresh slows, shotgun stuns and leg injuries, fresh knife bleeds, charged baton hits and fresh shocks, shock follow-ups, connected melee sequences, and combat reloads. Grand Slam now specifically rewards sprinting club/sledge power attacks and multiple knockdowns. Base weapon damage still always earns practice, and no specialty effect is required to start a skill. The added event hooks compile against V3.4 b10; live attribution and balance still need your in-game playtest.

@@ -5,13 +5,13 @@ Learn by Doing advances native perk and attribute ranks from practice. It is ena
 ## What earns practice
 
 - Confirmed damage to hostile zombies and animals always trains its matching weapon perk. Weapon damage is the base route; aimed rifle hits and accurate kill streaks, fully drawn bow hits, spear power hits/fresh slows, shotgun stuns/leg injuries, fresh knife bleeds, charged baton hits/fresh shocks and one shock follow-up add bounded specialty practice.
-- Connected hit sequences train the relevant secondary attack-speed perk. Clubs and sledges gain extra practice for power hits and knockdowns; Grand Slam rewards sprinting power attacks and knocking down multiple enemies in a short window. Combat reload practice requires recent weapon use, and Run and Gun additionally requires recent movement.
+- Connected hit sequences train the relevant secondary attack-speed perk. Clubs and sledges gain extra practice for power hits and knockdowns; Grand Slam rewards sprinting power attacks and knocking down multiple enemies in a short window. Run and Gun gains practice from confirmed hip-fire hits and combat reloads require recent weapon use; its moving-reload bonus additionally requires recent movement.
 - Completed crafts, useful harvests, repairs, block upgrades, and quest hand-ins train their mapped skills.
 - Movement practice is tied to on-foot distance, sprinting, jumping, encumbrance, crouched movement, and recent combat. Incoming hostile damage, real recovery, and melee attacks while wounded can train Fortitude skills.
 - Armor practice is earned during hostile combat with worn armor. Loot-container opens, changed trader inventory, active lockpick use, trap interaction, and shovel digging have limited activity routes.
 - Attribute practice can advance the matching mastery after its native gates are met. Practice counters and ranks are separate, and no special effect is required to begin weapon-skill progression.
 
-Repeat-sensitive routes are distance based, deduplicated, or cooldown limited. The combat bonuses above are wired to the game's current damage, buff, aim, draw, reload and charge signals, but their exact attribution and balance still need confirmation in a live game. Power attacks use the available damage multiplier/attack context as an approximation; modded weapons may expose different names or signals.
+Repeat-sensitive routes are distance based, deduplicated, or cooldown limited. Deep Cuts' bleed damage credit only follows BloodLoss ticks after the player's fresh blade bleed, and is capped to five ticks per bleed. The combat bonuses above are wired to the game's current damage, buff, aim, draw, reload and charge signals, but their exact attribution and balance still need confirmation in a live game. Power attacks use the available damage multiplier/attack context as an approximation; modded weapons may expose different names or signals.
 
 ## In-game check
 

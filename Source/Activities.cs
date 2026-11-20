@@ -82,13 +82,13 @@ namespace GrimmerWorkshop
                 var player = Workshop.Player();
                 if (__state == null) return;
                 LearnByDoingRoutes.IncomingDamage(__instance, __0, __state.Health);
-                if (player == null || __0 == null || __state.Health <= 0 || !(__instance is EntityZombie || __instance is EntityAnimal) || __0.getEntityId() != player.entityId) return;
                 int damage = Math.Min(__state.Health, Math.Max(0, __state.Health - __instance.Health));
-                if (damage > 0) {
-                    LearnByDoingRoutes.Combat(__instance, __0, damage, __0.bodyParts == EnumBodyPartHit.Head, __state.Buffs);
-                    Activities.Equipment(__0.AttackingItem, Math.Min(3, damage / 25.0), false);
-                }
-                    ActionSkillPreview.RecordWeaponDamage(player, __0.AttackingItem, damage, __0.bodyParts == EnumBodyPartHit.Head);
+                if (damage <= 0) return;
+                LearnByDoingRoutes.BleedTick(__instance, __0, damage);
+                if (player == null || __0 == null || __state.Health <= 0 || !(__instance is EntityZombie || __instance is EntityAnimal) || __0.getEntityId() != player.entityId) return;
+                LearnByDoingRoutes.Combat(__instance, __0, damage, __0.bodyParts == EnumBodyPartHit.Head, __state.Buffs);
+                Activities.Equipment(__0.AttackingItem, Math.Min(3, damage / 25.0), false);
+                ActionSkillPreview.RecordWeaponDamage(player, __0.AttackingItem, damage, __0.bodyParts == EnumBodyPartHit.Head);
             } catch(Exception error) { Log.Error("[Grimmer Workshop] Combat practice: " + error); }
         }
     }

@@ -17,18 +17,21 @@ namespace GrimmerWorkshop
         {
             public Vector3 Position;
             public float NextSample, LastCombat, LastInjury, LastMove;
-            public float LastAim, LastFullDraw, LastKill, TraderRewardTime;
+            public float LastAim, LastFullDraw, LastKill, LastHipFire, TraderRewardTime;
             public int Health, InjuredHealth;
             public bool HasPosition;
             public int KillStreak;
+            public int HipFireShotSequence, LastCreditedHipFireSequence;
             public string TraderInventory, LastCombatItem;
         }
+        sealed class BleedCredit { public float Expires, LastAward; public int Ticks; }
 
         static readonly Dictionary<int, PlayerState> players = new Dictionary<int, PlayerState>();
         static readonly HashSet<string> usedTraps = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         static readonly HashSet<string> openedContainers = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         static readonly Dictionary<string, float> comboTimes = new Dictionary<string, float>(StringComparer.OrdinalIgnoreCase);
         static readonly Dictionary<int, float> shockedTargets = new Dictionary<int, float>();
+        static readonly Dictionary<int, BleedCredit> bleedCredits = new Dictionary<int, BleedCredit>();
         static readonly HashSet<int> recentKnockdowns = new HashSet<int>();
         static float knockdownWindow = -100;
         static float lastTreasurePractice = -100;
@@ -159,7 +162,10 @@ namespace GrimmerWorkshop
             if (perk == "perkArchery" && fullyDrawn) LearnByDoing.Grant(perk, Math.Min(0.8, damage / 60.0));
             if (perk == "perkJavelinMaster" && (power || freshSlow)) LearnByDoing.Grant(perk, Math.Min(0.6, damage / 80.0));
             if (perk == "perkBoomstick" && (freshStun || freshLeg)) LearnByDoing.Grant(perk, 0.75);
-            if (perk == "perkDeepCuts" && freshBleed) LearnByDoing.Grant(perk, 1.0);
+            if (perk == "perkDeepCuts" && freshBleed) {
+                LearnByDoing.Grant(perk, 1.0);
+                bleedCredits[target.entityId] = new BleedCredit { Expires = now + 15 };
+            }
             if (perk == "perkElectrocutioner" && (charged || freshShock)) LearnByDoing.Grant(perk, 0.75);
             float shockAt;
             if (perk == "perkElectrocutioner" && shockedTargets.TryGetValue(target.entityId, out shockAt) && now-shockAt <= 4) {
@@ -175,6 +181,12 @@ namespace GrimmerWorkshop
             comboTimes[comboKey] = now;
             string secondary = LearnByDoing.SecondaryWeaponPerk(weaponSkill);
             if (combo > 1 && secondary != null) LearnByDoing.Grant(secondary, Math.Min(0.25, damage / 300.0));
+            bool firearm = weaponSkill == "craftingRifles" || weaponSkill == "craftingHandguns" ||
+                weaponSkill == "craftingShotguns" || weaponSkill == "craftingMachineGuns";
+            if (firearm && state.HipFireShotSequence > state.LastCreditedHipFireSequence && now - state.LastHipFire <= 1.0f) {
+                state.LastCreditedHipFireSequence = state.HipFireShotSequence;
+                LearnByDoing.Grant("perkRunAndGun", Math.Min(0.5, damage / 100.0));
+            }
             if (perk == "perkPummelPete" && (targetWasStunned || freshKnockdown || combo > 1))
                 LearnByDoing.Grant(perk, Math.Min(0.75, damage / 100.0));
             if (perk == "perkSkullCrusher" && (power || freshKnockdown))
@@ -228,6 +240,21 @@ namespace GrimmerWorkshop
             state.InjuredHealth = Math.Max(state.InjuredHealth, before);
             LearnByDoing.Grant("perkPainTolerance", Math.Min(2.0, (before - player.Health) / 20.0));
             ArmorPractice(player);
+        }
+
+        public static void BleedTick(EntityAlive target, DamageSource source, int damage)
+        {
+            if (!LearnByDoing.Enabled || target == null || source == null || damage <= 0 ||
+                !String.Equals(Convert.ToString(source.damageType), "BloodLoss", StringComparison.OrdinalIgnoreCase)) return;
+            BleedCredit credit;
+            float now = Time.realtimeSinceStartup;
+            if (!bleedCredits.TryGetValue(target.entityId, out credit)) return;
+            if (now > credit.Expires || credit.Ticks >= 5) { bleedCredits.Remove(target.entityId); return; }
+            if (now - credit.LastAward < 0.75f) return;
+            credit.LastAward = now;
+            credit.Ticks++;
+            LearnByDoing.Grant("perkDeepCuts", Math.Min(0.25, damage / 100.0));
+            if (credit.Ticks >= 5) bleedCredits.Remove(target.entityId);
         }
 
         public static void Tick(EntityPlayerLocal player)
@@ -296,7 +323,8 @@ namespace GrimmerWorkshop
             object data=args.FirstOrDefault(x=>x!=null);
             PlayerState state=State(player); float now=Time.realtimeSinceStartup;
             ItemValue item=FindItemValue(data); string name=ItemName(item);
-            if (Flag(data,"wasAiming","isAiming","IsAiming")) state.LastAim=now;
+            bool aimed=Flag(data,"wasAiming","isAiming","IsAiming") || now-state.LastAim<=0.2f || Flag(player,"isAiming","IsAiming","isAimingGun","bIsAiming");
+            if (aimed) state.LastAim=now; else { state.LastHipFire=now; state.HipFireShotSequence++; }
             float draw=Number(data,"drawTime","chargeTime","holdDuration","heldTime","pullDuration");
             if (draw>=0.65f || Flag(data,"bFullyDrawn","isFullyDrawn","fullyDrawn")) state.LastFullDraw=now;
             if (!String.IsNullOrEmpty(name)) state.LastCombatItem=name;
