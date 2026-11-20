@@ -1,7 +1,17 @@
 # Workshop playtest checklist
 
-Updated 20 November 2026. Current testing release: 0.1.38. Latest published release: 0.1.38.
+Updated 20 November 2026. Current testing release: 0.1.41. Latest published release: 0.1.41.
 Keep using the current world. Pending means not yet confirmed in live play.
+
+## 0.1.41 Learn by Doing - live progression checks pending
+
+- [ ] Existing ranks remain unchanged; missing Learn by Doing preference starts enabled. Existing unspent skill points are banked while enabled, not discarded.
+- [ ] Damage zombies with a Break-Action Rifle: Dead Eye practice bar increases; confirmed headshots add a bounded bonus; Perception receives one share per weapon-action frame.
+- [ ] At enough practice and native requirements, Dead Eye and Perception ranks increase automatically and their native effects refresh.
+- [ ] The skill screen shows `PRACTICE / REQUIRED | RANK`; a rank-up notice appears. The old tracking preview does not double-count while Learn by Doing is active.
+- [ ] Open Gameplay settings / books: Learn by Doing toggle and speed save/reload. Turning the mode off restores banked skill points; turning it back on preserves earned ranks.
+- [ ] Check other mapped weapons, crafting, useful harvest, repair, upgrades and quests. Adjust speed if progress is too slow/fast.
+- [ ] Check status, reload, power-attack, passive travel/stealth, loot, trading, vehicle and turret routes as they are implemented; they are not claimed as complete in this first live pass.
 
 ## 0.1.38 recipe skill icons
 
@@ -33,7 +43,7 @@ Latest reviewed0.1.36 session (20 November09:12 onward): enemy/text companions l
 - [ ] Confirm normal startup, crafting and existing save contents; intended roster weighting affects new spawns, not already present zombies.
 - [ ] Compare cultivated crop stages, wildlife population/behaviour and vehicle/weapon models/animations during normal play.
 
-## Player confirmations �?" 19 November 2026
+## Player confirmations â€” 19 November 2026
 
 - [x] Looted map appears to work in normal play.
 - [x] Beautiful Bases decorations can be taken from walls and placed in the player's base.
@@ -341,9 +351,9 @@ User reports ordinary vehicles still immediately loot on 0.1.31; locked police-c
 ## Action-skill practice preview (0.1.39 testing)
 
 - Enable the optional preview in Gameplay settings / books, save, restart, then verify the default character ranks and skill points did not change.
-- Use body hits and confirmed headshots with a rifle and bow; check base practice and the Dead Eye / Archery bonus.
+- Use regular body hits and confirmed headshots with a rifle and bow; check base practice and the Dead Eye / Archery bonus.
 - Test ordinary hits with spear, shotgun, club, sledge, knife and baton. Confirm only the corresponding skill and one parent attribute accrue practice.
-- Hit multiple enemies or use multiple shotgun pellets in one attack; check the parent attribute is not multiplied by callbacks.
+- Hit multiple enemies or use a shotgun with multiple pellets in one frame; check parent attribute is not multiplied by callbacks.
 - Verify misses, overkill, player damage, non-weapon damage and multiplayer produce no preview practice.
-- Check launcher values save and persist after reopening. Disable the preview and verify counters stop changing.
-- Reloads, aim bonuses, power attacks, slow/bleed/stun attribution, passive skills and masteries are deliberately not counted in this first preview.
+- Check launcher values save and persist across reopening. Disable the preview and verify counters stop changing.
+- Reloads, aiming, power attacks, slow/bleed/stun attribution and passive/mastery routes are deliberately not counted in this first preview; record feedback without treating those as failures.

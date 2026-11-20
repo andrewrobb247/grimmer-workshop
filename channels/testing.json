@@ -1,30 +1,65 @@
 {
   "schema": 1,
-  "version": "0.1.40",
+  "version": "0.1.41",
   "gameVersion": "V3.4 b10",
   "gameAssemblySha256": "cb54022ccc862aa673e0ee55dafe67d842b364c80df6916958d171e959656c58",
-  "notes": "Launcher update: detects the Steam 7 Days to Die install in standard or custom Steam libraries and verifies the game build before use. After launcher components update, it reopens itself using the new files. No gameplay or save data changes.",
+  "notes": "First real Learn by Doing pass. Damage from mapped weapon types raises native weapon-perk ranks and parent attributes. Confirmed rifle, bow and pistol headshots add a bounded bonus. Existing useful craft, harvest, repair, upgrade and quest routes award practice. Existing ranks stay; unspent points are banked while enabled and restored when disabled. Preview counters migrate once. Learn by Doing defaults on when no preference exists; its speed remains adjustable. Native rank gates are retained. Specialized action routes and balance remain under live playtest.",
   "files": [
     {
       "path": "Launch-Workshop.ps1",
       "mode": "managed",
       "size": 1806,
       "sha256": "cb0e576036c08efa14d2c0f3676ada2d17c4fa72824b2c8c21c482ad35b531fa",
-      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.40/Launch-Workshop.ps1"
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.41/Launch-Workshop.ps1"
     },
     {
       "path": "Launcher.ps1",
       "mode": "managed",
       "size": 9705,
       "sha256": "f5e30dc8ede8d3b03904757699bd6d9f1a989544dfe552b37249427b2ed49e7d",
-      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.40/Launcher.ps1"
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.41/Launcher.ps1"
     },
     {
       "path": "Update-Core.ps1",
       "mode": "managed",
-      "size": 110345,
-      "sha256": "a15a1d9a4e6607f3276ef10f4aba0da51dc0829e93e955d0b01d33775c231b98",
-      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.40/Update-Core.ps1"
+      "size": 111448,
+      "sha256": "31159ab1e9be96dbc89ac953a1dd4c823766f494b798da86ab02fae6222fbbc6",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.41/Update-Core.ps1"
+    },
+    {
+      "path": "README.md",
+      "mode": "managed",
+      "size": 44646,
+      "sha256": "26dec81aafca02eb089bbfee4ee9663bcc2566de77c936c4d2d31cb922857ce4",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.41/README.md"
+    },
+    {
+      "path": "Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll",
+      "mode": "managed",
+      "size": 105984,
+      "sha256": "8a2d4572b2445371794c33b997335facb73497a7c6369f4f3f667a351796fda5",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.41/Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll"
+    },
+    {
+      "path": "Profile/Mods/GrimmerWorkshop/ModInfo.xml",
+      "mode": "managed",
+      "size": 348,
+      "sha256": "3628837c09237cbbf6517695792c5325d3b305ab235427abc6d420b0c43b92ee",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.41/Profile/Mods/GrimmerWorkshop/ModInfo.xml"
+    },
+    {
+      "path": "Profile/Mods/GrimmerWorkshop/PracticeRules.xml",
+      "mode": "managed",
+      "size": 130102,
+      "sha256": "47bb03605809a639d968c9661ae41a31d9560941350575d5c7bcb8ab9e8affb7",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.41/Profile/Mods/GrimmerWorkshop/PracticeRules.xml"
+    },
+    {
+      "path": "Profile/Mods/GrimmerWorkshop/WorkshopSettings.xml",
+      "mode": "default",
+      "size": 454,
+      "sha256": "9b7827a73b37b068145a915350ae97003675328609f07caa8719b35983b10d1b",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.41/Profile/Mods/GrimmerWorkshop/WorkshopSettings.xml"
     }
   ]
 }

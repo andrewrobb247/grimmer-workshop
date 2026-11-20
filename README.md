@@ -1,3 +1,7 @@
+## 0.1.41 — Learn by Doing testing update
+
+The testing channel now raises real weapon-perk and attribute ranks from practice. Existing ranks are preserved, and unspent skill points are banked while the mode is enabled. It defaults on if no preference is saved; use the launcher’s Gameplay settings / books screen to change the mode or practice speed. The Break-Action Rifle should build Dead Eye practice and a smaller Perception share. Specialty actions and balance still need playtesting. See [Learn by Doing status](Source/LEARN-BY-DOING.md).
+
 # Grimmer Workshop
 
 A solo PvE mod pack for **7 Days to Die V3.4 b10**, with crafting progression through play, nearby storage and a Windows updater.
