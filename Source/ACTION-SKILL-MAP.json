@@ -5,7 +5,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "Deal real rifle damage; small precision bonus for confirmed headshots.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkDemolitionsExpert",
@@ -13,7 +13,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "Deal real explosive damage to hostiles; useful destruction of previously intact world obstacles, with a strict area budget.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkJavelinMaster",
@@ -21,7 +21,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "Deal real spear damage, including power attacks.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkFlurryOfPerception",
@@ -29,7 +29,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "Spear combat; small secondary share of the same confirmed hit.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkInfiltrator",
@@ -37,7 +37,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "Discover previously unrecorded live mines/traps at close range; safely clear those hazards. Never require taking trap damage.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkAnimalTracker",
@@ -45,7 +45,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "First close-range discovery of a living wild animal, then successfully hunt it. Discovery route must work at rank zero without tracking markers.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkPenetrator",
@@ -53,7 +53,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "Confirmed rifle headshots and damage to armoured hostiles; verified penetration may earn a bounded bonus.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkTreasureHunter",
@@ -61,7 +61,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "Complete buried-supply/treasure digs and first-open buried treasure; useful excavation inside the active objective area.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkSalvageOperations",
@@ -69,7 +69,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "Recover real materials with salvage tools from world objects; no rewards for damage without recovered resources.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkPerceptionMastery",
@@ -77,7 +77,7 @@
     "category": "attPerception",
     "max_rank": 5,
     "proposed_action": "Small advanced-practice share from Perception activities once the native mastery entry requirement is met.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkBoomstick",
@@ -85,7 +85,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Deal real shotgun damage to hostiles.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkPummelPete",
@@ -93,7 +93,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Deal real club/bat damage to hostiles.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkSkullCrusher",
@@ -101,7 +101,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Deal real sledgehammer damage to hostiles.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkGrandSlam",
@@ -109,7 +109,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Club/bat/sledge power hits and actual knockdowns; no extra credit for striking an already defeated target.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkFlurryOfStrength",
@@ -117,7 +117,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Club/bat/sledge combat; small secondary share of confirmed hits.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkPackMule",
@@ -125,7 +125,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Travel on foot with genuine encumbrance, credited by distance and load. Standing still, teleporting or riding gives none.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkStrengthMastery",
@@ -133,7 +133,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Small advanced-practice share from Strength activities once the native mastery entry requirement is met.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkMiner69r",
@@ -141,7 +141,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Extract real wood, stone and ore with the appropriate mining/harvesting tools.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkMotherLode",
@@ -149,7 +149,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Recover real natural resources while mining; normalize bulk yields so large stacks cannot bypass the curve.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkJunkMiner",
@@ -157,7 +157,7 @@
     "category": "attStrength",
     "max_rank": 5,
     "proposed_action": "Recover resources from non-natural world blocks and scrap piles with appropriate tools; exclude player-placed break/rebuild loops.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkBrawler",
@@ -165,7 +165,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Deal real fist/knuckle damage to hostiles.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkMachineGunner",
@@ -173,7 +173,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Deal real machine-gun damage to hostiles.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkFlurryOfFortitude",
@@ -181,7 +181,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Fist/knuckle combat; small secondary share of confirmed hits.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkTheHuntsman",
@@ -189,7 +189,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Harvest genuine animal corpses for meat, hide and bone; each corpse has a total practice budget.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkPainTolerance",
@@ -197,7 +197,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Survive a genuine hostile encounter with incoming enemy damage; bounded encounter award, no self/fire/fall/friendly damage.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkFortitudeMastery",
@@ -205,7 +205,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Small advanced-practice share from Fortitude activities once the native mastery entry requirement is met.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkSiphoningStrikes",
@@ -213,7 +213,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Successful melee combat while actually wounded; bounded recovery/combat share without requiring the perk effect at rank zero.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkHealingFactor",
@@ -221,7 +221,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Recover health actually lost to recent hostile damage; budget by original injury and exclude self-inflicted healing loops.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkSlowMetabolism",
@@ -229,7 +229,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Restore genuine hunger/thirst with food and drink during active play. Nutrition variety can help; consuming at full needs gives none.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkRuleOneCardio",
@@ -237,7 +237,7 @@
     "category": "attFortitude",
     "max_rank": 5,
     "proposed_action": "Sustained on-foot sprinting credited by valid distance and stamina effort; no running against a wall.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkArchery",
@@ -245,7 +245,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Deal real bow/crossbow damage to hostiles.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkGunslinger",
@@ -253,7 +253,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Deal real pistol/revolver/SMG damage according to native weapon perk tags.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkDeepCuts",
@@ -261,7 +261,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Deal real knife/blade damage; skinning offers a smaller useful-action route. Bleed damage is attributed once to its originating attack.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkFlurryOfAgility",
@@ -269,7 +269,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Knife/blade combat; small secondary share of confirmed hits.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkRunAndGun",
@@ -277,7 +277,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Move on foot while reloading a weapon used in a recent hostile encounter; no empty-magazine idle reload farming.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkHardTarget",
@@ -285,7 +285,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Move/sprint while actively pursued or attacked by a hostile, using distance and encounter budgets rather than requiring damage taken.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkParkour",
@@ -293,7 +293,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Meaningful jumps/vaults with displacement or height gain during travel; repeated jumps in the same spot diminish to zero.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkAgilityMastery",
@@ -301,7 +301,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Small advanced-practice share from Agility activities once the native mastery entry requirement is met.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkHiddenStrike",
@@ -309,7 +309,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Deal confirmed sneak-attack damage to unaware hostiles.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkFromTheShadows",
@@ -317,7 +317,7 @@
     "category": "attAgility",
     "max_rank": 5,
     "proposed_action": "Travel undetected near actual unaware hostiles; first infiltration/escape per encounter. Empty-room crouching gives none.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkElectrocutioner",
@@ -325,7 +325,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Deal real baton/stun-baton damage to hostiles.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkTurrets",
@@ -333,7 +333,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Player-owned deployed turret/robotic-sledge damage to hostiles, plus actual robotics assembly/repair; retain ownership attribution.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkFlurryOfIntellect",
@@ -341,7 +341,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Baton combat; small secondary share of confirmed hits.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkBetterBarter",
@@ -349,7 +349,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Complete genuine item trades with traders, with daily economic budgets and reverse-transaction suppression; no buy/sell-back loop.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkDaringAdventurer",
@@ -357,7 +357,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Complete unique trader quests and higher difficulty objectives; credit once per quest instance.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkCharismaticNature",
@@ -365,7 +365,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Finish cooperative objectives/support allies; solo alternative through successful trader quest hand-ins. No party required to start.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkPhysician",
@@ -373,7 +373,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Restore real missing health or treat a genuine injury with medical items; credit each injury/recovery only once.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkAdvancedEngineering",
@@ -381,7 +381,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Complete useful station/electrical/construction production, repair machinery or install a newly working circuit; no placement/pickup loops.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkGreaseMonkey",
@@ -389,7 +389,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Assemble vehicle components/vehicles, repair real vehicle damage, and maintain them; ordinary driving offers a small capped route.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkIntellectMastery",
@@ -397,7 +397,7 @@
     "category": "attIntellect",
     "max_rank": 5,
     "proposed_action": "Small advanced-practice share from Intellect activities once the native mastery entry requirement is met.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkLightArmor",
@@ -405,7 +405,7 @@
     "category": "attGeneralPerks",
     "max_rank": 4,
     "proposed_action": "Move and fight in light armour during genuine hostile encounters; credit activity, not standing in armour.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkMediumArmor",
@@ -413,7 +413,7 @@
     "category": "attGeneralPerks",
     "max_rank": 4,
     "proposed_action": "Move and fight in medium armour during genuine hostile encounters; mixed sets split a single armour-practice budget.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkHeavyArmor",
@@ -421,7 +421,7 @@
     "category": "attGeneralPerks",
     "max_rank": 4,
     "proposed_action": "Move and fight in heavy armour during genuine hostile encounters; no reward for deliberately taking self damage.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkMasterChef",
@@ -429,7 +429,7 @@
     "category": "attGeneralPerks",
     "max_rank": 3,
     "proposed_action": "Complete actual food/drink preparation, scaled to recipe work and cost; exclude wrapping/unwrapping the same food.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkLivingOffTheLand",
@@ -437,7 +437,7 @@
     "category": "attGeneralPerks",
     "max_rank": 3,
     "proposed_action": "Harvest mature planted crops and produce seeds/compost; no credit for planting and immediately removing the same seed.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkLockPicking",
@@ -445,7 +445,7 @@
     "category": "attGeneralPerks",
     "max_rank": 3,
     "proposed_action": "Successfully open a previously locked world container with lockpicks; never credit relocking owned storage.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   },
   {
     "id": "perkLuckyLooter",
@@ -453,6 +453,6 @@
     "category": "attGeneralPerks",
     "max_rank": 1,
     "proposed_action": "First search of genuine world loot, with lower budget for trash and no reopening player containers.",
-    "status": "Live rank progression route added. Specialty attribution and in-game balance need playtesting."
+    "status": "Practice route implemented; specialty attribution and balance still need in-game confirmation."
   }
 ]

@@ -1,16 +1,17 @@
-# Learn by Doing: 0.1.43 testing build
+# Learn by Doing: 0.1.44 testing build
 
 Learn by Doing advances native perk and attribute ranks from practice. It is enabled by default when no preference is saved. The launcher’s **Gameplay settings / books** screen controls it and adjusts the learning speed. Existing ranks are preserved; spendable skill points are banked while the mode is on and restored if it is later turned off. The game’s native player level and attribute requirements still gate rank-ups.
 
 ## What earns practice
 
-- Confirmed damage to hostile zombies and animals trains its matching weapon perk. Weapon damage is the base route; headshots add a bounded precision bonus. Weapon use also gives a smaller parent-attribute share and relevant secondary combat practice.
+- Confirmed damage to hostile zombies and animals always trains its matching weapon perk. Weapon damage is the base route; aimed rifle hits and accurate kill streaks, fully drawn bow hits, spear power hits/fresh slows, shotgun stuns/leg injuries, fresh knife bleeds, charged baton hits/fresh shocks and one shock follow-up add bounded specialty practice.
+- Connected hit sequences train the relevant secondary attack-speed perk. Clubs and sledges gain extra practice for power hits and knockdowns; Grand Slam rewards sprinting power attacks and knocking down multiple enemies in a short window. Combat reload practice requires recent weapon use, and Run and Gun additionally requires recent movement.
 - Completed crafts, useful harvests, repairs, block upgrades, and quest hand-ins train their mapped skills.
 - Movement practice is tied to on-foot distance, sprinting, jumping, encumbrance, crouched movement, and recent combat. Incoming hostile damage, real recovery, and melee attacks while wounded can train Fortitude skills.
 - Armor practice is earned during hostile combat with worn armor. Loot-container opens, changed trader inventory, active lockpick use, trap interaction, and shovel digging have limited activity routes.
 - Attribute practice can advance the matching mastery after its native gates are met. Practice counters and ranks are separate, and no special effect is required to begin weapon-skill progression.
 
-Repeat-sensitive routes are distance based, deduplicated, or cooldown limited. Several proposed specialty bonuses still need tuning and confirmation in a live game, especially fresh stun/bleed attribution and the exact power-attack, encumbrance, and modded-content signals.
+Repeat-sensitive routes are distance based, deduplicated, or cooldown limited. The combat bonuses above are wired to the game's current damage, buff, aim, draw, reload and charge signals, but their exact attribution and balance still need confirmation in a live game. Power attacks use the available damage multiplier/attack context as an approximation; modded weapons may expose different names or signals.
 
 ## In-game check
 

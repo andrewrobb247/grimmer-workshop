@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
@@ -16,14 +17,20 @@ namespace GrimmerWorkshop
         {
             public Vector3 Position;
             public float NextSample, LastCombat, LastInjury, LastMove;
+            public float LastAim, LastFullDraw, LastKill, TraderRewardTime;
             public int Health, InjuredHealth;
             public bool HasPosition;
-            public string TraderInventory;
+            public int KillStreak;
+            public string TraderInventory, LastCombatItem;
         }
 
         static readonly Dictionary<int, PlayerState> players = new Dictionary<int, PlayerState>();
         static readonly HashSet<string> usedTraps = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         static readonly HashSet<string> openedContainers = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        static readonly Dictionary<string, float> comboTimes = new Dictionary<string, float>(StringComparer.OrdinalIgnoreCase);
+        static readonly Dictionary<int, float> shockedTargets = new Dictionary<int, float>();
+        static readonly HashSet<int> recentKnockdowns = new HashSet<int>();
+        static float knockdownWindow = -100;
         static float lastTreasurePractice = -100;
 
         static object Member(object instance, params string[] names)
@@ -50,6 +57,63 @@ namespace GrimmerWorkshop
             return false;
         }
 
+        static float Number(object instance, params string[] names)
+        {
+            object value = Member(instance, names);
+            if (value == null) return 0;
+            try { return Convert.ToSingle(value); } catch { return 0; }
+        }
+
+        static string ItemName(ItemValue item)
+        { return item == null || item.IsEmpty() || item.ItemClass == null ? "" : item.ItemClass.GetItemName(); }
+
+        static ItemValue FindItemValue(object root)
+        {
+            if (root == null) return null;
+            var pending = new Queue<object>(); var seen = new HashSet<object>(); pending.Enqueue(root);
+            int visited = 0;
+            while (pending.Count > 0 && visited++ < 48) {
+                object current = pending.Dequeue();
+                if (current == null || current is string || current.GetType().IsPrimitive || current.GetType().IsEnum || !seen.Add(current)) continue;
+                if (current is ItemValue) { var value = (ItemValue)current; if (!value.IsEmpty()) return value; continue; }
+                object nested = Member(current, "itemValue", "ItemValue", "value");
+                if (nested is ItemValue) { var value = (ItemValue)nested; if (!value.IsEmpty()) return value; }
+                IEnumerable enumerable = current as IEnumerable;
+                if (enumerable != null) { try { foreach (object child in enumerable) pending.Enqueue(child); } catch { } continue; }
+                for (Type type=current.GetType(); type!=null; type=type.BaseType)
+                    foreach (FieldInfo field in type.GetFields(BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.DeclaredOnly))
+                        try { object child=field.GetValue(current); if(child!=null && !(child is string))pending.Enqueue(child); } catch { }
+            }
+            return null;
+        }
+
+        static string WeaponSkill(string itemName)
+        {
+            List<PracticeRule> rules;
+            if (!String.IsNullOrEmpty(itemName) && Workshop.Rules.TryGetValue(itemName, out rules))
+                foreach (var rule in rules) if (rule.Skill.StartsWith("crafting", StringComparison.OrdinalIgnoreCase)) return rule.Skill;
+            return null;
+        }
+
+        static bool HasAny(HashSet<string> buffs, params string[] tokens)
+        {
+            if (buffs == null) return false;
+            foreach (string buff in buffs) foreach (string token in tokens)
+                if (buff.IndexOf(token, StringComparison.OrdinalIgnoreCase) >= 0) return true;
+            return false;
+        }
+
+        public static HashSet<string> BuffNames(EntityAlive entity)
+        {
+            var result = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            object manager = Member(entity, "Buffs", "buffs");
+            object active = Member(manager, "ActiveBuffs", "activeBuffs");
+            var list = active as IEnumerable;
+            if (list == null) return result;
+            try { foreach (object buff in list) { object name=Member(buff,"buffName","BuffName"); if(name!=null)result.Add(Convert.ToString(name)); } } catch { }
+            return result;
+        }
+
         static PlayerState State(EntityPlayerLocal player)
         {
             PlayerState state;
@@ -60,16 +124,67 @@ namespace GrimmerWorkshop
             return state;
         }
 
-        public static void Combat(EntityAlive target, DamageSource source, int damage, bool headshot)
+        public static void Combat(EntityAlive target, DamageSource source, int damage, bool headshot, HashSet<string> buffsBefore)
         {
             if (!LearnByDoing.Enabled || damage <= 0) return;
             EntityPlayerLocal player = Workshop.Player();
             if (player == null || source == null || source.getEntityId() != player.entityId) return;
             PlayerState state = State(player);
-            state.LastCombat = Time.realtimeSinceStartup;
+            float now = Time.realtimeSinceStartup;
+            state.LastCombat = now;
 
             ItemValue weapon = source.AttackingItem;
-            string name = weapon == null || weapon.IsEmpty() ? "" : weapon.ItemClass.GetItemName();
+            string name = ItemName(weapon);
+            string weaponSkill = WeaponSkill(name);
+            string perk = LearnByDoing.PrimaryWeaponPerk(name, weaponSkill);
+            string bonusType = Convert.ToString(source.BonusDamageType);
+            HashSet<string> buffsAfter = BuffNames(target);
+            bool freshBleed = HasAny(buffsAfter, "buffInjuryBleeding") && !HasAny(buffsBefore, "buffInjuryBleeding");
+            bool freshShock = HasAny(buffsAfter, "buffShocked") && !HasAny(buffsBefore, "buffShocked");
+            bool freshStun = bonusType.Equals("Stun", StringComparison.OrdinalIgnoreCase) ||
+                (HasAny(buffsAfter, "buffInjuryStunned") && !HasAny(buffsBefore, "buffInjuryStunned"));
+            bool freshLeg = HasAny(buffsAfter, "buffInjuryCrippled", "buffLegSprained", "buffLegBroken") &&
+                !HasAny(buffsBefore, "buffInjuryCrippled", "buffLegSprained", "buffLegBroken");
+            bool freshSlow = HasAny(buffsAfter, "buffInjurySlow", "buffHazard_Slow", "twitch_shock_slowdown") &&
+                !HasAny(buffsBefore, "buffInjurySlow", "buffHazard_Slow", "twitch_shock_slowdown");
+            bool freshKnockdown = bonusType.IndexOf("KnockDown", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                (HasAny(buffsAfter, "buffInjuryKnockdown") && !HasAny(buffsBefore, "buffInjuryKnockdown"));
+            bool power = bonusType.IndexOf("power", StringComparison.OrdinalIgnoreCase) >= 0 || source.damageMultiplier >= 1.5f;
+            float charge = 0;
+            bool charged = weapon != null && !weapon.IsEmpty() && weapon.TryGetMetadata("charge", out charge) && charge >= 4;
+            bool aimed = now - state.LastAim <= 1.5f || Flag(player, "isAiming", "IsAiming", "isAimingGun", "bIsAiming");
+            bool fullyDrawn = now - state.LastFullDraw <= 1.5f || source.damageMultiplier >= 1.25f;
+
+            if (perk == "perkDeadEye" && aimed) LearnByDoing.Grant(perk, Math.Min(0.6, damage / 80.0));
+            if (perk == "perkArchery" && fullyDrawn) LearnByDoing.Grant(perk, Math.Min(0.8, damage / 60.0));
+            if (perk == "perkJavelinMaster" && (power || freshSlow)) LearnByDoing.Grant(perk, Math.Min(0.6, damage / 80.0));
+            if (perk == "perkBoomstick" && (freshStun || freshLeg)) LearnByDoing.Grant(perk, 0.75);
+            if (perk == "perkDeepCuts" && freshBleed) LearnByDoing.Grant(perk, 1.0);
+            if (perk == "perkElectrocutioner" && (charged || freshShock)) LearnByDoing.Grant(perk, 0.75);
+            float shockAt;
+            if (perk == "perkElectrocutioner" && shockedTargets.TryGetValue(target.entityId, out shockAt) && now-shockAt <= 4) {
+                LearnByDoing.Grant(perk, 0.35);
+                shockedTargets.Remove(target.entityId);
+            }
+            if (freshShock) shockedTargets[target.entityId] = now;
+
+            bool targetWasStunned = HasAny(buffsBefore, "buffInjuryStunned", "buffInjuryKnockdown");
+            string comboKey = player.entityId + ":" + target.entityId + ":" + (weaponSkill ?? perk ?? name);
+            float lastHit;
+            int combo = comboTimes.TryGetValue(comboKey, out lastHit) && now-lastHit <= 3 ? 2 : 1;
+            comboTimes[comboKey] = now;
+            string secondary = LearnByDoing.SecondaryWeaponPerk(weaponSkill);
+            if (combo > 1 && secondary != null) LearnByDoing.Grant(secondary, Math.Min(0.25, damage / 300.0));
+            if (perk == "perkPummelPete" && (targetWasStunned || freshKnockdown || combo > 1))
+                LearnByDoing.Grant(perk, Math.Min(0.75, damage / 100.0));
+            if (perk == "perkSkullCrusher" && (power || freshKnockdown))
+                LearnByDoing.Grant(perk, Math.Min(0.8, damage / 90.0));
+            if (freshKnockdown) {
+                if (now-knockdownWindow > 5) { knockdownWindow=now; recentKnockdowns.Clear(); }
+                recentKnockdowns.Add(target.entityId);
+                if (recentKnockdowns.Count >= 2) LearnByDoing.Grant("perkGrandSlam", 1.0);
+            }
+            if (perk == "perkGrandSlam" && power) LearnByDoing.Grant(perk, Math.Min(0.5, damage / 150.0));
             bool melee = name.IndexOf("spear", StringComparison.OrdinalIgnoreCase) >= 0 ||
                 name.IndexOf("club", StringComparison.OrdinalIgnoreCase) >= 0 ||
                 name.IndexOf("sledge", StringComparison.OrdinalIgnoreCase) >= 0 ||
@@ -82,10 +197,19 @@ namespace GrimmerWorkshop
                 state.LastInjury = Time.realtimeSinceStartup;
             }
             if ((name.IndexOf("club", StringComparison.OrdinalIgnoreCase) >= 0 || name.IndexOf("sledge", StringComparison.OrdinalIgnoreCase) >= 0) &&
-                (Flag(source, "isPowerAttack", "bPowerAttack", "powerAttack") || Flag(player, "isPowerAttacking", "bPowerAttacking", "IsPowerAttacking", "isSprinting", "IsSprinting", "bIsSprinting")))
+                power && Flag(player, "isSprinting", "IsSprinting", "bIsSprinting"))
                 LearnByDoing.Grant("perkGrandSlam", Math.Min(0.35, damage / 250.0));
-            if (headshot && Flag(player, "isCrouching", "IsCrouching", "bIsCrouching"))
+            bool sneakAttack = bonusType.IndexOf("sneak", StringComparison.OrdinalIgnoreCase) >= 0 || Flag(target, "isSleeping", "IsSleeping");
+            if (headshot && sneakAttack)
                 LearnByDoing.Grant("perkHiddenStrike", Math.Min(1.0, damage / 50.0));
+
+            if (target.Health <= 0 && (perk == "perkDeadEye" || perk == "perkArchery" || perk == "perkGunslinger")) {
+                state.KillStreak = now-state.LastKill <= 12 ? state.KillStreak+1 : 1;
+                state.LastKill = now;
+                if (state.KillStreak >= 2 && (headshot || aimed || fullyDrawn))
+                    LearnByDoing.Grant(perk, Math.Min(1.0, state.KillStreak * 0.15));
+            }
+            state.LastCombatItem = name;
 
             // Hunting advances tracking as well as the weapon/harvesting routes.
             if (target is EntityAnimal && target.Health <= 0)
@@ -149,13 +273,49 @@ namespace GrimmerWorkshop
             state.HasPosition = true;
         }
 
-        public static void Reload()
+        public static void Reload(object[] args)
         {
             EntityPlayerLocal player = Workshop.Player();
             if (!LearnByDoing.Enabled || player == null) return;
             PlayerState state = State(player);
-            if (Time.realtimeSinceStartup - state.LastCombat < 12 && Time.realtimeSinceStartup - state.LastMove < 2)
-                LearnByDoing.Grant("perkRunAndGun", 0.5);
+            ItemValue item = args == null ? null : args.Select(FindItemValue).FirstOrDefault(x => x != null && !x.IsEmpty());
+            string name = ItemName(item);
+            if (String.IsNullOrEmpty(name)) name = Convert.ToString(Member(player, "holdingItemItemValue", "HoldingItemItemValue"));
+            if (Time.realtimeSinceStartup - state.LastCombat >= 12 || Time.realtimeSinceStartup - state.LastMove >= 2 ||
+                String.IsNullOrEmpty(state.LastCombatItem) || (!String.IsNullOrEmpty(name) && !String.Equals(name, state.LastCombatItem, StringComparison.OrdinalIgnoreCase))) return;
+            LearnByDoing.Grant("perkRunAndGun", 0.5);
+            string skill=WeaponSkill(state.LastCombatItem);
+            string perk=LearnByDoing.PrimaryWeaponPerk(state.LastCombatItem,skill);
+            if (perk=="perkDeadEye" || perk=="perkBoomstick" || perk=="perkArchery") LearnByDoing.Grant(perk,0.5);
+        }
+
+        public static void RangedShot(object[] args)
+        {
+            EntityPlayerLocal player=Workshop.Player();
+            if (!LearnByDoing.Enabled || player==null || args==null) return;
+            object data=args.FirstOrDefault(x=>x!=null);
+            PlayerState state=State(player); float now=Time.realtimeSinceStartup;
+            ItemValue item=FindItemValue(data); string name=ItemName(item);
+            if (Flag(data,"wasAiming","isAiming","IsAiming")) state.LastAim=now;
+            float draw=Number(data,"drawTime","chargeTime","holdDuration","heldTime","pullDuration");
+            if (draw>=0.65f || Flag(data,"bFullyDrawn","isFullyDrawn","fullyDrawn")) state.LastFullDraw=now;
+            if (!String.IsNullOrEmpty(name)) state.LastCombatItem=name;
+        }
+
+        public static void AimUpdate(object[] args)
+        {
+            EntityPlayerLocal player=Workshop.Player();
+            if (!LearnByDoing.Enabled || player==null || args==null || args.Length<2 || !(args[1] is bool) || !(bool)args[1]) return;
+            State(player).LastAim=Time.realtimeSinceStartup;
+        }
+
+        public static void CatapultUpdate(object[] args)
+        {
+            EntityPlayerLocal player=Workshop.Player();
+            if (!LearnByDoing.Enabled || player==null || args==null || args.Length==0) return;
+            object actionData=args[0];
+            float start=Number(actionData,"m_ActivateTime"), duration=Number(actionData,"m_MaxStrainTime");
+            if (duration>0 && Time.time-start>=duration*0.8f) State(player).LastFullDraw=Time.realtimeSinceStartup;
         }
 
         public static void ItemUsed(ItemValue item)
@@ -188,6 +348,17 @@ namespace GrimmerWorkshop
             if (blockName.IndexOf("mine", StringComparison.OrdinalIgnoreCase) < 0 && blockName.IndexOf("trap", StringComparison.OrdinalIgnoreCase) < 0) return;
             string key = blockName + "@" + position.x + "," + position.y + "," + position.z;
             if (usedTraps.Add(key)) LearnByDoing.Grant("perkInfiltrator", 1);
+        }
+
+        public static void TrapArgs(object[] args)
+        {
+            if (args==null) return;
+            string blockName=null; Vector3i? position=null;
+            foreach(object arg in args) {
+                if(arg is string && (((string)arg).IndexOf("mine",StringComparison.OrdinalIgnoreCase)>=0 || ((string)arg).IndexOf("trap",StringComparison.OrdinalIgnoreCase)>=0)) blockName=(string)arg;
+                if(arg is Vector3i) position=(Vector3i)arg;
+            }
+            if(blockName!=null && position.HasValue) Trap(blockName,position.Value);
         }
 
         public static void ContainerOpened(object[] args)
@@ -304,8 +475,10 @@ namespace GrimmerWorkshop
             if (player == null) return;
             PlayerState state = State(player);
             string after = InventorySignature(player);
-            if (!String.IsNullOrEmpty(state.TraderInventory) && !String.IsNullOrEmpty(after) && !String.Equals(state.TraderInventory, after, StringComparison.Ordinal))
+            if (!String.IsNullOrEmpty(state.TraderInventory) && !String.IsNullOrEmpty(after) && !String.Equals(state.TraderInventory, after, StringComparison.Ordinal) && Time.realtimeSinceStartup-state.TraderRewardTime>=30) {
                 LearnByDoing.Grant("perkBetterBarter", 1);
+                state.TraderRewardTime=Time.realtimeSinceStartup;
+            }
             state.TraderInventory = null;
         }
     }
@@ -324,7 +497,41 @@ namespace GrimmerWorkshop
             MethodBase method = AccessTools.Method(typeof(ItemActionRanged), "CompleteReload");
             if (method != null) yield return method;
         }
-        public static void Postfix() { try { LearnByDoingRoutes.Reload(); } catch (Exception error) { Log.Error("[Grimmer Workshop] Reload practice: " + error); } }
+        public static void Postfix(object[] __args) { try { LearnByDoingRoutes.Reload(__args); } catch (Exception error) { Log.Error("[Grimmer Workshop] Reload practice: " + error); } }
+    }
+
+    [HarmonyPatch]
+    public static class LearnByDoingRangedShotPatch
+    {
+        public static System.Collections.Generic.IEnumerable<MethodBase> TargetMethods()
+        {
+            MethodBase method = AccessTools.Method(typeof(ItemActionRanged), "onHoldingEntityFired");
+            if (method != null) yield return method;
+        }
+        public static void Prefix(object[] __args) { try { LearnByDoingRoutes.RangedShot(__args); } catch (Exception error) { Log.Error("[Grimmer Workshop] Shot context: " + error); } }
+    }
+
+    [HarmonyPatch]
+    public static class LearnByDoingAimContextPatch
+    {
+        public static System.Collections.Generic.IEnumerable<MethodBase> TargetMethods()
+        {
+            MethodBase method=AccessTools.Method(typeof(ItemActionRanged),"updateAccuracy");
+            if(method!=null)yield return method;
+        }
+        public static void Prefix(object[] __args) { try { LearnByDoingRoutes.AimUpdate(__args); } catch(Exception error) { Log.Error("[Grimmer Workshop] Aim context: "+error); } }
+    }
+
+    [HarmonyPatch]
+    public static class LearnByDoingDrawContextPatch
+    {
+        public static System.Collections.Generic.IEnumerable<MethodBase> TargetMethods()
+        {
+            Type type=AccessTools.TypeByName("ItemActionCatapult");
+            MethodBase method=type==null?null:AccessTools.Method(type,"OnHoldingUpdate");
+            if(method!=null)yield return method;
+        }
+        public static void Postfix(object[] __args) { try { LearnByDoingRoutes.CatapultUpdate(__args); } catch(Exception error) { Log.Error("[Grimmer Workshop] Draw context: "+error); } }
     }
 
     [HarmonyPatch(typeof(QuestEventManager), "HarvestedItem")]
@@ -339,6 +546,17 @@ namespace GrimmerWorkshop
     {
         public static void Postfix(string __0, Vector3i __1)
         { try { LearnByDoingRoutes.Trap(__0, __1); } catch (Exception error) { Log.Error("[Grimmer Workshop] Trap practice: " + error); } }
+    }
+
+    [HarmonyPatch]
+    public static class LearnByDoingTrapClearPatch
+    {
+        public static System.Collections.Generic.IEnumerable<MethodBase> TargetMethods()
+        {
+            MethodBase method=AccessTools.Method(typeof(QuestEventManager),"BlockDestroyed");
+            if(method!=null)yield return method;
+        }
+        public static void Postfix(object[] __args) { try { LearnByDoingRoutes.TrapArgs(__args); } catch(Exception error) { Log.Error("[Grimmer Workshop] Trap clear practice: "+error); } }
     }
 
     [HarmonyPatch]
