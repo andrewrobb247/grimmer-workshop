@@ -4,455 +4,1075 @@
     "name": "Dead Eye",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "Deal real rifle damage; small precision bonus for confirmed headshots.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real rifle damage. Extra for a landed aimed shot (iron sights or scope), precision/headshot and bounded successive kills. Small completed combat-reload award normalized by qualifying rounds replaced; no XP for aiming at empty space.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Rifle damage, aiming speed, reloads and accurate kill streaks.",
+    "base_actions": "Real rifle damage.",
+    "signature_bonus_actions": "Extra for a landed aimed shot (iron sights or scope), precision/headshot and bounded successive kills. Small completed combat-reload award normalized by qualifying rounds replaced; no XP for aiming at empty space.",
+    "source_description_key": "perkDeadEyeDesc",
+    "source_rank_description_keys": [
+      "perkDeadEyeRank1LongDesc",
+      "perkDeadEyeRank2LongDesc",
+      "perkDeadEyeRank3LongDesc",
+      "perkDeadEyeRank4LongDesc",
+      "perkDeadEyeRank5LongDesc"
+    ]
   },
   {
     "id": "perkDemolitionsExpert",
     "name": "Demolitions Expert",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "Deal real explosive damage to hostiles; useful destruction of previously intact world obstacles, with a strict area budget.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real hostile damage from qualifying explosives. Extra for player-caused explosive cripples/dismemberments and hitting several distinct hostiles in one blast. Aimed launcher hits and qualified launcher reloads can earn handling practice; no friendly/self damage or repeated player-built demolition loop.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Explosive damage, dismemberment, handling and launcher reloads.",
+    "base_actions": "Real hostile damage from qualifying explosives.",
+    "signature_bonus_actions": "Extra for player-caused explosive cripples/dismemberments and hitting several distinct hostiles in one blast. Aimed launcher hits and qualified launcher reloads can earn handling practice; no friendly/self damage or repeated player-built demolition loop.",
+    "source_description_key": "perkDemolitionsExpertDesc",
+    "source_rank_description_keys": [
+      "perkDemolitionsExpertRank1LongDesc",
+      "perkDemolitionsExpertRank2LongDesc",
+      "perkDemolitionsExpertRank3LongDesc",
+      "perkDemolitionsExpertRank4LongDesc",
+      "perkDemolitionsExpertRank5LongDesc"
+    ]
   },
   {
     "id": "perkJavelinMaster",
     "name": "Spear Master",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "Deal real spear damage, including power attacks.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real spear damage. Extra for landed power attacks and a new slow caused by that spear. A small leg-hit precision bonus is optional, not a claimed native requirement. No credit for unrelated slows or repeatedly refreshing the same slow.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Spear damage, power-attack slows and stamina-efficient kills.",
+    "base_actions": "Real spear damage.",
+    "signature_bonus_actions": "Extra for landed power attacks and a new slow caused by that spear. A small leg-hit precision bonus is optional, not a claimed native requirement. No credit for unrelated slows or repeatedly refreshing the same slow.",
+    "source_description_key": "perkJavelinMasterDesc",
+    "source_rank_description_keys": [
+      "perkJavelinMasterRank1LongDesc",
+      "perkJavelinMasterRank2LongDesc",
+      "perkJavelinMasterRank3LongDesc",
+      "perkJavelinMasterRank4LongDesc",
+      "perkJavelinMasterRank5LongDesc"
+    ]
   },
   {
     "id": "perkFlurryOfPerception",
     "name": "Quick and Perceptive",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "Spear combat; small secondary share of the same confirmed hit.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Small secondary share of real spear damage. Extra for a short sequence of distinct landed spear thrusts. Judge cadence against the current spear attack speed, not a fixed expert-speed requirement; missed swings do not count.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Faster spear attacks.",
+    "base_actions": "Small secondary share of real spear damage.",
+    "signature_bonus_actions": "Extra for a short sequence of distinct landed spear thrusts. Judge cadence against the current spear attack speed, not a fixed expert-speed requirement; missed swings do not count.",
+    "source_description_key": "perkFlurryOfPerceptionDesc",
+    "source_rank_description_keys": [
+      "perkFlurryOfPerceptionRank1LongDesc",
+      "perkFlurryOfPerceptionRank2LongDesc",
+      "perkFlurryOfPerceptionRank3LongDesc",
+      "perkFlurryOfPerceptionRank4LongDesc",
+      "perkFlurryOfPerceptionRank5LongDesc"
+    ]
   },
   {
     "id": "perkInfiltrator",
     "name": "The Infiltrator",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "Discover previously unrecorded live mines/traps at close range; safely clear those hazards. Never require taking trap damage.",
-    "status": "proposal, not enabled"
+    "proposed_action": "First close discovery of a real world mine/trap; safe clearing of a new hazard. Extra for recovering an eligible live mine or escaping a triggered mine/loose-board hazard before it hurts you. Rank zero can start with discovery/clearing; never require a pickup ability that is still locked.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Delayed mine/loose-board triggers, reduced trap damage and mine recovery.",
+    "base_actions": "First close discovery of a real world mine/trap; safe clearing of a new hazard.",
+    "signature_bonus_actions": "Extra for recovering an eligible live mine or escaping a triggered mine/loose-board hazard before it hurts you. Rank zero can start with discovery/clearing; never require a pickup ability that is still locked.",
+    "source_description_key": "perkInfiltratorDesc",
+    "source_rank_description_keys": [
+      "perkInfiltratorRank1LongDesc",
+      "perkInfiltratorRank2LongDesc",
+      "perkInfiltratorRank3LongDesc",
+      "perkInfiltratorRank4LongDesc",
+      "perkInfiltratorRank5LongDesc"
+    ]
   },
   {
     "id": "perkAnimalTracker",
     "name": "Animal Tracker",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "First close-range discovery of a living wild animal, then successfully hunt it. Discovery route must work at rank zero without tracking markers.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Locate a previously unrecorded living wild animal at useful range. Extra for a crouched sighting followed by genuinely closing distance without losing the animal, then a successful hunt of that tracked animal. No prerequisite tracking marker at rank zero; no repeated sighting XP for the same animal.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Crouched tracking of progressively harder-to-find animals.",
+    "base_actions": "Locate a previously unrecorded living wild animal at useful range.",
+    "signature_bonus_actions": "Extra for a crouched sighting followed by genuinely closing distance without losing the animal, then a successful hunt of that tracked animal. No prerequisite tracking marker at rank zero; no repeated sighting XP for the same animal.",
+    "source_description_key": "perkAnimalTrackerDesc",
+    "source_rank_description_keys": [
+      "perkAnimalTrackerRank1LongDesc",
+      "perkAnimalTrackerRank2LongDesc",
+      "perkAnimalTrackerRank3LongDesc",
+      "perkAnimalTrackerRank4LongDesc",
+      "perkAnimalTrackerRank5LongDesc"
+    ]
   },
   {
     "id": "perkPenetrator",
     "name": "The Penetrator",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "Confirmed rifle headshots and damage to armoured hostiles; verified penetration may earn a bounded bonus.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real damage to armored hostiles with native eligible firearms, bows or spears. Extra for qualifying armor-piercing ammo and confirmed damage to a second target or penetrable cover from the same projectile. Do not require AP or multi-target penetration to start; headshots alone are not proof of armor penetration.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Armor reduction across several weapon families; AP rifle penetration.",
+    "base_actions": "Real damage to armored hostiles with native eligible firearms, bows or spears.",
+    "signature_bonus_actions": "Extra for qualifying armor-piercing ammo and confirmed damage to a second target or penetrable cover from the same projectile. Do not require AP or multi-target penetration to start; headshots alone are not proof of armor penetration.",
+    "source_description_key": "perkPenetratorDesc",
+    "source_rank_description_keys": [
+      "perkPenetratorRank1LongDesc",
+      "perkPenetratorRank2LongDesc",
+      "perkPenetratorRank3LongDesc",
+      "perkPenetratorRank4LongDesc",
+      "perkPenetratorRank5LongDesc"
+    ]
   },
   {
     "id": "perkTreasureHunter",
     "name": "Treasure Hunter",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "Complete buried-supply/treasure digs and first-open buried treasure; useful excavation inside the active objective area.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Useful excavation inside an active buried-treasure objective. Extra for uncovering and personally opening its chest. Completion is once per chest/objective; digging and replacing the same blocks does not train it.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "More effective excavation and richer buried chests.",
+    "base_actions": "Useful excavation inside an active buried-treasure objective.",
+    "signature_bonus_actions": "Extra for uncovering and personally opening its chest. Completion is once per chest/objective; digging and replacing the same blocks does not train it.",
+    "source_description_key": "perkTreasureHunterDesc",
+    "source_rank_description_keys": [
+      "perkTreasureHunterRank1LongDesc",
+      "perkTreasureHunterRank2LongDesc",
+      "perkTreasureHunterRank3LongDesc",
+      "perkTreasureHunterRank4LongDesc",
+      "perkTreasureHunterRank5LongDesc"
+    ]
   },
   {
     "id": "perkSalvageOperations",
     "name": "Salvage Operations",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "Recover real materials with salvage tools from world objects; no rewards for damage without recovered resources.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Actually recover resources from world objects with a wrench, ratchet or impact driver. Extra for completing dismantling and recovering relevant mechanical/electrical components. Scrapping genuine equipment may give a smaller award; salvaging and ordinary mining use separate native tags.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Salvage-tool efficiency, resource recovery and scrapping speed.",
+    "base_actions": "Actually recover resources from world objects with a wrench, ratchet or impact driver.",
+    "signature_bonus_actions": "Extra for completing dismantling and recovering relevant mechanical/electrical components. Scrapping genuine equipment may give a smaller award; salvaging and ordinary mining use separate native tags.",
+    "source_description_key": "perkSalvageOperationsDesc",
+    "source_rank_description_keys": [
+      "perkSalvageOperationsRank1LongDesc",
+      "perkSalvageOperationsRank2LongDesc",
+      "perkSalvageOperationsRank3LongDesc",
+      "perkSalvageOperationsRank4LongDesc",
+      "perkSalvageOperationsRank5LongDesc"
+    ]
   },
   {
     "id": "perkPerceptionMastery",
     "name": "Perception Mastery",
     "category": "attPerception",
     "max_rank": 5,
-    "proposed_action": "Small advanced-practice share from Perception activities once the native mastery entry requirement is met.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Advanced Perception combat and useful salvaging, after its mastery entry gate. Rank-specific emphasis: salvage the seating/vehicle/safe object families even before extra valuables unlock; rifle/spear hits and newly inflicted bleeding; sprinting spear power hits; precise rifle kills. Existing bonus drops are not prerequisites.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Scavenged valuables/steel, rifle-spear bleeding, sprinting spear attacks and rifle damage.",
+    "base_actions": "Advanced Perception combat and useful salvaging, after its mastery entry gate.",
+    "signature_bonus_actions": "Rank-specific emphasis: salvage the seating/vehicle/safe object families even before extra valuables unlock; rifle/spear hits and newly inflicted bleeding; sprinting spear power hits; precise rifle kills. Existing bonus drops are not prerequisites.",
+    "source_description_key": "perkPerceptionMasteryDesc",
+    "source_rank_description_keys": [
+      "perkPerceptionMasteryRank1LongDesc",
+      "perkPerceptionMasteryRank2LongDesc",
+      "perkPerceptionMasteryRank3LongDesc",
+      "perkPerceptionMasteryRank4LongDesc",
+      "perkPerceptionMasteryRank5LongDesc"
+    ]
   },
   {
     "id": "perkBoomstick",
     "name": "Boomstick",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Deal real shotgun damage to hostiles.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real shotgun damage. Extra for close-range effective hits, newly caused shotgun stuns, and leg hits/cripples; a small qualified shell-reload award. One shot has one budget regardless of pellet count; no repeat stun-refresh payouts.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Shotgun damage, firing/reloads, stuns and leg cripples.",
+    "base_actions": "Real shotgun damage.",
+    "signature_bonus_actions": "Extra for close-range effective hits, newly caused shotgun stuns, and leg hits/cripples; a small qualified shell-reload award. One shot has one budget regardless of pellet count; no repeat stun-refresh payouts.",
+    "source_description_key": "perkBoomstickDesc",
+    "source_rank_description_keys": [
+      "perkBoomstickRank1LongDesc",
+      "perkBoomstickRank2LongDesc",
+      "perkBoomstickRank3LongDesc",
+      "perkBoomstickRank4LongDesc",
+      "perkBoomstickRank5LongDesc"
+    ]
   },
   {
     "id": "perkPummelPete",
     "name": "Pummel Pete",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Deal real club/bat damage to hostiles.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real club/bat damage. Extra for landed power attacks, newly caused knockdowns, follow-up damage to a stunned live enemy and distinct successful hit combinations. A single knockdown event is not repeatedly paid.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Club damage, power knockdowns, attacking stunned foes and hit combinations.",
+    "base_actions": "Real club/bat damage.",
+    "signature_bonus_actions": "Extra for landed power attacks, newly caused knockdowns, follow-up damage to a stunned live enemy and distinct successful hit combinations. A single knockdown event is not repeatedly paid.",
+    "source_description_key": "perkPummelPeteDesc",
+    "source_rank_description_keys": [
+      "perkPummelPeteRank1LongDesc",
+      "perkPummelPeteRank2LongDesc",
+      "perkPummelPeteRank3LongDesc",
+      "perkPummelPeteRank4LongDesc",
+      "perkPummelPeteRank5LongDesc"
+    ]
   },
   {
     "id": "perkSkullCrusher",
     "name": "Skull Crusher",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Deal real sledgehammer damage to hostiles.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real sledgehammer damage. Extra for landed power attacks, fresh knockdowns and genuinely knocking down several hostiles with one blow. Useful destruction of intact world obstacles is a small secondary route; no player-built break/rebuild farm.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Sledge damage, destroying obstacles, power knockdowns and nearby knockdowns.",
+    "base_actions": "Real sledgehammer damage.",
+    "signature_bonus_actions": "Extra for landed power attacks, fresh knockdowns and genuinely knocking down several hostiles with one blow. Useful destruction of intact world obstacles is a small secondary route; no player-built break/rebuild farm.",
+    "source_description_key": "perkSkullCrusherDesc",
+    "source_rank_description_keys": [
+      "perkSkullCrusherRank1LongDesc",
+      "perkSkullCrusherRank2LongDesc",
+      "perkSkullCrusherRank3LongDesc",
+      "perkSkullCrusherRank4LongDesc",
+      "perkSkullCrusherRank5LongDesc"
+    ]
   },
   {
     "id": "perkGrandSlam",
     "name": "Grand Slam",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Club/bat/sledge power hits and actual knockdowns; no extra credit for striking an already defeated target.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Small secondary share of real club/bat/sledge damage. Main bonus for a sprinting power attack that actually lands; extra for its fresh ragdoll. Standing power attacks do not earn the sprint-specific bonus. Ragdolls are not required before rank one.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Sprinting club/bat/sledge power attacks can ragdoll enemies.",
+    "base_actions": "Small secondary share of real club/bat/sledge damage.",
+    "signature_bonus_actions": "Main bonus for a sprinting power attack that actually lands; extra for its fresh ragdoll. Standing power attacks do not earn the sprint-specific bonus. Ragdolls are not required before rank one.",
+    "source_description_key": "perkGrandSlamDesc",
+    "source_rank_description_keys": [
+      "perkGrandSlamRank1LongDesc",
+      "perkGrandSlamRank2LongDesc",
+      "perkGrandSlamRank3LongDesc",
+      "perkGrandSlamRank4LongDesc",
+      "perkGrandSlamRank5LongDesc"
+    ]
   },
   {
     "id": "perkFlurryOfStrength",
     "name": "Big and Fast",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Club/bat/sledge combat; small secondary share of confirmed hits.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Small secondary share of real club/bat/sledge damage. Extra for distinct landed consecutive attacks with the relevant weapon, using a weapon-relative cadence window. No air-swing or corpse combo credit.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Faster clubs and sledgehammers.",
+    "base_actions": "Small secondary share of real club/bat/sledge damage.",
+    "signature_bonus_actions": "Extra for distinct landed consecutive attacks with the relevant weapon, using a weapon-relative cadence window. No air-swing or corpse combo credit.",
+    "source_description_key": "perkFlurryOfStrengthDesc",
+    "source_rank_description_keys": [
+      "perkFlurryOfStrengthRank1LongDesc",
+      "perkFlurryOfStrengthRank2LongDesc",
+      "perkFlurryOfStrengthRank3LongDesc",
+      "perkFlurryOfStrengthRank4LongDesc",
+      "perkFlurryOfStrengthRank5LongDesc"
+    ]
   },
   {
     "id": "perkPackMule",
     "name": "Pack Mule",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Travel on foot with genuine encumbrance, credited by distance and load. Standing still, teleporting or riding gives none.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Useful on-foot travel with a substantially loaded pack, including actual encumbrance. Extra for loaded return trips from scavenging and completed inventory recipes covered by the native perk tags. Standing, riding and teleports do not count; load benefit is capped so heavier overload is not endlessly better.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Carrying capacity, inventory crafting and occasional damage protection.",
+    "base_actions": "Useful on-foot travel with a substantially loaded pack, including actual encumbrance.",
+    "signature_bonus_actions": "Extra for loaded return trips from scavenging and completed inventory recipes covered by the native perk tags. Standing, riding and teleports do not count; load benefit is capped so heavier overload is not endlessly better.",
+    "source_description_key": "perkPackMuleDesc",
+    "source_rank_description_keys": [
+      "perkPackMuleRank1LongDesc",
+      "perkPackMuleRank2LongDesc",
+      "perkPackMuleRank3LongDesc",
+      "perkPackMuleRank4LongDesc",
+      "perkPackMuleRank5LongDesc"
+    ]
   },
   {
     "id": "perkStrengthMastery",
     "name": "Strength Mastery",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Small advanced-practice share from Strength activities once the native mastery entry requirement is met.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Advanced Strength combat and useful mining after the mastery entry gate. Emphasize ore extraction, actual mining-tool combat, club/sledge headshots and fresh dismemberments, and surviving close follow-up combat after Strength kills. Genuine injury recovery while actively mining can be a small bonus, never a prerequisite or reward for idle tool holding.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Mining-tool recovery/combat, ore salvage, head dismemberment and kill resilience.",
+    "base_actions": "Advanced Strength combat and useful mining after the mastery entry gate.",
+    "signature_bonus_actions": "Emphasize ore extraction, actual mining-tool combat, club/sledge headshots and fresh dismemberments, and surviving close follow-up combat after Strength kills. Genuine injury recovery while actively mining can be a small bonus, never a prerequisite or reward for idle tool holding.",
+    "source_description_key": "perkStrengthMasteryDesc",
+    "source_rank_description_keys": [
+      "perkStrengthMasteryRank1LongDesc",
+      "perkStrengthMasteryRank2LongDesc",
+      "perkStrengthMasteryRank3LongDesc",
+      "perkStrengthMasteryRank4LongDesc",
+      "perkStrengthMasteryRank5LongDesc"
+    ]
   },
   {
     "id": "perkMiner69r",
     "name": "Miner 69'er",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Extract real wood, stone and ore with the appropriate mining/harvesting tools.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Useful damage and resource extraction from real terrain, ore or trees with mining tools. Extra on actually finishing a resource block/tree and efficient appropriate-tool work. Tool combat gives a small damage route where native tags apply; do not pay empty hits or player-placed replacement blocks.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Tool and block damage with axes, picks, shovels, chainsaws and augers.",
+    "base_actions": "Useful damage and resource extraction from real terrain, ore or trees with mining tools.",
+    "signature_bonus_actions": "Extra on actually finishing a resource block/tree and efficient appropriate-tool work. Tool combat gives a small damage route where native tags apply; do not pay empty hits or player-placed replacement blocks.",
+    "source_description_key": "perkMiner69rDesc",
+    "source_rank_description_keys": [
+      "perkMiner69rRank1LongDesc",
+      "perkMiner69rRank2LongDesc",
+      "perkMiner69rRank3LongDesc",
+      "perkMiner69rRank4LongDesc",
+      "perkMiner69rRank5LongDesc"
+    ]
   },
   {
     "id": "perkMotherLode",
     "name": "Mother Lode",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Recover real natural resources while mining; normalize bulk yields so large stacks cannot bypass the curve.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real natural-resource recovery. Extra for finishing distinct ore deposits/trees and extracting productive resource blocks. Normalize against baseline yields, so this perk increasing its own drops does not multiply practice recursively.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Larger yields from ore, stone, terrain and wood.",
+    "base_actions": "Real natural-resource recovery.",
+    "signature_bonus_actions": "Extra for finishing distinct ore deposits/trees and extracting productive resource blocks. Normalize against baseline yields, so this perk increasing its own drops does not multiply practice recursively.",
+    "source_description_key": "perkMotherLodeDesc",
+    "source_rank_description_keys": [
+      "perkMotherLodeRank1LongDesc",
+      "perkMotherLodeRank2LongDesc",
+      "perkMotherLodeRank3LongDesc",
+      "perkMotherLodeRank4LongDesc",
+      "perkMotherLodeRank5LongDesc"
+    ]
   },
   {
     "id": "perkJunkMiner",
     "name": "Junk Miner",
     "category": "attStrength",
     "max_rank": 5,
-    "proposed_action": "Recover resources from non-natural world blocks and scrap piles with appropriate tools; exclude player-placed break/rebuild loops.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Actually recover native junk-harvest materials using a mining tool. Extra for fully processing intact world junk sources and recovering a useful mix of salvageable junk. Wrench dismantling belongs primarily to Salvage Operations; player-made placement/destruction loops are excluded.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Recovering cloth, plastic and other junk using mining tools.",
+    "base_actions": "Actually recover native junk-harvest materials using a mining tool.",
+    "signature_bonus_actions": "Extra for fully processing intact world junk sources and recovering a useful mix of salvageable junk. Wrench dismantling belongs primarily to Salvage Operations; player-made placement/destruction loops are excluded.",
+    "source_description_key": "perkJunkMinerDesc",
+    "source_rank_description_keys": [
+      "perkJunkMinerRank1LongDesc",
+      "perkJunkMinerRank2LongDesc",
+      "perkJunkMinerRank3LongDesc",
+      "perkJunkMinerRank4LongDesc",
+      "perkJunkMinerRank5LongDesc"
+    ]
   },
   {
     "id": "perkBrawler",
     "name": "The Brawler",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Deal real fist/knuckle damage to hostiles.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real fist/knuckle damage. Extra for head punches, landed power punches and fresh stagger/knockdown/head dismemberment events. No injury or infection is required for training.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Knuckle damage, head punches, staggers, knockdowns and dismemberment.",
+    "base_actions": "Real fist/knuckle damage.",
+    "signature_bonus_actions": "Extra for head punches, landed power punches and fresh stagger/knockdown/head dismemberment events. No injury or infection is required for training.",
+    "source_description_key": "perkBrawlerDesc",
+    "source_rank_description_keys": [
+      "perkBrawlerRank1LongDesc",
+      "perkBrawlerRank2LongDesc",
+      "perkBrawlerRank3LongDesc",
+      "perkBrawlerRank4LongDesc",
+      "perkBrawlerRank5LongDesc"
+    ]
   },
   {
     "id": "perkMachineGunner",
     "name": "Machine Gunner",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Deal real machine-gun damage to hostiles.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real machine-gun damage. Extra for controlled bursts with several hits on living targets and effective sustained fire while maintaining accuracy; small qualified combat-reload award. Score landed shots rather than ammo consumption or duration of trigger hold.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Automatic damage, rate of fire, recoil control, reloads and hits restoring stamina.",
+    "base_actions": "Real machine-gun damage.",
+    "signature_bonus_actions": "Extra for controlled bursts with several hits on living targets and effective sustained fire while maintaining accuracy; small qualified combat-reload award. Score landed shots rather than ammo consumption or duration of trigger hold.",
+    "source_description_key": "perkMachineGunnerDesc",
+    "source_rank_description_keys": [
+      "perkMachineGunnerRank1LongDesc",
+      "perkMachineGunnerRank2LongDesc",
+      "perkMachineGunnerRank3LongDesc",
+      "perkMachineGunnerRank4LongDesc",
+      "perkMachineGunnerRank5LongDesc"
+    ]
   },
   {
     "id": "perkFlurryOfFortitude",
     "name": "Lightning Hands",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Fist/knuckle combat; small secondary share of confirmed hits.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Small secondary share of real fist/knuckle damage. Extra for successive landed punches in a weapon-relative combo window. No award merely for clicking quickly.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Faster brawling.",
+    "base_actions": "Small secondary share of real fist/knuckle damage.",
+    "signature_bonus_actions": "Extra for successive landed punches in a weapon-relative combo window. No award merely for clicking quickly.",
+    "source_description_key": "perkFlurryOfFortitudeDesc",
+    "source_rank_description_keys": [
+      "perkFlurryOfFortitudeRank1LongDesc",
+      "perkFlurryOfFortitudeRank2LongDesc",
+      "perkFlurryOfFortitudeRank3LongDesc",
+      "perkFlurryOfFortitudeRank4LongDesc",
+      "perkFlurryOfFortitudeRank5LongDesc"
+    ]
   },
   {
     "id": "perkTheHuntsman",
     "name": "The Huntsman",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Harvest genuine animal corpses for meat, hide and bone; each corpse has a total practice budget.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Actual animal-carcass harvesting with eligible bladed tools/weapons. Extra for completely processing a genuine hunted carcass and recovering its useful products. One total budget per corpse; do not multiply XP by the extra yield this perk itself creates.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "More meat, bone and leather from bladed harvesting.",
+    "base_actions": "Actual animal-carcass harvesting with eligible bladed tools/weapons.",
+    "signature_bonus_actions": "Extra for completely processing a genuine hunted carcass and recovering its useful products. One total budget per corpse; do not multiply XP by the extra yield this perk itself creates.",
+    "source_description_key": "perkTheHuntsmanDesc",
+    "source_rank_description_keys": [
+      "perkTheHuntsmanRank1LongDesc",
+      "perkTheHuntsmanRank2LongDesc",
+      "perkTheHuntsmanRank3LongDesc",
+      "perkTheHuntsmanRank4LongDesc",
+      "perkTheHuntsmanRank5LongDesc"
+    ]
   },
   {
     "id": "perkPainTolerance",
     "name": "Pain Tolerance",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Survive a genuine hostile encounter with incoming enemy damage; bounded encounter award, no self/fire/fall/friendly damage.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Survive real hostile encounters, including bounded legitimate incoming damage. Extra for recovering from a real combat stun and staying active through an encounter; at high ranks, resisting a stun can count only if the source attempt is verifiable. Self damage, friendly hits and repeated injury farming do not count.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Less health loss and lower stun chance.",
+    "base_actions": "Survive real hostile encounters, including bounded legitimate incoming damage.",
+    "signature_bonus_actions": "Extra for recovering from a real combat stun and staying active through an encounter; at high ranks, resisting a stun can count only if the source attempt is verifiable. Self damage, friendly hits and repeated injury farming do not count.",
+    "source_description_key": "perkPainToleranceDesc",
+    "source_rank_description_keys": [
+      "perkPainToleranceRank1LongDesc",
+      "perkPainToleranceRank2LongDesc",
+      "perkPainToleranceRank3LongDesc",
+      "perkPainToleranceRank4LongDesc",
+      "perkPainToleranceRank5LongDesc"
+    ]
   },
   {
     "id": "perkFortitudeMastery",
     "name": "Fortitude Mastery",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Small advanced-practice share from Fortitude activities once the native mastery entry requirement is met.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Advanced Fortitude combat and surviving challenging encounters after its mastery entry gate. Extra for an enemy kill while genuinely bleeding, treatment/recovery from an acquired infection, and knuckle kills. Final resilience ranks use successful hard encounters and recovery, not standing still at high health. Do not require intentionally getting injured or infected.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Bleeding recovery on kills, infection recovery/immunity, knuckle kills and resilience.",
+    "base_actions": "Advanced Fortitude combat and surviving challenging encounters after its mastery entry gate.",
+    "signature_bonus_actions": "Extra for an enemy kill while genuinely bleeding, treatment/recovery from an acquired infection, and knuckle kills. Final resilience ranks use successful hard encounters and recovery, not standing still at high health. Do not require intentionally getting injured or infected.",
+    "source_description_key": "perkFortitudeMasteryDesc",
+    "source_rank_description_keys": [
+      "perkFortitudeMasteryRank1LongDesc",
+      "perkFortitudeMasteryRank2LongDesc",
+      "perkFortitudeMasteryRank3LongDesc",
+      "perkFortitudeMasteryRank4LongDesc",
+      "perkFortitudeMasteryRank5LongDesc"
+    ]
   },
   {
     "id": "perkSiphoningStrikes",
     "name": "Siphoning Strikes",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Successful melee combat while actually wounded; bounded recovery/combat share without requiring the perk effect at rank zero.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real melee damage, with extra emphasis on melee finishing blows. Extra when a melee kill occurs while you are genuinely missing health; if the unlocked perk actually restores health, credit the real recovery once. Rank zero can progress from melee damage/kills without already having life restoration.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Melee killing blows restore health.",
+    "base_actions": "Real melee damage, with extra emphasis on melee finishing blows.",
+    "signature_bonus_actions": "Extra when a melee kill occurs while you are genuinely missing health; if the unlocked perk actually restores health, credit the real recovery once. Rank zero can progress from melee damage/kills without already having life restoration.",
+    "source_description_key": "perkSiphoningStrikesDesc",
+    "source_rank_description_keys": [
+      "perkSiphoningStrikesRank1LongDesc",
+      "perkSiphoningStrikesRank2LongDesc",
+      "perkSiphoningStrikesRank3LongDesc",
+      "perkSiphoningStrikesRank4LongDesc",
+      "perkSiphoningStrikesRank5LongDesc"
+    ]
   },
   {
     "id": "perkHealingFactor",
     "name": "Healing Factor",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Recover health actually lost to recent hostile damage; budget by original injury and exclude self-inflicted healing loops.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Natural recovery of real health loss or genuine injuries during active survival. Extra for finishing natural recovery of an injury. This is distinct from Physician using medical items; use real injury provenance and minimum base recovery available before rank one. Resting for legitimate recovery is fine, manufactured damage loops are not.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Natural healing and faster critical-injury recovery.",
+    "base_actions": "Natural recovery of real health loss or genuine injuries during active survival.",
+    "signature_bonus_actions": "Extra for finishing natural recovery of an injury. This is distinct from Physician using medical items; use real injury provenance and minimum base recovery available before rank one. Resting for legitimate recovery is fine, manufactured damage loops are not.",
+    "source_description_key": "perkHealingFactorDesc",
+    "source_rank_description_keys": [
+      "perkHealingFactorRank1LongDesc",
+      "perkHealingFactorRank2LongDesc",
+      "perkHealingFactorRank3LongDesc",
+      "perkHealingFactorRank4LongDesc",
+      "perkHealingFactorRank5LongDesc"
+    ]
   },
   {
     "id": "perkSlowMetabolism",
     "name": "Iron Gut",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Restore genuine hunger/thirst with food and drink during active play. Nutrition variety can help; consuming at full needs gives none.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real exertion followed by replenishing actually missing food/water. Extra for genuine swimming/diving that uses breath and active work while an appropriate consumable buff is useful. No XP for drowning, disease exposure, overeating at full needs or repeated buff refreshing.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Reduced exertion hunger/thirst, breath capacity and longer consumable effects.",
+    "base_actions": "Real exertion followed by replenishing actually missing food/water.",
+    "signature_bonus_actions": "Extra for genuine swimming/diving that uses breath and active work while an appropriate consumable buff is useful. No XP for drowning, disease exposure, overeating at full needs or repeated buff refreshing.",
+    "source_description_key": "perkSlowMetabolismDesc",
+    "source_rank_description_keys": [
+      "perkSlowMetabolismRank1LongDesc",
+      "perkSlowMetabolismRank2LongDesc",
+      "perkSlowMetabolismRank3LongDesc",
+      "perkSlowMetabolismRank4LongDesc",
+      "perkSlowMetabolismRank5LongDesc"
+    ]
   },
   {
     "id": "perkRuleOneCardio",
     "name": "Rule 1: Cardio",
     "category": "attFortitude",
     "max_rank": 5,
-    "proposed_action": "Sustained on-foot sprinting credited by valid distance and stamina effort; no running against a wall.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Actual on-foot sprint distance with stamina effort. Extra for sustained sprint segments and escaping real pursuit; swimming sprint can provide a smaller cross-training route. No wall-running or teleport distance.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Sprinting stamina recovery and higher stamina.",
+    "base_actions": "Actual on-foot sprint distance with stamina effort.",
+    "signature_bonus_actions": "Extra for sustained sprint segments and escaping real pursuit; swimming sprint can provide a smaller cross-training route. No wall-running or teleport distance.",
+    "source_description_key": "perkRuleOneCardioDesc",
+    "source_rank_description_keys": [
+      "perkRuleOneCardioNameRank1LongDesc",
+      "perkRuleOneCardioNameRank2LongDesc",
+      "perkRuleOneCardioNameRank3LongDesc",
+      "perkRuleOneCardioNameRank4LongDesc",
+      "perkRuleOneCardioNameRank5LongDesc"
+    ]
   },
   {
     "id": "perkArchery",
     "name": "Archery",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Deal real bow/crossbow damage to hostiles.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real bow/crossbow damage. Extra for a fully drawn bow shot that hits, aimed/precision hits and qualified combat nocking/crossbow reloads. Draw-cancel loops do not count; crossbows do not need a nonexistent manual bow-draw action.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Bow/crossbow damage, aim, drawing and reloading.",
+    "base_actions": "Real bow/crossbow damage.",
+    "signature_bonus_actions": "Extra for a fully drawn bow shot that hits, aimed/precision hits and qualified combat nocking/crossbow reloads. Draw-cancel loops do not count; crossbows do not need a nonexistent manual bow-draw action.",
+    "source_description_key": "perkArcheryDesc",
+    "source_rank_description_keys": [
+      "perkArcheryRank1LongDesc",
+      "perkArcheryRank2LongDesc",
+      "perkArcheryRank3LongDesc",
+      "perkArcheryRank4LongDesc",
+      "perkArcheryRank5LongDesc"
+    ]
   },
   {
     "id": "perkGunslinger",
     "name": "Gunslinger",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Deal real pistol/revolver/SMG damage according to native weapon perk tags.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real handgun/revolver/eligible SMG damage. Extra for successive landed shots and precision hits, plus small qualified combat reloads. Use native weapon tags; no requirement to hip-fire because that specialty belongs to Run and Gun.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Handgun/SMG damage, rate of fire, reload and repeated accurate hits.",
+    "base_actions": "Real handgun/revolver/eligible SMG damage.",
+    "signature_bonus_actions": "Extra for successive landed shots and precision hits, plus small qualified combat reloads. Use native weapon tags; no requirement to hip-fire because that specialty belongs to Run and Gun.",
+    "source_description_key": "perkGunslingerDesc",
+    "source_rank_description_keys": [
+      "perkGunslingerRank1LongDesc",
+      "perkGunslingerRank2LongDesc",
+      "perkGunslingerRank3LongDesc",
+      "perkGunslingerRank4LongDesc",
+      "perkGunslingerRank5LongDesc"
+    ]
   },
   {
     "id": "perkDeepCuts",
     "name": "Deep Cuts",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Deal real knife/blade damage; skinning offers a smaller useful-action route. Bleed damage is attributed once to its originating attack.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real knife/machete damage, excluding axes from this combat perk. Extra for landed power cuts, causing a new player-owned bleed wound and meaningful actual bleed damage; fresh bleed-related slowing can add a control bonus. One wound budget, no reward every refresh/tick and no unrelated-weapon bleeding credit.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Blade damage, bleed wounds, power attacks and slowing bleeding targets.",
+    "base_actions": "Real knife/machete damage, excluding axes from this combat perk.",
+    "signature_bonus_actions": "Extra for landed power cuts, causing a new player-owned bleed wound and meaningful actual bleed damage; fresh bleed-related slowing can add a control bonus. One wound budget, no reward every refresh/tick and no unrelated-weapon bleeding credit.",
+    "source_description_key": "perkDeepCutsDesc",
+    "source_rank_description_keys": [
+      "perkDeepCutsRank1LongDesc",
+      "perkDeepCutsRank2LongDesc",
+      "perkDeepCutsRank3LongDesc",
+      "perkDeepCutsRank4LongDesc",
+      "perkDeepCutsRank5LongDesc"
+    ]
   },
   {
     "id": "perkFlurryOfAgility",
     "name": "Whirlwind",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Knife/blade combat; small secondary share of confirmed hits.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Small secondary share of real knife/blade damage. Extra for distinct connected blade strikes in a weapon-relative combo window. Deep Cuts rewards wound effects; Whirlwind rewards attack rhythm.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Faster blade attacks.",
+    "base_actions": "Small secondary share of real knife/blade damage.",
+    "signature_bonus_actions": "Extra for distinct connected blade strikes in a weapon-relative combo window. Deep Cuts rewards wound effects; Whirlwind rewards attack rhythm.",
+    "source_description_key": "perkFlurryOfAgilityDesc",
+    "source_rank_description_keys": [
+      "perkFlurryOfAgilityRank1LongDesc",
+      "perkFlurryOfAgilityRank2LongDesc",
+      "perkFlurryOfAgilityRank3LongDesc",
+      "perkFlurryOfAgilityRank4LongDesc",
+      "perkFlurryOfAgilityRank5LongDesc"
+    ]
   },
   {
     "id": "perkRunAndGun",
     "name": "Run and Gun",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Move on foot while reloading a weapon used in a recent hostile encounter; no empty-magazine idle reload farming.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real ranged damage while moving or hip-firing. Extra for a hit fired without aiming down sights, moving hip-fire hits and a completed qualified reload while actually travelling. Standing ADS kills train the weapon perk normally but do not automatically train this specialty.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Hip-fire accuracy and movement during ranged reloads.",
+    "base_actions": "Real ranged damage while moving or hip-firing.",
+    "signature_bonus_actions": "Extra for a hit fired without aiming down sights, moving hip-fire hits and a completed qualified reload while actually travelling. Standing ADS kills train the weapon perk normally but do not automatically train this specialty.",
+    "source_description_key": "perkRunandGunDesc",
+    "source_rank_description_keys": [
+      "perkRunAndGunRank1LongDesc",
+      "perkRunAndGunRank2LongDesc",
+      "perkRunAndGunRank3LongDesc",
+      "perkRunAndGunRank4LongDesc",
+      "perkRunAndGunRank5LongDesc"
+    ]
   },
   {
     "id": "perkHardTarget",
     "name": "Hard Target",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Move/sprint while actively pursued or attacked by a hostile, using distance and encounter budgets rather than requiring damage taken.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Useful movement during a real hostile encounter. Extra for avoiding a committed attack by repositioning and surviving enemy hits while actually moving. Credit resistance only when attributable; no requirement to take hits deliberately, and no empty-circle running without a threatening enemy.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Reduced damage while moving.",
+    "base_actions": "Useful movement during a real hostile encounter.",
+    "signature_bonus_actions": "Extra for avoiding a committed attack by repositioning and surviving enemy hits while actually moving. Credit resistance only when attributable; no requirement to take hits deliberately, and no empty-circle running without a threatening enemy.",
+    "source_description_key": "perkHardTargetDesc",
+    "source_rank_description_keys": [
+      "perkHardTargetRank1LongDesc",
+      "perkHardTargetRank2LongDesc",
+      "perkHardTargetRank3LongDesc",
+      "perkHardTargetRank4LongDesc",
+      "perkHardTargetRank5LongDesc"
+    ]
   },
   {
     "id": "perkParkour",
     "name": "Parkour",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Meaningful jumps/vaults with displacement or height gain during travel; repeated jumps in the same spot diminish to zero.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Meaningful jumps/vaults with real horizontal/vertical travel. Extra for clearing distinct obstacles, gaining reachable elevation and safe controlled landings within current capability. Do not require a height only the next locked rank can reach; no bonus for injuring yourself with drops.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Lower jump cost, higher jumps and safer falls.",
+    "base_actions": "Meaningful jumps/vaults with real horizontal/vertical travel.",
+    "signature_bonus_actions": "Extra for clearing distinct obstacles, gaining reachable elevation and safe controlled landings within current capability. Do not require a height only the next locked rank can reach; no bonus for injuring yourself with drops.",
+    "source_description_key": "perkParkourDesc",
+    "source_rank_description_keys": [
+      "perkParkourRank1LongDesc",
+      "perkParkourRank2LongDesc",
+      "perkParkourRank3LongDesc",
+      "perkParkourRank4LongDesc",
+      "perkParkourRank5LongDesc"
+    ]
   },
   {
     "id": "perkAgilityMastery",
     "name": "Agility Mastery",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Small advanced-practice share from Agility activities once the native mastery entry requirement is met.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Advanced Agility weapon damage and evasive combat after the mastery gate. Extra for leg hits/fresh cripples, qualified handgun reloads, attributed ranged bleeding, evading an opening attack and fully drawn hits on armored enemies. Exact special effect bonuses unlock only when available; the corresponding ordinary action remains a route before that rank.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Leg cripples, handgun reloads, ranged bleeding, first-hit protection and full-draw armor bypass.",
+    "base_actions": "Advanced Agility weapon damage and evasive combat after the mastery gate.",
+    "signature_bonus_actions": "Extra for leg hits/fresh cripples, qualified handgun reloads, attributed ranged bleeding, evading an opening attack and fully drawn hits on armored enemies. Exact special effect bonuses unlock only when available; the corresponding ordinary action remains a route before that rank.",
+    "source_description_key": "perkAgilityMasteryDesc",
+    "source_rank_description_keys": [
+      "perkAgilityMasteryRank1LongDesc",
+      "perkAgilityMasteryRank2LongDesc",
+      "perkAgilityMasteryRank3LongDesc",
+      "perkAgilityMasteryRank4LongDesc",
+      "perkAgilityMasteryRank5LongDesc"
+    ]
   },
   {
     "id": "perkHiddenStrike",
     "name": "Hidden Strike",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Deal confirmed sneak-attack damage to unaware hostiles.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Confirmed damage from a genuine sneak attack. Extra for an undetected opening kill or avoiding detection after a successful strike. No sneaking-in-place XP and no ordinary alerted kill being labelled a sneak attack.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Stronger attacks against unaware enemies.",
+    "base_actions": "Confirmed damage from a genuine sneak attack.",
+    "signature_bonus_actions": "Extra for an undetected opening kill or avoiding detection after a successful strike. No sneaking-in-place XP and no ordinary alerted kill being labelled a sneak attack.",
+    "source_description_key": "perkHiddenStrikeDesc",
+    "source_rank_description_keys": [
+      "perkHiddenStrikeRank1LongDesc",
+      "perkHiddenStrikeRank2LongDesc",
+      "perkHiddenStrikeRank3LongDesc",
+      "perkHiddenStrikeRank4LongDesc",
+      "perkHiddenStrikeRank5LongDesc"
+    ]
   },
   {
     "id": "perkFromTheShadows",
     "name": "From The Shadows",
     "category": "attAgility",
     "max_rank": 5,
-    "proposed_action": "Travel undetected near actual unaware hostiles; first infiltration/escape per encounter. Empty-room crouching gives none.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Actual undetected movement within meaningful detection range of unaware hostiles. Extra for passing close by without alerting them, traversing a threatened area in darkness and genuinely losing an active search. Do not pay for crouching alone or repeatedly resetting the same harmless encounter.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Lower visibility/noise, faster sneaking and losing searchers.",
+    "base_actions": "Actual undetected movement within meaningful detection range of unaware hostiles.",
+    "signature_bonus_actions": "Extra for passing close by without alerting them, traversing a threatened area in darkness and genuinely losing an active search. Do not pay for crouching alone or repeatedly resetting the same harmless encounter.",
+    "source_description_key": "perkFromTheShadowsDesc",
+    "source_rank_description_keys": [
+      "perkFromTheShadowsRank1LongDesc",
+      "perkFromTheShadowsRank2LongDesc",
+      "perkFromTheShadowsRank3LongDesc",
+      "perkFromTheShadowsRank4LongDesc",
+      "perkFromTheShadowsRank5LongDesc"
+    ]
   },
   {
     "id": "perkElectrocutioner",
     "name": "Electrocutioner",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Deal real baton/stun-baton damage to hostiles.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real baton/stun-baton damage. Extra for landing a charged strike, newly shocking/stunning an enemy and following through against that shocked target. Plain batons can start the skill before a stun baton is acquired; no idle charging or endless stun refresh.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Baton damage and longer electrified incapacitation.",
+    "base_actions": "Real baton/stun-baton damage.",
+    "signature_bonus_actions": "Extra for landing a charged strike, newly shocking/stunning an enemy and following through against that shocked target. Plain batons can start the skill before a stun baton is acquired; no idle charging or endless stun refresh.",
+    "source_description_key": "perkElectrocutionerDesc",
+    "source_rank_description_keys": [
+      "perkElectrocutionerRank1LongDesc",
+      "perkElectrocutionerRank2LongDesc",
+      "perkElectrocutionerRank3LongDesc",
+      "perkElectrocutionerRank4LongDesc",
+      "perkElectrocutionerRank5LongDesc"
+    ]
   },
   {
     "id": "perkTurrets",
     "name": "Robotics Inventor",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Player-owned deployed turret/robotic-sledge damage to hostiles, plus actual robotics assembly/repair; retain ownership attribution.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Real hostile damage from your hand-held or deployed robotic weapon. Extra for a deployed robot successfully engaging, robotic-sledge knockdowns and replenishing ammunition actually spent fighting. Mere placement/pickup earns none; player ownership and projectile source must be retained.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Robotic damage, fire/reload, ammo capacity and deployed operating range/count.",
+    "base_actions": "Real hostile damage from your hand-held or deployed robotic weapon.",
+    "signature_bonus_actions": "Extra for a deployed robot successfully engaging, robotic-sledge knockdowns and replenishing ammunition actually spent fighting. Mere placement/pickup earns none; player ownership and projectile source must be retained.",
+    "source_description_key": "perkTurretsDesc",
+    "source_rank_description_keys": [
+      "perkTurretsRank1LongDesc",
+      "perkTurretsRank2LongDesc",
+      "perkTurretsRank3LongDesc",
+      "perkTurretsRank4LongDesc",
+      "perkTurretsRank5LongDesc"
+    ]
   },
   {
     "id": "perkFlurryOfIntellect",
     "name": "Calculated Attack",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Baton combat; small secondary share of confirmed hits.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Small secondary share of real baton damage. Extra for connected baton-hit sequences within its weapon-relative attack cadence. No idle swings or repeated hits on dead targets.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Faster baton attacks.",
+    "base_actions": "Small secondary share of real baton damage.",
+    "signature_bonus_actions": "Extra for connected baton-hit sequences within its weapon-relative attack cadence. No idle swings or repeated hits on dead targets.",
+    "source_description_key": "perkFlurryOfIntellectDesc",
+    "source_rank_description_keys": [
+      "perkFlurryOfIntellectRank1LongDesc",
+      "perkFlurryOfIntellectRank2LongDesc",
+      "perkFlurryOfIntellectRank3LongDesc",
+      "perkFlurryOfIntellectRank4LongDesc",
+      "perkFlurryOfIntellectRank5LongDesc"
+    ]
   },
   {
     "id": "perkBetterBarter",
     "name": "Better Barter",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Complete genuine item trades with traders, with daily economic budgets and reverse-transaction suppression; no buy/sell-back loop.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Genuine completed purchases and sales. Extra for selling recovered/crafted goods and useful transactions with different traders, within a value-based budget. Buying back and reselling the same stock cannot create repeated practice.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Better trader buying and selling prices.",
+    "base_actions": "Genuine completed purchases and sales.",
+    "signature_bonus_actions": "Extra for selling recovered/crafted goods and useful transactions with different traders, within a value-based budget. Buying back and reselling the same stock cannot create repeated practice.",
+    "source_description_key": "perkBetterBarterDesc",
+    "source_rank_description_keys": [
+      "perkBetterBarterRank1LongDesc",
+      "perkBetterBarterRank2LongDesc",
+      "perkBetterBarterRank3LongDesc",
+      "perkBetterBarterRank4LongDesc",
+      "perkBetterBarterRank5LongDesc"
+    ]
   },
   {
     "id": "perkDaringAdventurer",
     "name": "The Daring Adventurer",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Complete unique trader quests and higher difficulty objectives; credit once per quest instance.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Successful unique quest completion/turn-in. Extra for harder objectives, fully completed optional objectives where supported and completing real higher-tier work. No XP for accepting/cancelling or reclaiming the same reward.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Better quest money, trader stock and reward choices.",
+    "base_actions": "Successful unique quest completion/turn-in.",
+    "signature_bonus_actions": "Extra for harder objectives, fully completed optional objectives where supported and completing real higher-tier work. No XP for accepting/cancelling or reclaiming the same reward.",
+    "source_description_key": "perkDaringAdventurerDesc",
+    "source_rank_description_keys": [
+      "perkDaringAdventurerRank1LongDesc",
+      "perkDaringAdventurerRank2LongDesc",
+      "perkDaringAdventurerRank3LongDesc",
+      "perkDaringAdventurerRank4LongDesc",
+      "perkDaringAdventurerRank5LongDesc"
+    ]
   },
   {
     "id": "perkCharismaticNature",
     "name": "Charismatic Nature",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Finish cooperative objectives/support allies; solo alternative through successful trader quest hand-ins. No party required to start.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Active cooperative objectives and meaningful support for allies. Extra for genuinely helping an injured ally or completing a shared dangerous objective while engaged. Solo fallback: successful trader hand-ins/influence practice. Explicit exception: solo quests are thematic leadership training, not a claim the native ally aura currently helps a solo player.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Allied regeneration, combat, protection, loot and attributes.",
+    "base_actions": "Active cooperative objectives and meaningful support for allies.",
+    "signature_bonus_actions": "Extra for genuinely helping an injured ally or completing a shared dangerous objective while engaged. Solo fallback: successful trader hand-ins/influence practice. Explicit exception: solo quests are thematic leadership training, not a claim the native ally aura currently helps a solo player.",
+    "source_description_key": "perkCharismaticNatureDesc",
+    "source_rank_description_keys": [
+      "perkCharismaticNatureRank1LongDesc",
+      "perkCharismaticNatureRank2LongDesc",
+      "perkCharismaticNatureRank3LongDesc",
+      "perkCharismaticNatureRank4LongDesc",
+      "perkCharismaticNatureRank5LongDesc"
+    ]
   },
   {
     "id": "perkPhysician",
     "name": "Physician",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Restore real missing health or treat a genuine injury with medical items; credit each injury/recovery only once.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Actually heal missing health or treat a real injury using appropriate medicine. Extra for correct treatment of bleeding/sprains/fractures, helping someone else and useful medical chemistry. Late anatomical practice may include baton precision/dismemberment once eligible; no XP for the number of bandages consumed at full health.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Effective medicine, faster treated-injury healing, chemistry and late baton anatomy effects.",
+    "base_actions": "Actually heal missing health or treat a real injury using appropriate medicine.",
+    "signature_bonus_actions": "Extra for correct treatment of bleeding/sprains/fractures, helping someone else and useful medical chemistry. Late anatomical practice may include baton precision/dismemberment once eligible; no XP for the number of bandages consumed at full health.",
+    "source_description_key": "perkPhysicianDesc",
+    "source_rank_description_keys": [
+      "perkPhysicianRank1LongDesc",
+      "perkPhysicianRank2LongDesc",
+      "perkPhysicianRank3LongDesc",
+      "perkPhysicianRank4LongDesc",
+      "perkPhysicianRank5LongDesc"
+    ]
   },
   {
     "id": "perkAdvancedEngineering",
     "name": "Advanced Engineering",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Complete useful station/electrical/construction production, repair machinery or install a newly working circuit; no placement/pickup loops.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Useful completed forge, mechanical, electrical and workstation production. Extra when a newly functioning circuit does real work and player-owned electrical traps deal damage/kill hostiles. One electrical network does not earn idle ticking XP; raw material refunds and repeated switch flips do not count.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Forge/workstation efficiency and experience from electrical trap kills.",
+    "base_actions": "Useful completed forge, mechanical, electrical and workstation production.",
+    "signature_bonus_actions": "Extra when a newly functioning circuit does real work and player-owned electrical traps deal damage/kill hostiles. One electrical network does not earn idle ticking XP; raw material refunds and repeated switch flips do not count.",
+    "source_description_key": "perkAdvancedEngineeringDesc",
+    "source_rank_description_keys": [
+      "perkAdvancedEngineeringRank1LongDesc",
+      "perkAdvancedEngineeringRank2LongDesc",
+      "perkAdvancedEngineeringRank3LongDesc",
+      "perkAdvancedEngineeringRank4LongDesc",
+      "perkAdvancedEngineeringRank5LongDesc"
+    ]
   },
   {
     "id": "perkGreaseMonkey",
     "name": "Grease Monkey",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Assemble vehicle components/vehicles, repair real vehicle damage, and maintain them; ordinary driving offers a small capped route.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Actual vehicle-part manufacture, assembly or repair of real damage. Extra for completing a new vehicle and materially restoring a damaged vehicle. Avoid making ordinary driving the main route: the native perk is about mechanics, not driver skill. Do not crash deliberately for repeated repair XP.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Cheaper vehicle parts and more effective vehicle repairs.",
+    "base_actions": "Actual vehicle-part manufacture, assembly or repair of real damage.",
+    "signature_bonus_actions": "Extra for completing a new vehicle and materially restoring a damaged vehicle. Avoid making ordinary driving the main route: the native perk is about mechanics, not driver skill. Do not crash deliberately for repeated repair XP.",
+    "source_description_key": "perkGreaseMonkeyDesc",
+    "source_rank_description_keys": [
+      "perkGreaseMonkeyRank1LongDesc",
+      "perkGreaseMonkeyRank2LongDesc",
+      "perkGreaseMonkeyRank3LongDesc",
+      "perkGreaseMonkeyRank4LongDesc",
+      "perkGreaseMonkeyRank5LongDesc"
+    ]
   },
   {
     "id": "perkIntellectMastery",
     "name": "Intellect Mastery",
     "category": "attIntellect",
     "max_rank": 5,
-    "proposed_action": "Small advanced-practice share from Intellect activities once the native mastery entry requirement is met.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Advanced engineering, real vehicle maintenance and baton damage after the mastery gate. Extra for useful journeys/vehicle maintenance, fresh charged baton hits and attributed shock damage. Book/point ranks need mode-specific replacement rewards; research/first successful complex production can train those ranks without requiring books.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Vehicle efficiency, book/point rewards, faster baton charging and stronger shocks.",
+    "base_actions": "Advanced engineering, real vehicle maintenance and baton damage after the mastery gate.",
+    "signature_bonus_actions": "Extra for useful journeys/vehicle maintenance, fresh charged baton hits and attributed shock damage. Book/point ranks need mode-specific replacement rewards; research/first successful complex production can train those ranks without requiring books.",
+    "source_description_key": "perkIntellectMasteryDesc",
+    "source_rank_description_keys": [
+      "perkIntellectMasteryRank1LongDesc",
+      "perkIntellectMasteryRank2LongDesc",
+      "perkIntellectMasteryRank3LongDesc",
+      "perkIntellectMasteryRank4LongDesc",
+      "perkIntellectMasteryRank5LongDesc"
+    ]
   },
   {
     "id": "perkLightArmor",
     "name": "Light Armor",
     "category": "attGeneralPerks",
     "max_rank": 4,
-    "proposed_action": "Move and fight in light armour during genuine hostile encounters; credit activity, not standing in armour.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Active combat while actually wearing light armor. Extra for completing dangerous encounters with that loadout and legitimate armor protection/wear events. Armor pieces share one encounter budget; no XP for dressing/undressing or taking self damage.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Less light-armor wear and additional protection per equipped piece.",
+    "base_actions": "Active combat while actually wearing light armor.",
+    "signature_bonus_actions": "Extra for completing dangerous encounters with that loadout and legitimate armor protection/wear events. Armor pieces share one encounter budget; no XP for dressing/undressing or taking self damage.",
+    "source_description_key": "perkLightArmorDesc",
+    "source_rank_description_keys": [
+      "perkLightArmorRank1LongDesc",
+      "perkLightArmorRank2LongDesc",
+      "perkLightArmorRank3LongDesc",
+      "perkLightArmorRank4LongDesc"
+    ]
   },
   {
     "id": "perkMediumArmor",
     "name": "Medium Armor",
     "category": "attGeneralPerks",
     "max_rank": 4,
-    "proposed_action": "Move and fight in medium armour during genuine hostile encounters; mixed sets split a single armour-practice budget.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Active combat and useful on-foot travel in medium armor. Extra for stamina-demanding repositioning or sustained useful travel while armored, plus bounded real combat wear. Mixed sets split one armor budget rather than awarding three full sets of XP.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Reduced medium-armor movement/stamina penalties and wear.",
+    "base_actions": "Active combat and useful on-foot travel in medium armor.",
+    "signature_bonus_actions": "Extra for stamina-demanding repositioning or sustained useful travel while armored, plus bounded real combat wear. Mixed sets split one armor budget rather than awarding three full sets of XP.",
+    "source_description_key": "perkMediumArmorDesc",
+    "source_rank_description_keys": [
+      "perkMediumArmorRank1LongDesc",
+      "perkMediumArmorRank2LongDesc",
+      "perkMediumArmorRank3LongDesc",
+      "perkMediumArmorRank4LongDesc"
+    ]
   },
   {
     "id": "perkHeavyArmor",
     "name": "Heavy Armor",
     "category": "attGeneralPerks",
     "max_rank": 4,
-    "proposed_action": "Move and fight in heavy armour during genuine hostile encounters; no reward for deliberately taking self damage.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Active combat and useful loaded movement in heavy armor. Extra for surviving meaningful enemy pressure while armored and moving under its stamina burden. No deliberate damage requirement or stationary self-injury training; mixed pieces receive proportional credit.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Heavy protection, lower movement/stamina penalties and wear.",
+    "base_actions": "Active combat and useful loaded movement in heavy armor.",
+    "signature_bonus_actions": "Extra for surviving meaningful enemy pressure while armored and moving under its stamina burden. No deliberate damage requirement or stationary self-injury training; mixed pieces receive proportional credit.",
+    "source_description_key": "perkHeavyArmorDesc",
+    "source_rank_description_keys": [
+      "perkHeavyArmorRank1LongDesc",
+      "perkHeavyArmorRank2LongDesc",
+      "perkHeavyArmorRank3LongDesc",
+      "perkHeavyArmorRank4LongDesc"
+    ]
   },
   {
     "id": "perkMasterChef",
     "name": "Master Chef",
     "category": "attGeneralPerks",
     "max_rank": 3,
-    "proposed_action": "Complete actual food/drink preparation, scaled to recipe work and cost; exclude wrapping/unwrapping the same food.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Complete genuine food/drink preparation. Extra for more demanding meals, first successful recipes and varied useful preparation; weight by actual recipe work/cost. No wrapping/unwrapping food loops and no XP simply from eating it.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Faster cooking and fewer ingredients.",
+    "base_actions": "Complete genuine food/drink preparation.",
+    "signature_bonus_actions": "Extra for more demanding meals, first successful recipes and varied useful preparation; weight by actual recipe work/cost. No wrapping/unwrapping food loops and no XP simply from eating it.",
+    "source_description_key": "perkMasterChefDesc",
+    "source_rank_description_keys": [
+      "perkMasterChefRank1LongDesc",
+      "perkMasterChefRank2LongDesc",
+      "perkMasterChefRank3LongDesc"
+    ]
   },
   {
     "id": "perkLivingOffTheLand",
     "name": "Living off the Land",
     "category": "attGeneralPerks",
     "max_rank": 3,
-    "proposed_action": "Harvest mature planted crops and produce seeds/compost; no credit for planting and immediately removing the same seed.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Harvest mature wild or planted crops. Extra for completing a real plant-grow-harvest cycle and useful plot/seed/compost preparation as secondary activities. Rank zero can start from wild crops; never count the extra perk-created yield as extra independent harvest events.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Higher wild/planted crop yields and cheaper farm plots.",
+    "base_actions": "Harvest mature wild or planted crops.",
+    "signature_bonus_actions": "Extra for completing a real plant-grow-harvest cycle and useful plot/seed/compost preparation as secondary activities. Rank zero can start from wild crops; never count the extra perk-created yield as extra independent harvest events.",
+    "source_description_key": "perkLivingOffTheLandDesc",
+    "source_rank_description_keys": [
+      "perkLivingOffTheLandRank1LongDesc",
+      "perkLivingOffTheLandRank2LongDesc",
+      "perkLivingOffTheLandRank3LongDesc",
+      "perkLivingOffTheLandRank4LongDesc",
+      "perkLivingOffTheLandRank5LongDesc"
+    ]
   },
   {
     "id": "perkLockPicking",
     "name": "Lock Picking",
     "category": "attGeneralPerks",
     "max_rank": 3,
-    "proposed_action": "Successfully open a previously locked world container with lockpicks; never credit relocking owned storage.",
-    "status": "proposal, not enabled"
+    "proposed_action": "Meaningful progress on a genuine previously locked world container. Main bonus for successfully opening it; a broken pick after real progress may give a small capped attempt award, not XP per broken pick. Do not repeatedly train on owned relocked storage.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Faster lock work, fewer broken picks and extra lockpick loot.",
+    "base_actions": "Meaningful progress on a genuine previously locked world container.",
+    "signature_bonus_actions": "Main bonus for successfully opening it; a broken pick after real progress may give a small capped attempt award, not XP per broken pick. Do not repeatedly train on owned relocked storage.",
+    "source_description_key": "perkLockPickingDesc",
+    "source_rank_description_keys": [
+      "perkLockPickingRank1LongDesc",
+      "perkLockPickingRank2LongDesc",
+      "perkLockPickingRank3LongDesc"
+    ]
   },
   {
     "id": "perkLuckyLooter",
     "name": "Lucky Looter",
     "category": "attGeneralPerks",
-    "max_rank": 1,
-    "proposed_action": "First search of genuine world loot, with lower budget for trash and no reopening player containers.",
-    "status": "proposal, not enabled"
+    "max_rank": 5,
+    "proposed_action": "Complete the initial search of a real world container. Extra for worthwhile secured/rare containers and first exploration of different loot-source families. Search effort can train it regardless of a lucky outcome; no reopen/transfer spam and no requirement to already roll rare loot.",
+    "status": "revision 2 proposal; not enabled",
+    "description_theme": "Better loot stage and faster personal searches.",
+    "base_actions": "Complete the initial search of a real world container.",
+    "signature_bonus_actions": "Extra for worthwhile secured/rare containers and first exploration of different loot-source families. Search effort can train it regardless of a lucky outcome; no reopen/transfer spam and no requirement to already roll rare loot.",
+    "source_description_key": "perkLuckyLooterDesc",
+    "source_rank_description_keys": [
+      "perkLuckyLooterRank1LongDesc",
+      "perkLuckyLooterRank2LongDesc",
+      "perkLuckyLooterRank3LongDesc",
+      "perkLuckyLooterRank4LongDesc",
+      "perkLuckyLooterRank5LongDesc"
+    ]
   }
 ]
