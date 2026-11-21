@@ -354,16 +354,18 @@ function Write-WorkshopConstruction([string]$Root, [string]$GameDirectory) {
     Move-Item -LiteralPath ($destination+'.tmp') -Destination $destination -Force
 }
 
-function Write-WorkshopArsenalDisplayEntries([string]$Root) {
+function Write-WorkshopArsenalDisplayEntries([string]$Root, [string]$GameDirectory) {
     $pack = Join-Path $Root 'Profile\Mods\DSD_Arsenal'
     $patchPath = Join-Path $Root 'Profile\Mods\GrimmerWorkshop\Config\progression.xml'
-    if (-not (Test-Path -LiteralPath (Join-Path $pack 'ModInfo.xml')) -or -not (Test-Path -LiteralPath $patchPath)) { return }
+    $basePath = Join-Path $GameDirectory 'Data\Config\progression.xml'
+    if (-not (Test-Path -LiteralPath (Join-Path $pack 'ModInfo.xml')) -or -not (Test-Path -LiteralPath $patchPath) -or -not (Test-Path -LiteralPath $basePath)) { return }
     [xml]$info = Get-Content -LiteralPath (Join-Path $pack 'ModInfo.xml') -Raw
     if ($info.SelectSingleNode('/xml/Name').GetAttribute('value') -ne 'DSD_Arsenal' -or
         $info.SelectSingleNode('/xml/Version').GetAttribute('value') -ne '1.2.1') { return }
     [xml]$items = Get-Content -LiteralPath (Join-Path $pack 'Config\items.xml') -Raw
     [xml]$recipes = Get-Content -LiteralPath (Join-Path $pack 'Config\recipes.xml') -Raw
     [xml]$progression = Get-Content -LiteralPath (Join-Path $pack 'Config\progression.xml') -Raw
+    [xml]$base = Get-Content -LiteralPath $basePath -Raw
     [xml]$patch = Get-Content -LiteralPath $patchPath -Raw
     $existingDisplayItems = @{}
     foreach ($existing in $patch.SelectNodes('/configs/*/display_entry[@item]')) { $existingDisplayItems[$existing.GetAttribute('item')] = $true }
@@ -373,7 +375,7 @@ function Write-WorkshopArsenalDisplayEntries([string]$Root) {
         clubSkill='craftingClubs'; sledgeSkill='craftingSledgehammers'; spearSkill='craftingSpears'
         roboticsSkill='craftingRobotics'
     }
-    $added = 0
+    $targetSkills = @{}
     foreach ($item in $items.SelectNodes('//item')) {
         $name = $item.GetAttribute('name')
         if (-not $name.StartsWith('dsdArs',[StringComparison]::Ordinal)) { continue }
@@ -381,45 +383,86 @@ function Write-WorkshopArsenalDisplayEntries([string]$Root) {
         if (-not $tagProperty -or $tagProperty.GetAttribute('value').Split(',') -notcontains 'weapon') { continue }
         $tags = @($tagProperty.GetAttribute('value').Split(',') | Where-Object { $skillByTag.ContainsKey($_) } | ForEach-Object { $skillByTag[$_] } | Select-Object -Unique)
         if ($tags.Count -ne 1) { continue }
+        $skillName = $tags[0]
         $matches = @()
         foreach ($operation in $progression.SelectNodes('/configs/*')) {
             $xpath = $operation.GetAttribute('xpath')
-            if (-not $xpath.Contains("crafting_skill[@name='$($tags[0])']")) { continue }
+            if (-not $xpath.Contains("crafting_skill[@name='$skillName']")) { continue }
             foreach ($display in $operation.SelectNodes('.//display_entry[@item]')) {
                 if ($display.GetAttribute('item') -eq $name -and $display.GetAttribute('unlock_level')) { $matches += $display.GetAttribute('unlock_level') }
             }
         }
-        if ($matches.Count -ne 1 -or @($recipes.SelectNodes("//recipe[@name='$name']")).Count -ne 1 -or $existingDisplayItems.ContainsKey($name)) { continue }
+        if ($matches.Count -ne 1 -or @($recipes.SelectNodes("//recipe[@name='$name']")).Count -ne 1) { continue }
+        $targetSkills[$skillName] = $true
+        if ($existingDisplayItems.ContainsKey($name)) { continue }
         $insert = $patch.CreateElement('insertBefore')
-        $insert.SetAttribute('xpath',"/progression/crafting_skills/crafting_skill[@name='$($tags[0])']/effect_group")
+        $insert.SetAttribute('xpath',"/progression/crafting_skills/crafting_skill[@name='$skillName']/effect_group")
         $entry = $patch.CreateElement('display_entry')
         $entry.SetAttribute('item',$name)
         $entry.SetAttribute('unlock_level',[string]$matches[0])
         $null = $insert.AppendChild($entry)
         $null = $patch.DocumentElement.AppendChild($insert)
         $existingDisplayItems[$name] = $true
-        $added++
     }
     $cell = @($recipes.SelectNodes('//recipe[@name="dsdArsEnergyCell"]'))
-    $cellListed = $existingDisplayItems.ContainsKey('dsdArsEnergyCell')
-    if ($cell.Count -eq 2 -and -not $cellListed) {
+    if ($cell.Count -eq 2) {
+        $targetSkills['craftingElectrician'] = $true
+        if (-not $existingDisplayItems.ContainsKey('dsdArsEnergyCell')) {
+            $insert = $patch.CreateElement('insertBefore')
+            $insert.SetAttribute('xpath',"/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/effect_group")
+            $entry = $patch.CreateElement('display_entry')
+            $entry.SetAttribute('item','dsdArsEnergyCell')
+            $entry.SetAttribute('unlock_level','1')
+            $null = $insert.AppendChild($entry)
+            $null = $patch.DocumentElement.AppendChild($insert)
+            $existingDisplayItems['dsdArsEnergyCell'] = $true
+        }
+    }
+
+    # Replace each affected skill's native and pack-added display entries as one
+    # sorted block. This keeps same-level unlocks adjacent and preserves every
+    # vanilla item's quality thresholds and presentation attributes.
+    foreach ($skillName in @($targetSkills.Keys | Sort-Object)) {
+        $skillPath = "/progression/crafting_skills/crafting_skill[@name='$skillName']"
+        $baseSkill = $base.SelectSingleNode($skillPath)
+        if (-not $baseSkill) { continue }
+        $combined = @()
+        foreach ($display in $baseSkill.SelectNodes('./display_entry[@item]')) {
+            $level = 0
+            if ($display.GetAttribute('unlock_level') -match '^\s*(\d+)') { $level = [int]$Matches[1] }
+            $combined += [pscustomobject]@{Level=$level;Name=$display.GetAttribute('item');Node=$display}
+        }
+        foreach ($operation in @($patch.SelectNodes('/configs/*'))) {
+            if ($operation.GetAttribute('xpath') -ne "$skillPath/effect_group") { continue }
+            foreach ($display in $operation.SelectNodes('.//display_entry[@item]')) {
+                $level = 0
+                if ($display.GetAttribute('unlock_level') -match '^\s*(\d+)') { $level = [int]$Matches[1] }
+                if (@($combined | Where-Object Name -eq $display.GetAttribute('item')).Count -eq 0) {
+                    $combined += [pscustomobject]@{Level=$level;Name=$display.GetAttribute('item');Node=$display}
+                }
+            }
+        }
+        $sorted = @($combined | Sort-Object Level,Name)
+        $operations = @($patch.SelectNodes('/configs/*'))
+        foreach ($operation in $operations) {
+            if ($operation.GetAttribute('xpath') -eq "$skillPath/effect_group" -and $operation.SelectNodes('.//display_entry[@item]').Count -gt 0) {
+                $null = $patch.DocumentElement.RemoveChild($operation)
+            }
+        }
+        $remove = $patch.CreateElement('remove')
+        $remove.SetAttribute('xpath',"$skillPath/display_entry")
+        $null = $patch.DocumentElement.AppendChild($remove)
         $insert = $patch.CreateElement('insertBefore')
-        $insert.SetAttribute('xpath',"/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/effect_group")
-        $entry = $patch.CreateElement('display_entry')
-        $entry.SetAttribute('item','dsdArsEnergyCell')
-        $entry.SetAttribute('unlock_level','1')
-        $null = $insert.AppendChild($entry)
+        $insert.SetAttribute('xpath',"$skillPath/effect_group")
+        foreach ($entryInfo in $sorted) { $null = $insert.AppendChild($patch.ImportNode($entryInfo.Node,$true)) }
         $null = $patch.DocumentElement.AppendChild($insert)
-        $existingDisplayItems['dsdArsEnergyCell'] = $true
-        $added++
     }
     Assert-WorkshopPlainPath $patchPath
     Assert-WorkshopPlainPath ($patchPath+'.tmp')
     [IO.File]::WriteAllText(($patchPath+'.tmp'),$patch.OuterXml,(New-Object Text.UTF8Encoding($false)))
     Move-Item -LiteralPath ($patchPath+'.tmp') -Destination $patchPath -Force
-    if ($added -gt 0) { Write-Host "Added $added DSD Arsenal item icons and unlock levels to the Crafting skill page." }
+    if ($targetSkills.Count -gt 0) { Write-Host "Sorted DSD Arsenal crafting items by unlock level for $($targetSkills.Count) skills." }
 }
-
 function Write-WorkshopSkillScreen([string]$Root, [string]$GameDirectory) {
     $directory = Join-Path $Root 'Profile\Mods\GrimmerWorkshop\Config\XUi_InGame'
     Assert-WorkshopPlainPath $directory

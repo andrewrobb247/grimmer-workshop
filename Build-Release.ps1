@@ -1,4 +1,4 @@
-param([string]$Version='0.1.52', [string]$OutputDirectory=(Join-Path $PSScriptRoot '..\Workshop-Publish'), [string]$Channel='testing', [string]$Notes='Fixes the XUi skill-row visibility patch so undiscovered skills hide correctly, and reveals them only after completing rank 1. Keeps existing ranks. Expands the crafting detail list to show five item rows, including DSD Arsenal entries. Removes Harmony warning spam from reflection probes.')
+param([string]$Version='0.1.53', [string]$OutputDirectory=(Join-Path $PSScriptRoot '..\Workshop-Publish'), [string]$Channel='testing', [string]$Notes='Sorts crafting item icons by their first unlock level so items at the same skill level appear together. Hides future perk and attribute rank names until they become the next rank. Keeps current and next ranks visible, preserves ranks, and retains the five-row crafting detail panel.')
 $ErrorActionPreference = 'Stop'
 if ($Version -notmatch '^\d+\.\d+\.\d+$' -or $Channel -notin @('stable','testing')) { throw 'Invalid release version or channel.' }
 . (Join-Path $PSScriptRoot 'Update-Core.ps1')
