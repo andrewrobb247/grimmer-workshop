@@ -246,6 +246,7 @@ function Write-WorkshopVehicleWorkbench([string]$Root, [string]$GameDirectory) {
         CustomIcon='grimmerVehicleWorkbench'
         Model='#@modfolder(ZZZ_GrimmerVehicleWorkbench):Resources/grimmervehicleworkbench.unity3d?grimmerVehicleWorkbenchPrefab'
         ModelOffset='0,0,0'
+        Collide='movement,melee,bullet,arrow,rocket'
         EconomicValue='3500'
         UnlockedBy='craftingWorkstations'
     }
@@ -291,6 +292,13 @@ grimmerVehicleWorkbenchDesc,blocks,Block,,,,"A dedicated automotive assembly sta
     $directory=Join-Path $modRoot 'Config'
     Assert-WorkshopPlainPath $directory
     New-Item -ItemType Directory -Path $directory -Force|Out-Null
+    # Older testing builds emitted a no-op items.xml patch which referenced
+    # the wrong vanilla item name. Remove only that known generated file.
+    $staleItems=Join-Path $directory 'items.xml'
+    if(Test-Path -LiteralPath $staleItems -PathType Leaf){
+        Assert-WorkshopPlainPath $staleItems
+        Remove-Item -LiteralPath $staleItems -Force
+    }
     foreach($pair in @(
         @((Join-Path $directory 'blocks.xml'),$blocks.OuterXml),
         @((Join-Path $directory 'recipes.xml'),$recipes.OuterXml),
