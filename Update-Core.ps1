@@ -197,6 +197,114 @@ grimmerGunsmithBenchDesc,blocks,Block,,,,"Specialist weapon bench. Unlocks at Wo
     }
 }
 
+function Expand-WorkshopVehicleWorkbenchAssets([string]$Root) {
+    $resources=Join-Path $Root 'Profile\Mods\ZZZ_GrimmerVehicleWorkbench\Resources'
+    $iconDirectory=Join-Path $Root 'Profile\Mods\ZZZ_GrimmerVehicleWorkbench\UIAtlases\ItemIconAtlas'
+    Assert-WorkshopPlainPath $iconDirectory
+    New-Item -ItemType Directory -Path $iconDirectory -Force|Out-Null
+    foreach($pair in @(
+        @((Join-Path $resources 'grimmervehicleworkbench.unity3d'),'618544','c6aa8c5e6d4eea709ef737d9209056de3b4a57bcc86e1d4fc122b2b94a7cea78'),
+        @((Join-Path $iconDirectory 'grimmerVehicleWorkbench.png'),'13623','316e0047c63bee71f11a0c6fb16f51b86bc283fcb6fc59ad5fd118a03b58ed34')
+    )){
+        $destination=$pair[0];$expectedSize=[int64]$pair[1];$expectedHash=$pair[2];$temporary=$destination+'.tmp'
+        Assert-WorkshopPlainPath $destination;Assert-WorkshopPlainPath $temporary
+        if((Test-Path -LiteralPath $destination -PathType Leaf) -and (Get-Item -LiteralPath $destination).Length -eq $expectedSize -and (Get-WorkshopHash $destination) -eq $expectedHash){continue}
+        try {
+            [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
+            $relative=$destination.Substring($Root.TrimEnd('\\').Length+1).Replace('\','/')
+            $url='https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.58/'+$relative
+            Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile $temporary -TimeoutSec 90 -Headers @{'User-Agent'='Grimmer-Workshop-Updater'}
+            if((Get-Item -LiteralPath $temporary).Length -ne $expectedSize -or (Get-WorkshopHash $temporary) -ne $expectedHash){throw 'Downloaded vehicle workbench asset failed its size or checksum check.'}
+            Move-Item -LiteralPath $temporary -Destination $destination -Force
+        } catch {
+            Remove-Item -LiteralPath $temporary -Force -ErrorAction SilentlyContinue
+            throw ('Could not download the Workshop vehicle bench assets. Check your internet connection, then start the Workshop again. '+$_.Exception.Message)
+        }
+    }
+}
+
+function Write-WorkshopVehicleWorkbench([string]$Root, [string]$GameDirectory) {
+    $modRoot=Join-Path $Root 'Profile\Mods\ZZZ_GrimmerVehicleWorkbench'
+    $resources=Join-Path $modRoot 'Resources'
+    $bundle=Join-Path $resources 'grimmervehicleworkbench.unity3d'
+    if(-not (Test-Path -LiteralPath $bundle -PathType Leaf) -or (Get-Item -LiteralPath $bundle).Length -lt 1024) {
+        Write-Host 'Custom Vehicle Workbench bundle is not installed yet; skipping its game config.' -ForegroundColor Yellow
+        return
+    }
+
+    [xml]$nativeBlocks=Get-Content -LiteralPath (Join-Path $GameDirectory 'Data\Config\blocks.xml') -Raw
+    [xml]$nativeRecipes=Get-Content -LiteralPath (Join-Path $GameDirectory 'Data\Config\recipes.xml') -Raw
+    $base=$nativeBlocks.SelectSingleNode("/blocks/block[@name='workbench']")
+    if(-not $base){throw 'Native workbench definition missing.'}
+
+    [xml]$blocks='<configs><append xpath="/blocks" /></configs>'
+    $bench=$blocks.ImportNode($base,$true)
+    $bench.SetAttribute('name','grimmerVehicleWorkbench')
+    $properties=@{
+        DescriptionKey='grimmerVehicleWorkbenchDesc'
+        WorkstationWindow='workstation_workbench'
+        CustomIcon='grimmerVehicleWorkbench'
+        Model='#@modfolder(ZZZ_GrimmerVehicleWorkbench):Resources/grimmervehicleworkbench.unity3d?grimmerVehicleWorkbenchPrefab'
+        ModelOffset='0,0,0'
+        EconomicValue='3500'
+        UnlockedBy='craftingWorkstations'
+    }
+    foreach($key in $properties.Keys){
+        $node=$bench.SelectSingleNode("property[@name='$key']")
+        if(-not $node){$node=$blocks.CreateElement('property');$node.SetAttribute('name',$key);$null=$bench.AppendChild($node)}
+        $node.SetAttribute('value',$properties[$key])
+    }
+    $area=$bench.SelectSingleNode("property[@class='Workstation']/property[@name='CraftingAreaRecipes']")
+    if(-not $area){throw 'Native workbench crafting area definition changed.'}
+    $area.SetAttribute('value','grimmerVehicleWorkbench')
+    $null=$blocks.configs.append.AppendChild($bench)
+
+    [xml]$recipes='<configs><append xpath="/recipes" /></configs>'
+    $seen=@{}
+    foreach($source in $nativeRecipes.SelectNodes('/recipes/recipe')){
+        $name=$source.GetAttribute('name')
+        if($name -notmatch '^(vehicle|modVehicle)' -or $seen.ContainsKey($name)){continue}
+        $seen[$name]=$true
+        $copy=$recipes.ImportNode($source,$true)
+        $copy.SetAttribute('craft_area','grimmerVehicleWorkbench')
+        $null=$recipes.configs.append.AppendChild($copy)
+    }
+    if($recipes.SelectNodes('/configs/append/recipe').Count -lt 20){throw 'Vehicle recipe selection unexpectedly small.'}
+
+    [xml]$progression=@'
+<configs><append xpath="/progression/crafting_skills/crafting_skill[@name='craftingWorkstations']/effect_group"><passive_effect name="RecipeTagUnlocked" operation="base_set" level="10,75" value="1" tags="grimmerVehicleWorkbench" /></append></configs>
+'@
+    $localization=@'
+Key,File,Type,UsedInMainMenu,NoTranslate,KeepLoaded,english
+grimmerVehicleWorkbench,blocks,Block,,,,Vehicle Workbench
+grimmerVehicleWorkbenchDesc,blocks,Block,,,,"A dedicated automotive assembly station with a mounted engine, tool board and heavy-duty bench. Unlock Options: Workstations 10/75 or the Workbench Schematic, matching the vanilla Workbench. Craft it at a vanilla workbench once unlocked. Vehicle recipes keep their usual materials and unlock requirements."
+'@
+    $iconSource=Join-Path $Root 'Source\VehicleWorkbench\Model\grimmerVehicleWorkbench.png'
+    $iconDirectory=Join-Path $modRoot 'UIAtlases\ItemIconAtlas'
+    Assert-WorkshopPlainPath $iconDirectory
+    New-Item -ItemType Directory -Path $iconDirectory -Force|Out-Null
+    if(Test-Path -LiteralPath $iconSource -PathType Leaf){Copy-Item -LiteralPath $iconSource -Destination (Join-Path $iconDirectory 'grimmerVehicleWorkbench.png') -Force}
+
+    $info=@'
+<xml><Name value="ZZZ_GrimmerVehicleWorkbench" /><DisplayName value="Grimmer Vehicle Workbench" /><Version value="0.1.0" /><Description value="Custom automotive assembly station and vehicle-only crafting area. Keep installed while saves contain this station." /><Author value="Grimmer Workshop" /></xml>
+'@
+    $directory=Join-Path $modRoot 'Config'
+    Assert-WorkshopPlainPath $directory
+    New-Item -ItemType Directory -Path $directory -Force|Out-Null
+    foreach($pair in @(
+        @((Join-Path $directory 'blocks.xml'),$blocks.OuterXml),
+        @((Join-Path $directory 'recipes.xml'),$recipes.OuterXml),
+        @((Join-Path $directory 'progression.xml'),$progression.OuterXml),
+        @((Join-Path $directory 'Localization.csv'),$localization),
+        @((Join-Path $modRoot 'ModInfo.xml'),$info)
+    )){
+        $destination=$pair[0]
+        Assert-WorkshopPlainPath $destination;Assert-WorkshopPlainPath ($destination+'.tmp')
+        [IO.File]::WriteAllText(($destination+'.tmp'),$pair[1],(New-Object Text.UTF8Encoding($false)))
+        Move-Item -LiteralPath ($destination+'.tmp') -Destination $destination -Force
+    }
+}
+
 function Write-WorkshopVehicleParts([string]$Root, [string]$GameDirectory) {
     [xml]$baseline=Get-Content -LiteralPath (Join-Path $GameDirectory 'Data\Config\items.xml') -Raw
     if(-not $baseline.SelectSingleNode("/items/item[@name='resourceMechanicalParts']")) {throw 'Vehicle parts base item changed.'}
@@ -762,7 +870,8 @@ function Resolve-WorkshopFile([string]$Root, [string]$Relative) {
     if ($Relative -match '[\\:]|[\x00-\x1f]|(^|/)\.{1,2}(/|$)') { throw "Unsafe update path: $Relative" }
     $configAllowed = $Relative -match '^Profile/Mods/(GrimmerWorkshop|ZZZ_GrimmerHUD)/Config/(?:[A-Za-z0-9_-][A-Za-z0-9_.-]*/)*[A-Za-z0-9_-][A-Za-z0-9_.-]*\.(xml|txt|csv|json)$'
     $modAllowed = ($Relative -match '^Profile/Mods/(GrimmerWorkshop|ZZZ_GrimmerHUD)/(ModInfo\.xml|GrimmerWorkshop\.dll|PracticeRules\.xml|CRAFTING-ROUTES\.csv|WorkshopSettings\.xml|Settings\.json|Configure\.ps1)$') -or $configAllowed
-    if (($allowed -notcontains $Relative) -and -not $modAllowed) { throw "Update path is not permitted: $Relative" }
+    $vehicleBenchAllowed = $Relative -match '^Profile/Mods/ZZZ_GrimmerVehicleWorkbench/(ModInfo\.xml|Config/(blocks|recipes|progression|items)\.xml|Config/Localization\.csv|Resources/grimmervehicleworkbench\.unity3d|UIAtlases/ItemIconAtlas/grimmerVehicleWorkbench\.png|Resources/UIAtlases/ItemIconAtlas/grimmerVehicleWorkbench\.png)$'
+    if (($allowed -notcontains $Relative) -and -not $modAllowed -and -not $vehicleBenchAllowed) { throw "Update path is not permitted: $Relative" }
     $rootPath = [IO.Path]::GetFullPath($Root).TrimEnd('\')
     $target = [IO.Path]::GetFullPath((Join-Path $rootPath $Relative.Replace('/','\')))
     if (-not $target.StartsWith($rootPath + '\', [StringComparison]::OrdinalIgnoreCase)) { throw 'Update path escapes the installation.' }
