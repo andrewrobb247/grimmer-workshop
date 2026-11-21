@@ -28,8 +28,7 @@ namespace GrimmerWorkshop
     public static class LearnByDoing
     {
         const string PracticePrefix = "grimmerLearnPractice_";
-        const string DiscoveryPrefix = "grimmerHiddenSkillV2_";
-        const string LegacyDiscoveryPrefix = "grimmerHiddenSkill_";
+        const string DiscoveryPrefix = "grimmerHiddenSkillV3_";
         const string BankedPointsKey = "grimmerLearnByDoingBankedSkillPoints";
         static readonly Dictionary<string, LearningSkillDefinition> definitions = new Dictionary<string, LearningSkillDefinition>(StringComparer.OrdinalIgnoreCase);
         static readonly ActionPreviewFrameBudget attributeFrames = new ActionPreviewFrameBudget();
@@ -88,17 +87,9 @@ namespace GrimmerWorkshop
             if (player == null) return false;
             if (player.Buffs.GetCustomVar(DiscoveryPrefix + skill) >= 1) return true;
 
-            // Apiarist's legacy flag was only ever set by the apiary/honey
-            // discovery event. The old generic flag for native perks could
-            // also be set merely by displaying stored practice, so do not
-            // trust those old flags when migrating existing saves.
-            if (String.Equals(skill, "perkApiarist", StringComparison.OrdinalIgnoreCase) &&
-                player.Buffs.GetCustomVar(LegacyDiscoveryPrefix + skill) >= 1) return true;
-
-            // Preserve skills the player had actually ranked before hidden
-            // discovery was introduced. Stored practice alone is not a
-            // discovery: the player must perform a relevant action after
-            // updating to reveal the skill.
+            // Existing ranks remain visible. Practice and older discovery
+            // flags do not reveal a zero-rank skill; it becomes visible only
+            // when the player actually completes rank 1.
             try {
                 var value = player.Progression.GetProgressionValue(skill);
                 if (value != null && value.Level > 0) {
@@ -118,14 +109,17 @@ namespace GrimmerWorkshop
         {
             var player = Workshop.Player();
             var definition = Find(skill);
-            if (player == null || definition == null || !definition.Hidden || IsDiscovered(player, skill)) return;
+            if (player == null || definition == null || !definition.Hidden) return;
+            if (Enabled && firstPractice > 0) Grant(skill, firstPractice);
+            if (player.Buffs.GetCustomVar(DiscoveryPrefix + skill) >= 1) return;
+            var value = player.Progression.GetProgressionValue(skill);
+            if (value == null || value.Level < 1) return;
             player.Buffs.SetCustomVar(DiscoveryPrefix + skill, 1, true, CVarOperation.set, false);
             if (player.PlayerUI != null) {
                 try { GameManager.ShowTooltip(player, "[FFD45A]*** SKILL DISCOVERED ***[-]  " + definition.Name, false, false, 4); }
                 catch { }
             }
             Log.Out("[Grimmer Workshop] Hidden skill discovered: " + skill);
-            if (Enabled && firstPractice > 0) Grant(skill, firstPractice);
         }
 
         public static void MigratePreview(EntityPlayerLocal player)
@@ -195,9 +189,8 @@ namespace GrimmerWorkshop
             var definition = Find(skill);
             if (!Enabled || player == null || definition == null || amount <= 0 ||
                 double.IsNaN(amount) || double.IsInfinity(amount) || Speed <= 0) return false;
-            // The first relevant practice reveals an ordinary hidden perk and
-            // still counts that same action toward its progress bar.
-            if (definition.Hidden && !IsDiscovered(player, skill)) Discover(skill, 0);
+            // Hidden practice accrues without showing the skill. Reveal it only
+            // after the first full rank has actually been earned.
             if (!migratingPreview) MigratePreview(player);
             var value = player.Progression.GetProgressionValue(skill);
             if (value == null || value.Level >= definition.MaxRank) return false;
@@ -218,6 +211,7 @@ namespace GrimmerWorkshop
             if (definition.Kind == "attribute") GrantMasteryShare(definition.Id, amount);
             if (before == value.Level) return true;
             Refresh(player, value, before);
+            if (definition.Hidden && before == 0 && value.Level > 0) Discover(skill, 0);
             TryPending(player);
             return true;
         }
@@ -276,6 +270,7 @@ namespace GrimmerWorkshop
                 finally { internalRankChange--; }
                 player.Buffs.SetCustomVar(Key(definition.Id), (float)Math.Max(0, remainder), true, CVarOperation.set, false);
                 Refresh(player, value, value.Level - 1);
+                if (definition.Hidden && value.Level == 1) Discover(definition.Id, 0);
             }
         }
 

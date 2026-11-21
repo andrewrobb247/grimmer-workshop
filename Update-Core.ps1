@@ -365,6 +365,8 @@ function Write-WorkshopArsenalDisplayEntries([string]$Root) {
     [xml]$recipes = Get-Content -LiteralPath (Join-Path $pack 'Config\recipes.xml') -Raw
     [xml]$progression = Get-Content -LiteralPath (Join-Path $pack 'Config\progression.xml') -Raw
     [xml]$patch = Get-Content -LiteralPath $patchPath -Raw
+    $existingDisplayItems = @{}
+    foreach ($existing in $patch.SelectNodes('/configs/*/display_entry[@item]')) { $existingDisplayItems[$existing.GetAttribute('item')] = $true }
     $skillByTag = @{
         handgunSkill='craftingHandguns'; shotgunSkill='craftingShotguns'; rifleSkill='craftingRifles'
         machinegunSkill='craftingMachineGuns'; knuckleSkill='craftingKnuckles'; bladeSkill='craftingBlades'
@@ -382,35 +384,33 @@ function Write-WorkshopArsenalDisplayEntries([string]$Root) {
         $matches = @()
         foreach ($operation in $progression.SelectNodes('/configs/*')) {
             $xpath = $operation.GetAttribute('xpath')
-            if (-not $xpath.Contains("crafting_skill[@name='$($tags[0])']/effect_group")) { continue }
-            foreach ($effect in $operation.SelectNodes('.//passive_effect[@name="RecipeTagUnlocked"]')) {
-                if ($effect.GetAttribute('tags').Split(',') -contains $name) {
-                    $levelText = $effect.GetAttribute('level').Split(',')[0]
-                    $level = 0
-                    if ([int]::TryParse($levelText,[ref]$level) -and $level -gt 0) { $matches += $level }
-                }
+            if (-not $xpath.Contains("crafting_skill[@name='$($tags[0])']")) { continue }
+            foreach ($display in $operation.SelectNodes('.//display_entry[@item]')) {
+                if ($display.GetAttribute('item') -eq $name -and $display.GetAttribute('unlock_level')) { $matches += $display.GetAttribute('unlock_level') }
             }
         }
-        if ($matches.Count -ne 1 -or @($recipes.SelectNodes("//recipe[@name='$name']")).Count -ne 1) { continue }
-        $append = $patch.CreateElement('append')
-        $append.SetAttribute('xpath',"/progression/crafting_skills/crafting_skill[@name='$($tags[0])']")
+        if ($matches.Count -ne 1 -or @($recipes.SelectNodes("//recipe[@name='$name']")).Count -ne 1 -or $existingDisplayItems.ContainsKey($name)) { continue }
+        $insert = $patch.CreateElement('insertBefore')
+        $insert.SetAttribute('xpath',"/progression/crafting_skills/crafting_skill[@name='$($tags[0])']/effect_group")
         $entry = $patch.CreateElement('display_entry')
         $entry.SetAttribute('item',$name)
         $entry.SetAttribute('unlock_level',[string]$matches[0])
-        $null = $append.AppendChild($entry)
-        $null = $patch.DocumentElement.AppendChild($append)
+        $null = $insert.AppendChild($entry)
+        $null = $patch.DocumentElement.AppendChild($insert)
+        $existingDisplayItems[$name] = $true
         $added++
     }
     $cell = @($recipes.SelectNodes('//recipe[@name="dsdArsEnergyCell"]'))
-    $cellListed = $patch.SelectSingleNode("/configs/append/display_entry[@item='dsdArsEnergyCell']")
+    $cellListed = $existingDisplayItems.ContainsKey('dsdArsEnergyCell')
     if ($cell.Count -eq 2 -and -not $cellListed) {
-        $append = $patch.CreateElement('append')
-        $append.SetAttribute('xpath',"/progression/crafting_skills/crafting_skill[@name='craftingElectrician']")
+        $insert = $patch.CreateElement('insertBefore')
+        $insert.SetAttribute('xpath',"/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/effect_group")
         $entry = $patch.CreateElement('display_entry')
         $entry.SetAttribute('item','dsdArsEnergyCell')
         $entry.SetAttribute('unlock_level','1')
-        $null = $append.AppendChild($entry)
-        $null = $patch.DocumentElement.AppendChild($append)
+        $null = $insert.AppendChild($entry)
+        $null = $patch.DocumentElement.AppendChild($insert)
+        $existingDisplayItems['dsdArsEnergyCell'] = $true
         $added++
     }
     Assert-WorkshopPlainPath $patchPath
@@ -450,6 +450,7 @@ function Write-WorkshopSkillScreen([string]$Root, [string]$GameDirectory) {
 '@
     $templates = @'
 <configs>
+  <setattribute xpath="/templates/skill_entry/rect" name="visible" value="{gw_skill_visible}" />
   <set xpath="/templates/recipe_entry/rect/label[@name='Name']/@width">238</set>
   <set xpath="/templates/recipe_entry/rect/label[@name='Name']/@pos">184,-22</set>
   <append xpath="/templates/recipe_entry/rect">
@@ -713,7 +714,9 @@ function Assert-WorkshopPlainPath([string]$Path) {
 
 function Resolve-WorkshopFile([string]$Root, [string]$Relative) {
     $allowed = @('Launch-Workshop.cmd','Launch-Workshop.ps1','Launcher.ps1','Update-Core.ps1','Update-Workshop.cmd','Rollback-Workshop.cmd','Open-Display-Settings.cmd','README.md','Installed-Release.json','UpdaterSettings.json')
-    $modAllowed = $Relative -match '^Profile/Mods/(GrimmerWorkshop|ZZZ_GrimmerHUD)/(ModInfo\.xml|GrimmerWorkshop\.dll|PracticeRules\.xml|CRAFTING-ROUTES\.csv|WorkshopSettings\.xml|Settings\.json|Configure\.ps1|Config/(items\.xml|recipes\.xml|XUi_InGame/windows\.xml))$'
+    if ($Relative -match '[\\:]|[\x00-\x1f]|(^|/)\.{1,2}(/|$)') { throw "Unsafe update path: $Relative" }
+    $configAllowed = $Relative -match '^Profile/Mods/(GrimmerWorkshop|ZZZ_GrimmerHUD)/Config/(?:[A-Za-z0-9_-][A-Za-z0-9_.-]*/)*[A-Za-z0-9_-][A-Za-z0-9_.-]*\.(xml|txt|csv|json)$'
+    $modAllowed = ($Relative -match '^Profile/Mods/(GrimmerWorkshop|ZZZ_GrimmerHUD)/(ModInfo\.xml|GrimmerWorkshop\.dll|PracticeRules\.xml|CRAFTING-ROUTES\.csv|WorkshopSettings\.xml|Settings\.json|Configure\.ps1)$') -or $configAllowed
     if (($allowed -notcontains $Relative) -and -not $modAllowed) { throw "Update path is not permitted: $Relative" }
     $rootPath = [IO.Path]::GetFullPath($Root).TrimEnd('\')
     $target = [IO.Path]::GetFullPath((Join-Path $rootPath $Relative.Replace('/','\')))

@@ -1,0 +1,3 @@
+<configs>
+  <setattribute xpath="/templates/skill_entry/rect" name="visible" value="{gw_skill_visible}" />
+</configs>

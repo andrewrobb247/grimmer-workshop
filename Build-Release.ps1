@@ -1,4 +1,4 @@
-param([string]$Version='0.1.50', [string]$OutputDirectory=(Join-Path $PSScriptRoot '..\Workshop-Publish'), [string]$Channel='testing', [string]$Notes='Fixes hidden skill discovery migration: zero-rank perks remain hidden until a relevant action reveals them. Existing ranks and Apiarist discoveries are preserved.')
+param([string]$Version='0.1.51', [string]$OutputDirectory=(Join-Path $PSScriptRoot '..\Workshop-Publish'), [string]$Channel='testing', [string]$Notes='Hides secret skills until rank 1 is completed; practice accrues invisibly and discovery toast appears on rank completion. Keeps existing ranks. Adds DSD Arsenal crafting entries before effect groups with their full quality unlock levels.')
 $ErrorActionPreference = 'Stop'
 if ($Version -notmatch '^\d+\.\d+\.\d+$' -or $Channel -notin @('stable','testing')) { throw 'Invalid release version or channel.' }
 . (Join-Path $PSScriptRoot 'Update-Core.ps1')

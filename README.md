@@ -1,3 +1,7 @@
+## 0.1.51 - Hidden skill discovery and modded crafting unlocks
+
+The launch-time UI generator applies the live XUi visibility binding, so zero-rank secret skills stay off the list after launch. Practice can build in the background; the skill and discovery toast appear only after rank 1 is completed. Existing ranked perks remain visible, and old premature-discovery flags are ignored. DSD Arsenal entries are inserted before each crafting skill's effect group with their full quality unlock levels, matching the pack's own display data; generation is safe across repeated launches.
+
 ## 0.1.50 - Hidden perks stay hidden until discovered
 
 Fixed a migration bug that treated saved practice as a discovery. Existing zero-rank native perks now stay hidden even if older builds recorded practice or set the old visibility flag. Performing a relevant action reveals that perk and its normal detail page; existing ranked perks remain visible. Existing Apiarist discoveries remain visible.
