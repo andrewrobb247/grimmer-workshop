@@ -1,3 +1,7 @@
+## 0.1.46 - Mod weapon unlocks on the crafting skill page
+
+When the inspected DSD Arsenal 1.2.1 pack is installed in the Workshop profile, its weapons and Energy Cell now appear in the corresponding crafting-skill page with their item icons and unlock levels. The launcher builds these display entries from the pack's own item and progression data; the external pack files remain untouched. Vanilla entries remain visible when the pack is absent.
+
 ## 0.1.45 - Complete firearm and blade bonuses
 
 Adds confirmed hip-fire hits for Run and Gun and capped, attributable BloodLoss tick practice for Deep Cuts after that skill applies a fresh bleed. These close two gaps in the 0.1.44 specialty set. Builds against V3.4 b10; in-game event attribution and balance still need playtesting.
