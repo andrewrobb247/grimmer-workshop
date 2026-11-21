@@ -1,0 +1,9 @@
+{
+    "BarWidth":  280,
+    "BarHeight":  26,
+    "NameSize":  18,
+    "HealthSize":  18,
+    "VerticalOffset":  -85,
+    "ShowNames":  false,
+    "ShowHealth":  true
+}
