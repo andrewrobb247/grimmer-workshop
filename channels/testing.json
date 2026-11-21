@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "version": "0.1.53",
+  "version": "0.1.54",
   "gameVersion": "V3.4 b10",
   "gameAssemblySha256": "cb54022ccc862aa673e0ee55dafe67d842b364c80df6916958d171e959656c58",
-  "notes": "Sorts crafting item icons by their first unlock level so items at the same skill level appear together. Hides future perk and attribute rank names until they become the next rank. Keeps current and next ranks visible, preserves ranks, and retains the five-row crafting detail panel.",
+  "notes": "Adds an original vehicle assembly bench with custom model and icon. Vehicle recipes and their native materials and progression requirements remain intact; the bench unlocks at Vehicles level 5. Retains hidden-skill discovery and ordered crafting unlocks.",
   "files": [
     {
       "path": "Launch-Workshop.cmd",
@@ -15,9 +15,9 @@
     {
       "path": "Launch-Workshop.ps1",
       "mode": "managed",
-      "size": 1876,
-      "sha256": "2d2abfe0a6c36d04d049749d0b6041625149ad94506b445e2b60bf42b4d627c1",
-      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.53/Launch-Workshop.ps1"
+      "size": 1941,
+      "sha256": "fb60a0749a682df17047a5d6b51a734361df92758812ea9d2b79c2f2cc14fdb5",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Launch-Workshop.ps1"
     },
     {
       "path": "Launcher.ps1",
@@ -29,9 +29,9 @@
     {
       "path": "Update-Core.ps1",
       "mode": "managed",
-      "size": 119168,
-      "sha256": "aa03d7eadfe32cfbf709540c313d142f2f91a27776b4970e64e713fadc9374b1",
-      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.53/Update-Core.ps1"
+      "size": 124487,
+      "sha256": "ffad5202d8c73c4bcd6467d1525cd98659d32690f676a284cd10b345e97cc824",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Update-Core.ps1"
     },
     {
       "path": "Update-Workshop.cmd",
@@ -71,9 +71,9 @@
     {
       "path": "Profile/Mods/GrimmerWorkshop/CRAFTING-ROUTES.csv",
       "mode": "managed",
-      "size": 36362,
-      "sha256": "44ea582dd96cec5393f5cfdf103b68e7067ddf8e1b1bb7bc7727095eba581d44",
-      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.53/Profile/Mods/GrimmerWorkshop/CRAFTING-ROUTES.csv"
+      "size": 36480,
+      "sha256": "202185f6d8858bcb6cf45568d877c6ef310562c3c72361580c68dca45813c29d",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/GrimmerWorkshop/CRAFTING-ROUTES.csv"
     },
     {
       "path": "Profile/Mods/GrimmerWorkshop/GrimmerWorkshop.dll",
@@ -92,9 +92,9 @@
     {
       "path": "Profile/Mods/GrimmerWorkshop/PracticeRules.xml",
       "mode": "managed",
-      "size": 131502,
-      "sha256": "1c2dde165253e2dd7185547ca0722a5b213be9fa63b86aabb6a01c2dfd8da5d7",
-      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.53/Profile/Mods/GrimmerWorkshop/PracticeRules.xml"
+      "size": 131750,
+      "sha256": "13849b8762d4c904c543194d57e51a99708ba391f9795d5a8b60f12b03442773",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/GrimmerWorkshop/PracticeRules.xml"
     },
     {
       "path": "Profile/Mods/GrimmerWorkshop/WorkshopSettings.xml",
@@ -127,9 +127,9 @@
     {
       "path": "Profile/Mods/GrimmerWorkshop/Config/recipes.xml",
       "mode": "managed",
-      "size": 26173,
-      "sha256": "1c04534fad3871d96c192ffc8eec1a1c290cec8cb4ca47746095b8c2729b765f",
-      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.53/Profile/Mods/GrimmerWorkshop/Config/recipes.xml"
+      "size": 26622,
+      "sha256": "f5b097a0c6cbf1505404937fc24bf06b2fc238dd131ee4276611f233ffa061e8",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/GrimmerWorkshop/Config/recipes.xml"
     },
     {
       "path": "Profile/Mods/GrimmerWorkshop/Config/XUi_InGame/templates.xml",
@@ -165,6 +165,55 @@
       "size": 1154,
       "sha256": "58df571802df9376baee45dde71e8afda63a285403b39ce97ae46fed0ef8b959",
       "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.53/Profile/Mods/ZZZ_GrimmerHUD/Config/XUi_InGame/windows.xml"
+    },
+    {
+      "path": "Profile/Mods/ZZZ_GrimmerVehicleWorkbench/ModInfo.xml",
+      "mode": "managed",
+      "size": 303,
+      "sha256": "f391e4a97998fd83a8288eefb6d1c1df368facf957e418627acbad97745a0623",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/ZZZ_GrimmerVehicleWorkbench/ModInfo.xml"
+    },
+    {
+      "path": "Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Config/blocks.xml",
+      "mode": "managed",
+      "size": 3211,
+      "sha256": "db69c889fc52015381c09bf768683e3f0eb896d9228ae76a9d9eea5bea8b56a0",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Config/blocks.xml"
+    },
+    {
+      "path": "Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Config/Localization.csv",
+      "mode": "managed",
+      "size": 389,
+      "sha256": "d6e521c32d3f0f21513ef6f5fff5e7dbf97dd3abbfdf663a9d14a2d42c65d1b6",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Config/Localization.csv"
+    },
+    {
+      "path": "Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Config/progression.xml",
+      "mode": "managed",
+      "size": 246,
+      "sha256": "f669be03c4b3e104e804cb065892c9a3a4689ce118a56cae7a8d1ea1ae52dfcd",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Config/progression.xml"
+    },
+    {
+      "path": "Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Config/recipes.xml",
+      "mode": "managed",
+      "size": 11511,
+      "sha256": "c600617cbe8b55f733ec3d98d92045bee29abfe197399693a34046e5a02a0c0f",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Config/recipes.xml"
+    },
+    {
+      "path": "Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Resources/grimmervehicleworkbench.unity3d",
+      "mode": "managed",
+      "size": 609674,
+      "sha256": "259566b56f73d16c639f478caca1b719cde30fa74162b4f7cb52d3ea1970ffc0",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Resources/grimmervehicleworkbench.unity3d"
+    },
+    {
+      "path": "Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Resources/UIAtlases/ItemIconAtlas/grimmerVehicleWorkbench.png",
+      "mode": "managed",
+      "size": 13623,
+      "sha256": "316e0047c63bee71f11a0c6fb16f51b86bc283fcb6fc59ad5fd118a03b58ed34",
+      "url": "https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.54/Profile/Mods/ZZZ_GrimmerVehicleWorkbench/Resources/UIAtlases/ItemIconAtlas/grimmerVehicleWorkbench.png"
     }
   ]
 }
