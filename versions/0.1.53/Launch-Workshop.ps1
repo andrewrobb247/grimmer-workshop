@@ -15,7 +15,7 @@ try {
     Write-WorkshopSkillScreen $PSScriptRoot $GameDirectory
     Write-WorkshopAttachments $PSScriptRoot $GameDirectory
     Write-WorkshopConstruction $PSScriptRoot $GameDirectory
-    Write-WorkshopArsenalDisplayEntries $PSScriptRoot $GameDirectory
+    Write-WorkshopArsenalDisplayEntries $PSScriptRoot
     Write-WorkshopUtilities $PSScriptRoot
     Assert-WorkshopGeneratedConfig $PSScriptRoot
     $profile = Join-Path $PSScriptRoot 'Profile'

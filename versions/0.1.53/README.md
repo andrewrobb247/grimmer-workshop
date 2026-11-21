@@ -360,7 +360,3 @@ Grouped completion records now recalculate recipe relevance as crafting levels r
 ## 0.1.15 melee grip choices
 
 Two removable Workshop grip mods can be crafted at a workbench without a schematic. Search Workshop Light Grip Mod or Workshop Power Grip Mod. Light Grip adds -15% attack stamina cost and +20% durability loss per use; Power Grip adds +10% entity damage and +15% attack stamina cost. Final values also depend on normal attachment bonuses, perks and other installed mods. Fits clubs, sledges, spears, knives, knuckles and batons with a free mod slot. A shared modifier tag prevents installing both Workshop grips together. Ranged weapons and harvesting tools are excluded. Recipes and English descriptions are included; no loot/trader injection or new crafting-practice routes. The launcher generates modifier and localization definitions before starting the game, keeping old updater compatibility. Generated definitions may remain if rolling back, preserving the identities of already-crafted attachments. No baseline weapon stat changes or world reset. 51 definition/recipe/compatibility checks pass; actual equip effects remain on the playtest checklist.
-## 0.1.53 - Order crafting unlocks and hide future rank names
-
-Crafting page item icons are rebuilt in ascending order by their first skill unlock level; items sharing a level are listed together. The right-hand skill rank list shows ranks already earned and the next rank only, hiding later rank names until progression reaches them. Existing ranks and item quality thresholds are preserved.
-
