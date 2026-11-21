@@ -1,0 +1,3 @@
+<configs>
+  <set xpath="/templates/skill_entry/rect/@visible">gw_skill_visible</set>
+</configs>

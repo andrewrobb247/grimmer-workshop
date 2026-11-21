@@ -1,0 +1,3 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+perkApiaristName,progression,Progression,,,"Apiarist"
+perkApiaristDesc,progression,Progression,,,"Learn to tend apiaries and make more of their honey useful."
