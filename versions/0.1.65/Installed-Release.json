@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "version": "0.1.65",
+  "gameVersion": "V3.4 b10",
+  "gameAssemblySha256": "cb54022ccc862aa673e0ee55dafe67d842b364c80df6916958d171e959656c58",
+  "notes": "Corrects the Unity 7DTD TagManager setup for a targetable, interactive Vehicle Workbench and stops reapplying generated configuration files on every update check."
+}
