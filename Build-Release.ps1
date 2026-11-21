@@ -1,4 +1,4 @@
-param([string]$Version='0.1.51', [string]$OutputDirectory=(Join-Path $PSScriptRoot '..\Workshop-Publish'), [string]$Channel='testing', [string]$Notes='Hides secret skills until rank 1 is completed; practice accrues invisibly and discovery toast appears on rank completion. Keeps existing ranks. Adds DSD Arsenal crafting entries before effect groups with their full quality unlock levels.')
+param([string]$Version='0.1.52', [string]$OutputDirectory=(Join-Path $PSScriptRoot '..\Workshop-Publish'), [string]$Channel='testing', [string]$Notes='Fixes the XUi skill-row visibility patch so undiscovered skills hide correctly, and reveals them only after completing rank 1. Keeps existing ranks. Expands the crafting detail list to show five item rows, including DSD Arsenal entries. Removes Harmony warning spam from reflection probes.')
 $ErrorActionPreference = 'Stop'
 if ($Version -notmatch '^\d+\.\d+\.\d+$' -or $Channel -notin @('stable','testing')) { throw 'Invalid release version or channel.' }
 . (Join-Path $PSScriptRoot 'Update-Core.ps1')

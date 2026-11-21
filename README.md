@@ -1,3 +1,7 @@
+## 0.1.52 - Fix skill hiding and show modded crafting items
+
+Fixes the XUi skill-row visibility patch so undiscovered skills hide correctly. Hidden skills accrue practice privately and appear, with the discovery toast, only after rank 1 is completed. Existing ranks stay visible. The crafting detail list now shows five entries so DSD Arsenal weapons and their unlock icons are reachable; the original multi-rank quality thresholds are retained. Reflection probes no longer emit repeated Harmony warnings when optional sprint/crouch fields are absent.
+
 ## 0.1.51 - Hidden skill discovery and modded crafting unlocks
 
 The launch-time UI generator applies the live XUi visibility binding, so zero-rank secret skills stay off the list after launch. Practice can build in the background; the skill and discovery toast appear only after rank 1 is completed. Existing ranked perks remain visible, and old premature-discovery flags are ignored. DSD Arsenal entries are inserted before each crafting skill's effect group with their full quality unlock levels, matching the pack's own display data; generation is safe across repeated launches.

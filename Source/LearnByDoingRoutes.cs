@@ -43,9 +43,10 @@ namespace GrimmerWorkshop
                 foreach (string name in names)
                 {
                     try {
-                        FieldInfo field = AccessTools.Field(type, name);
+                        const BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly;
+                        FieldInfo field = type.GetField(name, flags);
                         if (field != null) return field.GetValue(instance);
-                        PropertyInfo property = AccessTools.Property(type, name);
+                        PropertyInfo property = type.GetProperty(name, flags);
                         if (property != null && property.GetIndexParameters().Length == 0) return property.GetValue(instance, null);
                     } catch { }
                 }
@@ -348,10 +349,15 @@ namespace GrimmerWorkshop
 
         public static void ItemUsed(ItemValue item)
         {
-            if (!LearnByDoing.Enabled || item == null || item.IsEmpty()) return;
+            if (item == null || item.IsEmpty()) return;
             EntityPlayerLocal player = Workshop.Player();
             if (player == null) return;
             string name = item.ItemClass.GetItemName();
+            if (name.IndexOf("honey", StringComparison.OrdinalIgnoreCase) >= 0) {
+                LearnByDoing.Discover("perkApiarist", 10);
+                if (LearnByDoing.IsDiscovered(player, "perkApiarist")) LearnByDoing.Grant("perkApiarist", 0.5);
+            }
+            if (!LearnByDoing.Enabled) return;
             if ((name.StartsWith("food", StringComparison.OrdinalIgnoreCase) || name.StartsWith("drink", StringComparison.OrdinalIgnoreCase)) &&
                 (Member(player, "foodValue", "FoodValue", "food", "Food", "waterValue", "WaterValue", "water", "Water") != null))
                 LearnByDoing.Grant("perkSlowMetabolism", 0.25);

@@ -428,14 +428,16 @@ function Write-WorkshopSkillScreen([string]$Root, [string]$GameDirectory) {
     New-Item -ItemType Directory -Path $directory -Force | Out-Null
     $windows = @'
 <configs>
+  <set xpath="/windows/window[@name='windowSkillCraftingInfo']/@height">880</set>
+  <set xpath="/windows/window[@name='windowSkillCraftingInfo']/rect[@name='content']/@height">830</set>
   <append xpath="/windows/window[@name='windowBackpack']/rect[@name='header']">
     <button name="grimmerDepositNearby" depth="5" pos="270,-22" sprite="ui_game_symbol_store_similar_down" style="icon30px, press, hover" pivot="center" sound="[paging_click]" tooltip="Deposit nearby: move unlocked backpack items into nearby closed storage containing matching items. Applies to the whole backpack, including filtered-out items." />
     <button name="grimmerRefillNearby" depth="5" pos="320,-22" sprite="ui_game_symbol_store_similar_up" style="icon30px, press, hover" pivot="center" sound="[paging_click]" tooltip="Refill locked slots: top up occupied locked backpack slots from nearby closed storage." />
   </append>
   <set xpath="/windows/window[@name='windowSkillCraftingInfo']/rect[@name='content']/rect[@name='tableBox']/@pos">0,-380</set>
-  <set xpath="/windows/window[@name='windowSkillCraftingInfo']/rect[@name='content']/rect[@name='tableBox']/@height">289</set>
-  <set xpath="/windows/window[@name='windowSkillCraftingInfo']/rect[@name='content']/rect[@name='tableBox']/sprite[@name='backgroundMain']/@height">290</set>
-  <set xpath="/windows/window[@name='windowSkillCraftingInfo']/rect[@name='content']/rect[@name='tableBox']/grid/@rows">3</set>
+  <set xpath="/windows/window[@name='windowSkillCraftingInfo']/rect[@name='content']/rect[@name='tableBox']/@height">450</set>
+  <set xpath="/windows/window[@name='windowSkillCraftingInfo']/rect[@name='content']/rect[@name='tableBox']/sprite[@name='backgroundMain']/@height">451</set>
+  <set xpath="/windows/window[@name='windowSkillCraftingInfo']/rect[@name='content']/rect[@name='tableBox']/grid/@rows">5</set>
   <append xpath="/windows/window[@name='windowSkillCraftingInfo']/rect[@name='content']">
     <rect name="grimmerPracticePanel" pos="0,-280" width="647" height="100" depth="4">
       <sprite name="background" sprite="menu_empty" color="35,39,43,245" type="sliced" depth="1" />
@@ -450,7 +452,7 @@ function Write-WorkshopSkillScreen([string]$Root, [string]$GameDirectory) {
 '@
     $templates = @'
 <configs>
-  <setattribute xpath="/templates/skill_entry/rect" name="visible" value="{gw_skill_visible}" />
+  <setattribute xpath="/templates/skill_entry/rect" name="visible">{gw_skill_visible}</setattribute>
   <set xpath="/templates/recipe_entry/rect/label[@name='Name']/@width">238</set>
   <set xpath="/templates/recipe_entry/rect/label[@name='Name']/@pos">184,-22</set>
   <append xpath="/templates/recipe_entry/rect">
