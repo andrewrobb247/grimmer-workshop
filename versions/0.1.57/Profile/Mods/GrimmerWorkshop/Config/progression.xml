@@ -1,0 +1,12 @@
+<configs>
+  <append xpath="/progression/perks">
+    <perk name="perkApiarist" max_level="3" parent="skillFortitudeSurvival" name_key="perkApiaristName" desc_key="perkApiaristDesc" icon="ui_game_symbol_crops" override_cost="1,2,3">
+      <level_requirements level="1"><requirement name="ProgressionLevel" progression_name="attFortitude" operation="GTE" value="1" desc_key="reqFortitudeLevel01" /></level_requirements>
+      <level_requirements level="2"><requirement name="ProgressionLevel" progression_name="attFortitude" operation="GTE" value="2" desc_key="reqFortitudeLevel02" /></level_requirements>
+      <level_requirements level="3"><requirement name="ProgressionLevel" progression_name="attFortitude" operation="GTE" value="3" desc_key="reqFortitudeLevel03" /></level_requirements>
+      <effect_group>
+        <passive_effect name="FoodGain" operation="perc_add" level="1,3" value=".05,.15" tags="grimmerApiaryFood" />
+      </effect_group>
+    </perk>
+  </append>
+</configs>
