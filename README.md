@@ -1,3 +1,15 @@
+## 0.1.50 - Hidden perks stay hidden until discovered
+
+Fixed a migration bug that treated saved practice as a discovery. Existing zero-rank native perks now stay hidden even if older builds recorded practice or set the old visibility flag. Performing a relevant action reveals that perk and its normal detail page; existing ranked perks remain visible. Existing Apiarist discoveries remain visible.
+
+## 0.1.49 - Direct latest-release updates
+
+The launcher installs the latest complete release in one verified transaction; intermediate versions are not required. Update path validation now allows safe XML, text, CSV and JSON files beneath the Workshop-owned Config folders, while rejecting traversal, backslashes and drive-qualified paths. This prevents future config additions from needing a separate compatibility release. Includes the 0.1.48 hidden-perk and Apiarist changes.
+
+## 0.1.48 - Hidden skill discovery
+
+All 57 native perks are hidden until the player performs an action that earns practice for them; that first action counts toward the progress bar. Perks already ranked or holding saved practice remain visible after the update, and attributes stay visible. The first secret perk, Apiarist, has separate apiary/honey discovery actions and a gold HUD discovery toast. Existing ranks and banked points are preserved. The discovery timing, list layout and honey bonus need in-game playtesting.
+
 ## 0.1.46 - Mod weapon unlocks on the crafting skill page
 
 When the inspected DSD Arsenal 1.2.1 pack is installed in the Workshop profile, its weapons and Energy Cell now appear in the corresponding crafting-skill page with their item icons and unlock levels. The launcher builds these display entries from the pack's own item and progression data; the external pack files remain untouched. Vanilla entries remain visible when the pack is absent.

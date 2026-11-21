@@ -13,6 +13,7 @@ namespace GrimmerWorkshop
     {
         public string Id, Name, Parent, Kind, Action;
         public int MaxRank;
+        public bool Hidden;
         public readonly Dictionary<int, List<LearningGate>> Gates = new Dictionary<int, List<LearningGate>>();
     }
 
@@ -27,6 +28,8 @@ namespace GrimmerWorkshop
     public static class LearnByDoing
     {
         const string PracticePrefix = "grimmerLearnPractice_";
+        const string DiscoveryPrefix = "grimmerHiddenSkillV2_";
+        const string LegacyDiscoveryPrefix = "grimmerHiddenSkill_";
         const string BankedPointsKey = "grimmerLearnByDoingBankedSkillPoints";
         static readonly Dictionary<string, LearningSkillDefinition> definitions = new Dictionary<string, LearningSkillDefinition>(StringComparer.OrdinalIgnoreCase);
         static readonly ActionPreviewFrameBudget attributeFrames = new ActionPreviewFrameBudget();
@@ -49,7 +52,7 @@ namespace GrimmerWorkshop
                     var definition = new LearningSkillDefinition {
                         Id = (string)entry.Attribute("id"), Name = (string)entry.Attribute("name"),
                         Parent = (string)entry.Attribute("parent"), Kind = (string)entry.Attribute("kind"), Action = (string)entry.Attribute("action"),
-                        MaxRank = (int)entry.Attribute("maxRank")
+                        MaxRank = (int)entry.Attribute("maxRank"), Hidden = (bool?)entry.Attribute("hidden") ?? false
                     };
                     foreach (XElement rank in entry.Elements("rank"))
                     {
@@ -62,7 +65,7 @@ namespace GrimmerWorkshop
                     }
                     definitions.Add(definition.Id, definition);
                 }
-                if (definitions.Count != 62) throw new InvalidDataException("Expected five attributes and 57 gameplay perks; found " + definitions.Count + ".");
+                if (definitions.Count != 63) throw new InvalidDataException("Expected five attributes, 57 gameplay perks and one hidden Apiarist skill; found " + definitions.Count + ".");
             } catch (Exception error) {
                 definitions.Clear(); Enabled=false;
                 Log.Error("[Grimmer Workshop] Learn by Doing disabled: " + error.Message);
@@ -76,6 +79,54 @@ namespace GrimmerWorkshop
         }
 
         public static IEnumerable<LearningSkillDefinition> All { get { return definitions.Values; } }
+
+        public static bool IsDiscovered(EntityPlayerLocal player, string skill)
+        {
+            var definition = Find(skill);
+            if (definition == null) return false;
+            if (!definition.Hidden) return true;
+            if (player == null) return false;
+            if (player.Buffs.GetCustomVar(DiscoveryPrefix + skill) >= 1) return true;
+
+            // Apiarist's legacy flag was only ever set by the apiary/honey
+            // discovery event. The old generic flag for native perks could
+            // also be set merely by displaying stored practice, so do not
+            // trust those old flags when migrating existing saves.
+            if (String.Equals(skill, "perkApiarist", StringComparison.OrdinalIgnoreCase) &&
+                player.Buffs.GetCustomVar(LegacyDiscoveryPrefix + skill) >= 1) return true;
+
+            // Preserve skills the player had actually ranked before hidden
+            // discovery was introduced. Stored practice alone is not a
+            // discovery: the player must perform a relevant action after
+            // updating to reveal the skill.
+            try {
+                var value = player.Progression.GetProgressionValue(skill);
+                if (value != null && value.Level > 0) {
+                    player.Buffs.SetCustomVar(DiscoveryPrefix + skill, 1, true, CVarOperation.set, false);
+                    return true;
+                }
+            } catch { }
+            return false;
+        }
+
+        public static bool IsVisible(string skill)
+        {
+            return IsDiscovered(Workshop.Player(), skill);
+        }
+
+        public static void Discover(string skill, double firstPractice)
+        {
+            var player = Workshop.Player();
+            var definition = Find(skill);
+            if (player == null || definition == null || !definition.Hidden || IsDiscovered(player, skill)) return;
+            player.Buffs.SetCustomVar(DiscoveryPrefix + skill, 1, true, CVarOperation.set, false);
+            if (player.PlayerUI != null) {
+                try { GameManager.ShowTooltip(player, "[FFD45A]*** SKILL DISCOVERED ***[-]  " + definition.Name, false, false, 4); }
+                catch { }
+            }
+            Log.Out("[Grimmer Workshop] Hidden skill discovered: " + skill);
+            if (Enabled && firstPractice > 0) Grant(skill, firstPractice);
+        }
 
         public static void MigratePreview(EntityPlayerLocal player)
         {
@@ -112,6 +163,7 @@ namespace GrimmerWorkshop
             var definition = Find(skill);
             if (definition == null) return double.PositiveInfinity;
             if (definition.Kind == "attribute") return 500 * Math.Pow(Math.Max(1, currentRank), 1.8);
+            if (skill == "perkApiarist") return 25 * Math.Pow(Math.Max(1, currentRank + 1), 1.6);
             return 100 * Math.Pow(Math.Max(1, currentRank + 1), 1.6);
         }
 
@@ -143,6 +195,9 @@ namespace GrimmerWorkshop
             var definition = Find(skill);
             if (!Enabled || player == null || definition == null || amount <= 0 ||
                 double.IsNaN(amount) || double.IsInfinity(amount) || Speed <= 0) return false;
+            // The first relevant practice reveals an ordinary hidden perk and
+            // still counts that same action toward its progress bar.
+            if (definition.Hidden && !IsDiscovered(player, skill)) Discover(skill, 0);
             if (!migratingPreview) MigratePreview(player);
             var value = player.Progression.GetProgressionValue(skill);
             if (value == null || value.Level >= definition.MaxRank) return false;
@@ -299,9 +354,17 @@ namespace GrimmerWorkshop
 
         public static void RecordCraft(ItemStack stack)
         {
-            if (!Enabled || stack == null || stack.IsEmpty()) return;
+            if (stack == null || stack.IsEmpty()) return;
+            string craftedName = stack.itemValue.ItemClass.GetItemName();
+            if (craftedName.IndexOf("apiary", StringComparison.OrdinalIgnoreCase) >= 0)
+                Discover("perkApiarist", 10);
+            if (IsDiscovered(Workshop.Player(), "perkApiarist") &&
+                (craftedName.IndexOf("apiary", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                 craftedName.IndexOf("honey", StringComparison.OrdinalIgnoreCase) >= 0))
+                Grant("perkApiarist", Math.Min(1.0, stack.count * 0.1));
+            if (!Enabled) return;
             List<PracticeRule> rules;
-            if (!Workshop.Rules.TryGetValue(stack.itemValue.ItemClass.GetItemName(), out rules)) return;
+            if (!Workshop.Rules.TryGetValue(craftedName, out rules)) return;
             var seen = new HashSet<string>(); var parents = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             foreach (var rule in rules) {
                 string perk = null;
@@ -324,9 +387,15 @@ namespace GrimmerWorkshop
 
         public static void RecordHarvest(ItemValue tool, ItemStack output, BlockValue block)
         {
-            if (!Enabled || output == null || output.IsEmpty()) return;
+            if (output == null || output.IsEmpty()) return;
             string blockName = block.Block == null ? "" : block.Block.GetBlockName();
             string itemName = output.itemValue.ItemClass.GetItemName();
+            bool apiary = blockName.IndexOf("Apiary", StringComparison.OrdinalIgnoreCase) >= 0;
+            bool honey = itemName.IndexOf("Honey", StringComparison.OrdinalIgnoreCase) >= 0;
+            if (apiary && honey) Discover("perkApiarist", 10);
+            if (IsDiscovered(Workshop.Player(), "perkApiarist") && honey)
+                Grant("perkApiarist", Math.Min(2, output.count * 0.2));
+            if (!Enabled) return;
             double credit = Math.Min(2, Math.Max(0.1, output.count * 0.1));
             if (blockName.StartsWith("planted", StringComparison.OrdinalIgnoreCase) && blockName.IndexOf("Harvest", StringComparison.OrdinalIgnoreCase) >= 0) {
                 Grant("perkLivingOffTheLand", credit);
