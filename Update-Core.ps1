@@ -203,7 +203,7 @@ function Expand-WorkshopVehicleWorkbenchAssets([string]$Root) {
     Assert-WorkshopPlainPath $iconDirectory
     New-Item -ItemType Directory -Path $iconDirectory -Force|Out-Null
     foreach($pair in @(
-        @((Join-Path $resources 'grimmervehicleworkbench.unity3d'),'618544','c6aa8c5e6d4eea709ef737d9209056de3b4a57bcc86e1d4fc122b2b94a7cea78'),
+        @((Join-Path $resources 'grimmervehicleworkbench.unity3d'),'1340569','245c27357fd0a4b8ed66e33c811132fcfbe7950e4918e3a5ac907da67499936f'),
         @((Join-Path $iconDirectory 'grimmerVehicleWorkbench.png'),'13623','316e0047c63bee71f11a0c6fb16f51b86bc283fcb6fc59ad5fd118a03b58ed34')
     )){
         $destination=$pair[0];$expectedSize=[int64]$pair[1];$expectedHash=$pair[2];$temporary=$destination+'.tmp'
@@ -212,7 +212,7 @@ function Expand-WorkshopVehicleWorkbenchAssets([string]$Root) {
         try {
             [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
             $relative=$destination.Substring($Root.TrimEnd('\\').Length+1).Replace('\','/')
-            $url='https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.58/'+$relative
+            $url='https://raw.githubusercontent.com/andrewrobb247/grimmer-workshop/main/versions/0.1.60/'+$relative
             Invoke-WebRequest -UseBasicParsing -Uri $url -OutFile $temporary -TimeoutSec 90 -Headers @{'User-Agent'='Grimmer-Workshop-Updater'}
             if((Get-Item -LiteralPath $temporary).Length -ne $expectedSize -or (Get-WorkshopHash $temporary) -ne $expectedHash){throw 'Downloaded vehicle workbench asset failed its size or checksum check.'}
             Move-Item -LiteralPath $temporary -Destination $destination -Force
